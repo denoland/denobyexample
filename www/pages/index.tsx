@@ -46,9 +46,11 @@ export default function Example(props: PageProps) {
     </Page>
   );
 }
-async function fetcher() {
-  return Promise.all(TOC.map((id) =>
-    Deno.readTextFile(`./data/${id}.ts`)
-      .then((text) => parseExample(id, text))
-  ));
+function fetcher() {
+  return Promise.all(
+    TOC.map((id) =>
+      Deno.readTextFile(`./data/${id}.ts`)
+        .then((text) => parseExample(id, text))
+    ),
+  );
 }
