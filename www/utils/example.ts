@@ -44,7 +44,7 @@ export function parseExample(id: string, file: string): Example {
   for (const line of rest.split("\n")) {
     if (parseMode == "code") {
       if (line.startsWith("//")) {
-        if (text && code) {
+        if (text || code) {
           code = code.trimEnd();
           snippets.push({ text, code });
         }
@@ -63,7 +63,7 @@ export function parseExample(id: string, file: string): Example {
       }
     }
   }
-  if (text && code) {
+  if (text || code) {
     code = code.trimEnd();
     snippets.push({ text, code });
   }

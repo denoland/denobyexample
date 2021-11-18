@@ -24,8 +24,17 @@ console.log(logo); // Uint8Array(420) [ ... ]
 // Files can also be read synchronously. This can sometimes be useful, but
 // generally prefer using async functions.
 const readme = Deno.readTextFileSync("README.md");
-console.log(readme); // "# deno by example\n"
 const trailer = Deno.readFileSync("trailer.mp4");
-console.log(trailer); // Uint8Array(1567887) [ ... ]
+
+// If a file does not exist, it will throw a `Deno.errors.NotFound` error. You
+// can catch this error with a `catch` block.
+try {
+  await Deno.readTextFile("does-not-exist.txt");
+} catch (e) {
+  if (e instanceof Deno.errors.NotFound) {
+    console.log("File does not exist");
+  }
+  console.error("Error reading file", e);
+}
 
 // The `--allow-read` permission is required to read files.
