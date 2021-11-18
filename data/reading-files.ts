@@ -12,7 +12,7 @@
 const text = await Deno.readTextFile("hello.txt");
 console.log(text); // "Hello, World!"
 
-//  The path can either be a relative or absolute. Relative paths are resolved
+// The path can either be a relative or absolute. Relative paths are resolved
 // relative to the current working directory.
 await Deno.readTextFile("/etc/passwd");
 
@@ -25,6 +25,7 @@ console.log(logo); // Uint8Array(420) [ ... ]
 // generally prefer using async functions.
 const readme = Deno.readTextFileSync("README.md");
 console.log(readme); // "# deno by example\n"
-
 const trailer = Deno.readFileSync("trailer.mp4");
 console.log(trailer); // Uint8Array(1567887) [ ... ]
+
+// The `--allow-read` permission is required to read files.

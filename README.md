@@ -60,6 +60,9 @@ After the JS Doc comment, you can write the code. Code can be prefixed with a
 comment that describes the code. The comment will be rendered next to the code
 in the example page.
 
+Now add your example to the `toc.js` file. This will cause it to show up on the
+index page.
+
 After you have added the example, run `make fmt` and `make lint` to format and
 lint the example.
 
