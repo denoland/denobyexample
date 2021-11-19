@@ -3,6 +3,7 @@ export const TOC = [
   "import-export",
   "dependency-management",
   "timers",
+  "prompts",
   "reading-files",
   "writing-files",
   "http-requests",

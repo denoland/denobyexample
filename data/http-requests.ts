@@ -1,7 +1,7 @@
 /**
  * @title HTTP Requests
  * @difficulty beginner
- * @tags cli, deploy
+ * @tags cli, deploy, web
  * @run --allow-net <url>
  *
  * This example demonstrates how to make a HTTP request to a server.
