@@ -8,7 +8,7 @@
  * modules in Deno.
  */
 
-/** File: ./util.ts */
+// File: ./util.ts
 
 // To export a function, you use the export keyword.
 export function sayHello(thing: string) {
@@ -20,7 +20,7 @@ export interface Foo {}
 export class Bar {}
 export const baz = "baz";
 
-/** File: ./main.ts */
+// File: ./main.ts
 
 // To import things from files other files can use the import keyword.
 import { sayHello } from "./util.ts";

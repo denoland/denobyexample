@@ -52,11 +52,18 @@ export default function Example(props: PageProps) {
             {example.description}
           </div>
         )}
-        <div class={tw`mt-8 grid grid-cols-1 sm:grid-cols-5 gap-x-6`}>
-          {example.snippets.map((snippet, i) => (
-            <SnippetComponent key={i} snippet={snippet} />
-          ))}
-        </div>
+        {example.files.map((file) => (
+          <div class={tw`mt-8 grid grid-cols-1 sm:grid-cols-5 gap-x-6`}>
+            {file.snippets.map((snippet, i) => (
+              <SnippetComponent
+                key={i}
+                firstOfFile={i === 0}
+                filename={file.name}
+                snippet={snippet}
+              />
+            ))}
+          </div>
+        ))}
         {example.run && (
           <div class={tw`mt-8`}>
             <p class={tw`text-gray-700`}>
@@ -79,7 +86,11 @@ export default function Example(props: PageProps) {
   );
 }
 
-function SnippetComponent(props: { snippet: ExampleSnippet }) {
+function SnippetComponent(props: {
+  filename: string;
+  firstOfFile: boolean;
+  snippet: ExampleSnippet;
+}) {
   const renderedSnippet = Prism.highlight(
     props.snippet.code,
     Prism.languages.ts,
@@ -91,11 +102,24 @@ function SnippetComponent(props: { snippet: ExampleSnippet }) {
       <div class={tw`py-4 text-gray-700 select-none col-span-2`}>
         {props.snippet.text}
       </div>
-      <div class={tw`bg-gray-100 px-4 py-4 text-sm col-span-3` + " highlight"}>
-        <pre
-          dangerouslySetInnerHTML={{ __html: renderedSnippet }}
-          class={tw`overflow-hidden`}
-        />
+      <div class={tw`col-span-3 relative bg-gray-100`}>
+        {props.filename && (
+          <span
+            class={tw
+              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 ${
+                props.firstOfFile ? "block" : "block sm:hidden"
+              }`}
+          >
+            {props.filename}
+          </span>
+        )}
+        <div
+          class={tw
+            `px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative` +
+            " highlight"}
+        >
+          <pre dangerouslySetInnerHTML={{ __html: renderedSnippet }} />
+        </div>
       </div>
     </>
   );
@@ -121,8 +145,17 @@ export const handler = async (ctx: HandlerContext) => {
     try {
       const data = await Deno.readTextFile(`./data/${id}`);
       const example = parseExample(id, data);
+      if (example.files.length > 1) {
+        return new Response(
+          "Source for multi file examples can not be viewed",
+          {
+            status: 400,
+          },
+        );
+      }
+      const file = example.files[0];
       let code = "";
-      for (const snippet of example.snippets) {
+      for (const snippet of file.snippets) {
         code += snippet.code + "\n";
       }
       return new Response(code, {

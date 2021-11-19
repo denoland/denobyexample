@@ -7,11 +7,14 @@ export interface Example {
   difficulty: keyof typeof DIFFICULTIES;
   tags: (keyof typeof TAGS)[];
   run?: string;
+  files: ExampleFile[];
+}
+
+export interface ExampleFile {
+  name: string;
   snippets: ExampleSnippet[];
 }
 
-// A snippet is a chunk of code which may optionally be prefixed with a block of
-// comments.
 export interface ExampleSnippet {
   text: string;
   code: string;
@@ -36,17 +39,38 @@ export function parseExample(id: string, file: string): Example {
   description = description.trim();
 
   // Seperate the code into snippets.
-  const snippets: ExampleSnippet[] = [];
+  const files: ExampleFile[] = [{
+    name: "",
+    snippets: [],
+  }];
   let parseMode = "code";
+  let currentFile = files[0];
   let text = "";
   let code = "";
 
   for (const line of rest.split("\n")) {
     if (parseMode == "code") {
-      if (line.startsWith("//")) {
-        if (text || code) {
+      if (line.startsWith("// File:")) {
+        if (text || code.trimEnd()) {
           code = code.trimEnd();
-          snippets.push({ text, code });
+          currentFile.snippets.push({ text, code });
+          text = "";
+          code = "";
+        }
+        const name = line.slice(8).trim();
+        if (currentFile.snippets.length == 0) {
+          currentFile.name = name;
+        } else {
+          currentFile = {
+            name,
+            snippets: [],
+          };
+          files.push(currentFile);
+        }
+      } else if (line.startsWith("//")) {
+        if (text || code.trimEnd()) {
+          code = code.trimEnd();
+          currentFile.snippets.push({ text, code });
         }
         text = line.slice(2).trim();
         code = "";
@@ -63,9 +87,9 @@ export function parseExample(id: string, file: string): Example {
       }
     }
   }
-  if (text || code) {
+  if (text || code.trimEnd()) {
     code = code.trimEnd();
-    snippets.push({ text, code });
+    currentFile.snippets.push({ text, code });
   }
 
   if (!kvs.title) {
@@ -91,6 +115,6 @@ export function parseExample(id: string, file: string): Example {
     difficulty,
     tags,
     run: kvs.run,
-    snippets,
+    files,
   };
 }
