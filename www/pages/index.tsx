@@ -42,6 +42,25 @@ export default function Example(props: PageProps) {
             </li>
           ))}
         </ul>
+        <p class={tw`mt-12 text-gray-500`}>
+          <a
+            href="https://github.com/denoland/denobyexample"
+            class={tw`underline`}
+          >
+            Source
+          </a>{" "}
+          |{" "}
+          <a
+            href="https://github.com/denoland/denobyexample/blob/main/LICENSE"
+            class={tw`underline`}
+          >
+            License
+          </a>{" "}
+          | Inspired by{" "}
+          <a href="https://gobyexample.com/" class={tw`underline`}>
+            Go by Example
+          </a>
+        </p>
       </main>
     </Page>
   );
