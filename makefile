@@ -4,5 +4,8 @@ dev:
 fmt:
 	deno fmt
 
+fmt_check:
+	deno fmt --check
+
 lint:
 	deno lint
