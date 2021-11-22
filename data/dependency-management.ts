@@ -15,6 +15,7 @@ export * as path from "https://deno.land/std@0.114.0/path/mod.ts";
 // File: ./main.ts
 
 // Other files can then import dependencies from the deps.ts file.
+// deno-lint-ignore no-unused-vars
 import { path } from "./deps.ts";
 
 // Doing this makes package version upgrades really easy, as all external

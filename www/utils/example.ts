@@ -79,7 +79,12 @@ export function parseExample(id: string, file: string): Example {
         code += line + "\n";
       }
     } else if (parseMode == "comment") {
-      if (line.startsWith("//")) {
+      if (
+        line.startsWith("// deno-lint-ignore") ||
+        line.startsWith("//deno-lint-ignore")
+      ) {
+        // skip lint directives
+      } else if (line.startsWith("//")) {
         text += " " + line.slice(2).trim();
       } else {
         code += line + "\n";
