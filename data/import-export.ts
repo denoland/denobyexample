@@ -16,6 +16,7 @@ export function sayHello(thing: string) {
 }
 
 // You can also export types, variables, and classes.
+// deno-lint-ignore no-empty-interface
 export interface Foo {}
 export class Bar {}
 export const baz = "baz";

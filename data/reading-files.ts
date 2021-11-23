@@ -10,10 +10,12 @@
 
 // The easiest way to read a file is to just read the entire contents into
 // memory as bytes.
+// deno-lint-ignore no-unused-vars
 const bytes = await Deno.readFile("hello.txt");
 
 // Instead of reading the file as bytes, there is a convenience function to
 // read the file as a string.
+// deno-lint-ignore no-unused-vars
 const text = await Deno.readTextFile("hello.txt");
 
 // Often you need more control over when what parts of the file are read.
