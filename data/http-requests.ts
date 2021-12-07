@@ -66,7 +66,10 @@ new Request(url, {
 const formData = new FormData();
 formData.append("name", "Deno");
 formData.append("file", new Blob(["Hello, World!"]), "hello.txt");
-resp = await fetch("https://example.com", { method: "POST", body: formData });
+resp = await fetch("https://example.com", {
+  method: "POST",
+  body: formData,
+});
 
 // Fetch also supports streaming the request body.
 const bodyStream = new ReadableStream({
@@ -75,4 +78,7 @@ const bodyStream = new ReadableStream({
     controller.close();
   },
 });
-resp = await fetch("https://example.com", { method: "POST", body: bodyStream });
+resp = await fetch("https://example.com", {
+  method: "POST",
+  body: bodyStream,
+});
