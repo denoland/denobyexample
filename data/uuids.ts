@@ -1,5 +1,5 @@
 /**
- * @title Generating and validating UUIDs
+ * @title Generating & Validating UUIDs
  * @difficulty beginner
  * @tags cli, deploy, web
  * @run <url>

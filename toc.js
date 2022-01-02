@@ -4,9 +4,10 @@ export const TOC = [
   "dependency-management",
   "timers",
   "prompts",
-  "uuids",
+  "environment-variables",
   "reading-files",
   "writing-files",
   "http-requests",
+  "uuids",
   "http-server",
 ];
