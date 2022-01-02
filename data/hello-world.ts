@@ -10,5 +10,5 @@
 console.log("Hello, World!");
 
 // Deno programs can either be written in JavaScript or TypeScript, or a mixture
-// of both. All code in these examples is written in TypeScript, but you can
-// also use them in JavaScript.
+// of both. All code in these examples is written in TypeScript, but all the
+// examples also work in JavaScript.
