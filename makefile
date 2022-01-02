@@ -1,5 +1,5 @@
 dev:
-	deno run --allow-net --allow-read=. --allow-env --no-check --watch www/main.ts
+	deno run --allow-net --allow-read=. --allow-env --no-check --watch=data www/main.ts
 
 fmt:
 	deno fmt
