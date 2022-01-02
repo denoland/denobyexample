@@ -7,7 +7,7 @@
  * An example of how to move and rename files and directories in Deno.
  */
 
-// To rename or move a file, you can use the `rename` function. The first
+// To rename or move a file, you can use the `Deno.rename` function. The first
 // argument is the path to the file to rename. The second argument is the new
 // path.
 await Deno.writeTextFile("./hello.txt", "Hello World!");
