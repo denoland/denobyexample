@@ -2,13 +2,19 @@
 /** @jsxFrag Fragment */
 import { TOC } from "../../toc.js";
 import { Page } from "../components/Page.tsx";
-import { h, PageProps, tw, useData } from "../deps.ts";
+import { h, Head, PageProps, tw, useData } from "../deps.ts";
 import { parseExample } from "../utils/example.ts";
 
 export default function Example(props: PageProps) {
   const examples = useData("", fetcher);
   return (
     <Page title={`Deno by Example`} noSubtitle>
+      <Head>
+        <meta
+          name="description"
+          content="Deno by example is a collection of annotated examples for how to use Deno, and the various features it provides."
+        />
+      </Head>
       <main class={tw`max-w-screen-sm mx-auto p-4`}>
         <h1>
           <span class={tw`text(5xl gray-900) tracking-tight font-bold`}>

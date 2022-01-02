@@ -22,10 +22,14 @@ export default function Example(props: PageProps) {
 
   const url = `${props.url.origin}${props.url.pathname}.ts`;
 
+  const description = (example.description || example.title) +
+    " -- Deno by example is a collection of annotated examples for how to use Deno, and the various features it provides.";
+
   return (
     <Page title={`${example.title} - Deno by Example`}>
       <Head>
         <link rel="stylesheet" href="/gfm.css" />
+        <meta name="description" content={description} />
       </Head>
       <main class={tw`max-w-screen-lg mx-auto p-4`}>
         <div class={tw`flex gap-2 justify-between`}>
