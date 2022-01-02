@@ -3,7 +3,7 @@
 import { h, tw } from "../deps.ts";
 import { DenoLogo } from "./Logo.tsx";
 
-export function Header() {
+export function Header(props: { noSubtitle?: boolean }) {
   return (
     <header
       class={tw
@@ -21,12 +21,15 @@ export function Header() {
           <span class={tw`text(2xl gray-900) font-bold leading-none`}>
             Deno
           </span>
-          <span
-            class={tw
-              `font-medium italic text(sm sm:base gray-600) leading-none`}
-          >
-            by example
-          </span>
+          {!props.noSubtitle &&
+            (
+              <span
+                class={tw
+                  `font-medium italic text(sm sm:base gray-600) leading-none`}
+              >
+                by example
+              </span>
+            )}
         </span>
       </a>
       <div class={tw`flex items-center gap-6`}>
