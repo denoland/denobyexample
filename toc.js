@@ -1,5 +1,6 @@
 export const TOC = [
   "hello-world",
+  "color-logging",
   "import-export",
   "dependency-management",
   "timers",
