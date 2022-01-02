@@ -7,6 +7,7 @@ export const TOC = [
   "environment-variables",
   "reading-files",
   "writing-files",
+  "moving-renaming-files",
   "http-requests",
   "uuids",
   "http-server",
