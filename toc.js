@@ -3,6 +3,7 @@ export const TOC = [
   "color-logging",
   "import-export",
   "dependency-management",
+  "module-metadata",
   "timers",
   "prompts",
   "environment-variables",
