@@ -4,7 +4,7 @@
  * @tags cli, deploy
  * @run --allow-net <url>
  *
- * An example of a HTTP server that handles requests with different reponses
+ * An example of a HTTP server that handles requests with different responses
  * based on the incoming URL.
  */
 

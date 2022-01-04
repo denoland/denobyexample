@@ -20,7 +20,7 @@ console.log("%cHello World", "background-color: blue");
 console.log("%cHello World", "text-decoration: underline");
 console.log("%cHello World", "text-decoration: line-through");
 
-// Font wheight can also be set (either to normal, or to bold).
+// Font weight can also be set (either to normal, or to bold).
 console.log("%cHello World", "font-weight: bold");
 
 // Multiple CSS rules can also be applied at once. Here the text is red and bold.

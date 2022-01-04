@@ -10,7 +10,7 @@ of the APIs implemented in Deno.
 - Each example should be a self-contained unit, and should depend on no
   dependencies other than Deno builtins and the standard library (exceptions can
   be made)
-- Each example should be runnable without addional dependencies on all systems
+- Each example should be runnable without additional dependencies on all systems
   (exceptions can be made for platform specific functionality)
 - Examples should be introduce at most one (or in exceptional cases two or
   three) concepts in Deno / Web APIs. Existing concepts should be linked to.
