@@ -12,6 +12,7 @@ export const TOC = [
   "writing-files",
   "moving-renaming-files",
   "temporary-files",
+  "create-remove-directories",
   "http-requests",
   "uuids",
   "http-server",
