@@ -9,3 +9,6 @@ fmt_check:
 
 lint:
 	deno lint
+
+test:
+	deno test -A

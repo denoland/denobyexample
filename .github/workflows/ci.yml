@@ -21,3 +21,6 @@ jobs:
 
       - name: Format
         run: make lint
+
+      - name: Test
+        run: make test

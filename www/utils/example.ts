@@ -86,12 +86,17 @@ export function parseExample(id: string, file: string): Example {
           files.push(currentFile);
         }
         parseMode = "file";
-      } else if (trimmedLine.startsWith("//")) {
+      } else if (
+        trimmedLine.startsWith("// deno-lint-ignore") ||
+        trimmedLine.startsWith("//deno-lint-ignore")
+      ) {
+        // skip lint directives
+      } else if (line.startsWith("//")) {
         if (text || code.trimEnd()) {
           code = code.trimEnd();
           currentFile.snippets.push({ text, code });
         }
-        text = trimmedLine.slice(2).trim();
+        text = line.slice(2).trim();
         code = "";
         parseMode = "comment";
       } else {
@@ -129,13 +134,13 @@ export function parseExample(id: string, file: string): Example {
   const tags = kvs.tags.split(",").map((s) => s.trim() as keyof typeof TAGS);
   for (const tag of tags) {
     if (!TAGS[tag]) {
-      throw new Error(`Unknown tag ${tag}`);
+      throw new Error(`Unknown tag '${tag}'`);
     }
   }
 
   const difficulty = kvs.difficulty as keyof typeof DIFFICULTIES;
   if (!DIFFICULTIES[difficulty]) {
-    throw new Error(`Unknown difficulty ${difficulty}`);
+    throw new Error(`Unknown difficulty '${difficulty}'`);
   }
 
   return {
