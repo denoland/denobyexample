@@ -106,7 +106,11 @@ function SnippetComponent(props: {
       <div class={tw`py-4 text-gray-700 select-none col-span-2`}>
         {props.snippet.text}
       </div>
-      <div class={tw`col-span-3 relative bg-gray-100`}>
+      <div
+        class={tw`col-span-3 relative bg-gray-100 ${
+          props.snippet.code.length === 0 ? "hidden sm:block" : ""
+        }`}
+      >
         {props.filename && (
           <span
             class={tw
