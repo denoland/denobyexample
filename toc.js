@@ -7,6 +7,7 @@ export const TOC = [
   "timers",
   "prompts",
   "environment-variables",
+  "command-line-arguments",
   "reading-files",
   "writing-files",
   "moving-renaming-files",
