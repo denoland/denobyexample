@@ -11,6 +11,7 @@ export const TOC = [
   "reading-files",
   "writing-files",
   "moving-renaming-files",
+  "temporary-files",
   "http-requests",
   "uuids",
   "http-server",
