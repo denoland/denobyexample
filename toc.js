@@ -12,4 +12,6 @@ export const TOC = [
   "http-requests",
   "uuids",
   "http-server",
+  "http-server-routing",
+  "http-server-streaming",
 ];

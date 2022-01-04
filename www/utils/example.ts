@@ -49,6 +49,7 @@ export function parseExample(id: string, file: string): Example {
   let code = "";
 
   for (const line of rest.split("\n")) {
+    const trimmedLine = line.trim();
     if (parseMode == "code") {
       if (line.startsWith("// File:")) {
         if (text || code.trimEnd()) {
@@ -67,12 +68,12 @@ export function parseExample(id: string, file: string): Example {
           };
           files.push(currentFile);
         }
-      } else if (line.startsWith("//")) {
+      } else if (trimmedLine.startsWith("//")) {
         if (text || code.trimEnd()) {
           code = code.trimEnd();
           currentFile.snippets.push({ text, code });
         }
-        text = line.slice(2).trim();
+        text = trimmedLine.slice(2).trim();
         code = "";
         parseMode = "comment";
       } else {
@@ -80,12 +81,12 @@ export function parseExample(id: string, file: string): Example {
       }
     } else if (parseMode == "comment") {
       if (
-        line.startsWith("// deno-lint-ignore") ||
-        line.startsWith("//deno-lint-ignore")
+        trimmedLine.startsWith("// deno-lint-ignore") ||
+        trimmedLine.startsWith("//deno-lint-ignore")
       ) {
         // skip lint directives
-      } else if (line.startsWith("//")) {
-        text += " " + line.slice(2).trim();
+      } else if (trimmedLine.startsWith("//")) {
+        text += " " + trimmedLine.slice(2).trim();
       } else {
         code += line + "\n";
         parseMode = "code";
