@@ -68,6 +68,24 @@ export function parseExample(id: string, file: string): Example {
           };
           files.push(currentFile);
         }
+      } else if (line.startsWith("/* File:")) {
+        if (text || code.trimEnd()) {
+          code = code.trimEnd();
+          currentFile.snippets.push({ text, code });
+          text = "";
+          code = "";
+        }
+        const name = line.slice(8).trim();
+        if (currentFile.snippets.length == 0) {
+          currentFile.name = name;
+        } else {
+          currentFile = {
+            name,
+            snippets: [],
+          };
+          files.push(currentFile);
+        }
+        parseMode = "file";
       } else if (trimmedLine.startsWith("//")) {
         if (text || code.trimEnd()) {
           code = code.trimEnd();
@@ -90,6 +108,12 @@ export function parseExample(id: string, file: string): Example {
       } else {
         code += line + "\n";
         parseMode = "code";
+      }
+    } else if (parseMode == "file") {
+      if (line == "*/") {
+        parseMode = "code";
+      } else {
+        code += line + "\n";
       }
     }
   }
