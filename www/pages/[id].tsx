@@ -10,7 +10,9 @@ import {
   Prism,
   tw,
   useData,
+  useState,
 } from "../deps.ts";
+import { TOC } from "../../toc.js";
 import { DIFFICULTIES, TAGS } from "../utils/constants.ts";
 import { ExampleSnippet, parseExample } from "../utils/example.ts";
 
@@ -20,6 +22,9 @@ export default function Example(props: PageProps) {
     return <div>404 Example Not Found</div>;
   }
 
+  const cur = TOC.indexOf(props.params.id as string);
+  const prev = TOC[cur - 1];
+  const next = TOC[cur + 1];
   const url = `${props.url.origin}${props.url.pathname}.ts`;
 
   const description = (example.description || example.title) +
@@ -32,7 +37,7 @@ export default function Example(props: PageProps) {
         <meta name="description" content={description} />
       </Head>
       <main class={tw`max-w-screen-lg mx-auto p-4`}>
-        <div class={tw`flex gap-2 justify-between`}>
+        <div class={tw`flex gap-2`}>
           <p
             class={tw`text-gray-500 italic`}
             title={DIFFICULTIES[example.difficulty].description}
@@ -52,12 +57,14 @@ export default function Example(props: PageProps) {
         </div>
         <h1 class={tw`mt-2 text-3xl font-bold`}>{example.title}</h1>
         {example.description && (
-          <div class={tw`mt-4 text-gray-700`}>
-            {example.description}
+          <div class={tw`mt-1`}>
+            <p class={tw`text-gray-400`}>
+              {example.description}
+            </p>
           </div>
         )}
         {example.files.map((file) => (
-          <div class={tw`mt-8 grid grid-cols-1 sm:grid-cols-5 gap-x-6`}>
+          <div class={tw`group mt-10`}>
             {file.snippets.map((snippet, i) => (
               <SnippetComponent
                 key={i}
@@ -68,23 +75,46 @@ export default function Example(props: PageProps) {
             ))}
           </div>
         ))}
-        {example.run && (
-          <div class={tw`mt-8`}>
-            <p class={tw`text-gray-700`}>
-              Run{" "}
-              <a href={url} class={tw`hover:underline focus:underline`}>
-                this example
-              </a>{" "}
-              locally using the Deno CLI:
+        <div class={tw`grid grid-cols-1 sm:grid-cols-5 gap-x-6`}>
+          <div class={tw`col-span-2 mt-8 relative`}>
+            <p class={tw`text-gray-700 absolute bottom-0 text-sm`}>
+              {prev && (
+                <a
+                  href={`/${prev}`}
+                  class={tw`hover:underline focus:underline`}
+                >
+                  PREV
+                </a>
+              )}
+              &nbsp;&nbsp;
+              {next && (
+                <a
+                  href={`/${next}`}
+                  class={tw`hover:underline focus:underline`}
+                >
+                  NEXT
+                </a>
+              )}
             </p>
-            <pre
-              class={tw
-                `mt-2 bg-gray-100 p-2 overflow-x-auto text-sm select-all`}
-            >
-              deno run {example.run.replace("<url>", url)}
-            </pre>
           </div>
-        )}
+          {example.run && (
+            <div class={tw`col-span-3 mt-8`}>
+              <p class={tw`text-gray-700`}>
+                Run{" "}
+                <a href={url} class={tw`hover:underline focus:underline`}>
+                  this example
+                </a>{" "}
+                locally using the Deno CLI:
+              </p>
+              <pre
+                class={tw
+                  `mt-2 bg-gray-100 p-2 overflow-x-auto text-sm select-all`}
+              >
+                deno run {example.run.replace("<url>", url)}
+              </pre>
+            </div>
+          )}
+        </div>
       </main>
     </Page>
   );
@@ -102,7 +132,10 @@ function SnippetComponent(props: {
   );
 
   return (
-    <>
+    <div
+      class={tw
+        `grid grid-cols-1 sm:grid-cols-5 gap-x-6 group-hover:opacity-60 hover:!opacity-100 transition duration-200 ease-in`}
+    >
       <div class={tw`py-4 text-gray-700 select-none col-span-2`}>
         {props.snippet.text}
       </div>
@@ -129,7 +162,7 @@ function SnippetComponent(props: {
           <pre dangerouslySetInnerHTML={{ __html: renderedSnippet }} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
