@@ -7,6 +7,7 @@ import { parseExample } from "../utils/example.ts";
 
 export default function Example(props: PageProps) {
   const examples = useData("", fetcher);
+
   return (
     <Page title={`Deno by Example`} noSubtitle>
       <Head>
@@ -38,7 +39,7 @@ export default function Example(props: PageProps) {
           various things in Deno, but can also be used as a guide to learn about
           many of the features Deno provides.
         </p>
-        <ul class={tw`mt-12 text-gray-900`}>
+        <ul class={tw`mt-6 text-gray-900`}>
           {examples.map((example) => (
             <li>
               <a href={`/${example.id}`} class={tw`underline`}>
@@ -70,6 +71,7 @@ export default function Example(props: PageProps) {
     </Page>
   );
 }
+
 function fetcher() {
   return Promise.all(
     TOC.map((id) =>
