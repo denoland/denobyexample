@@ -10,7 +10,6 @@ import {
   Prism,
   tw,
   useData,
-  useState,
 } from "../deps.ts";
 import { TOC } from "../../toc.js";
 import { DIFFICULTIES, TAGS } from "../utils/constants.ts";
@@ -58,7 +57,7 @@ export default function Example(props: PageProps) {
         <h1 class={tw`mt-2 text-3xl font-bold`}>{example.title}</h1>
         {example.description && (
           <div class={tw`mt-1`}>
-            <p class={tw`text-gray-400`}>
+            <p class={tw`text-gray-500`}>
               {example.description}
             </p>
           </div>
@@ -69,6 +68,7 @@ export default function Example(props: PageProps) {
               <SnippetComponent
                 key={i}
                 firstOfFile={i === 0}
+                lastOfFile={i === file.snippets.length - 1}
                 filename={file.name}
                 snippet={snippet}
               />
@@ -108,7 +108,7 @@ export default function Example(props: PageProps) {
               </p>
               <pre
                 class={tw
-                  `mt-2 bg-gray-100 p-2 overflow-x-auto text-sm select-all`}
+                  `mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md`}
               >
                 deno run {example.run.replace("<url>", url)}
               </pre>
@@ -123,6 +123,7 @@ export default function Example(props: PageProps) {
 function SnippetComponent(props: {
   filename: string;
   firstOfFile: boolean;
+  lastOfFile: boolean;
   snippet: ExampleSnippet;
 }) {
   const renderedSnippet = Prism.highlight(
@@ -134,20 +135,22 @@ function SnippetComponent(props: {
   return (
     <div
       class={tw
-        `grid grid-cols-1 sm:grid-cols-5 gap-x-6 group-hover:opacity-60 hover:!opacity-100 transition duration-200 ease-in`}
+        `grid grid-cols-1 sm:grid-cols-5 gap-x-6 group-hover:opacity-60 hover:!opacity-100 transition duration-150 ease-in`}
     >
       <div class={tw`py-4 text-gray-700 select-none col-span-2`}>
         {props.snippet.text}
       </div>
       <div
         class={tw`col-span-3 relative bg-gray-100 ${
+          props.firstOfFile ? "rounded-t-md" : ""
+        } ${props.lastOfFile ? "rounded-b-md" : ""} ${
           props.snippet.code.length === 0 ? "hidden sm:block" : ""
         }`}
       >
         {props.filename && (
           <span
             class={tw
-              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 ${
+              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${
                 props.firstOfFile ? "block" : "block sm:hidden"
               }`}
           >

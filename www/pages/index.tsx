@@ -7,6 +7,7 @@ import { parseExample } from "../utils/example.ts";
 
 export default function Example(props: PageProps) {
   const examples = useData("", fetcher);
+
   return (
     <Page title={`Deno by Example`} noSubtitle>
       <Head>
