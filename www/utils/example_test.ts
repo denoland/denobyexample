@@ -19,6 +19,7 @@ Deno.test("parse jsdoc", () => {
       "Prompts are used to ask the user for input or feedback on actions.",
     difficulty: "beginner",
     tags: ["cli", "web", "deploy"],
+    additionalResources: [],
     run: "<url>",
     files: [{
       name: "",
@@ -104,6 +105,7 @@ Deno.test("parse jsdoc no run", () => {
     description: "xyz",
     difficulty: "beginner",
     tags: ["cli", "deploy"],
+    additionalResources: [],
     run: undefined,
     files: [{
       name: "",
@@ -128,6 +130,7 @@ Deno.test("parse jsdoc no description", () => {
     description: "",
     difficulty: "beginner",
     tags: ["cli", "deploy"],
+    additionalResources: [],
     run: undefined,
     files: [{
       name: "",
@@ -136,6 +139,57 @@ Deno.test("parse jsdoc no description", () => {
   };
   const actual = parseExample("abc", example);
   assertEquals(actual, expected);
+});
+
+Deno.test("parse jsdoc resources", () => {
+  const example = `
+/**
+ * @title abc
+ * @difficulty beginner
+ * @tags cli, deploy
+ * @resource {https://deno.land#install} Deno: Installation
+ * @resource {https://deno.land/manual/getting_started/setup_your_environment} Deno Manual: Setup your environemnt
+ */
+`;
+  const expected: Example = {
+    id: "abc",
+    title: "abc",
+    description: "",
+    difficulty: "beginner",
+    tags: ["cli", "deploy"],
+    additionalResources: [
+      ["https://deno.land#install", "Deno: Installation"],
+      [
+        "https://deno.land/manual/getting_started/setup_your_environment",
+        "Deno Manual: Setup your environemnt",
+      ],
+    ],
+    run: undefined,
+    files: [{
+      name: "",
+      snippets: [],
+    }],
+  };
+  const actual = parseExample("abc", example);
+  assertEquals(actual, expected);
+});
+
+Deno.test("parse jsdoc resources broken", () => {
+  const example = `
+/**
+ * @title abc
+ * @difficulty beginner
+ * @tags cli, deploy
+ * @resource {}
+ */
+`;
+  assertThrows(
+    () => {
+      parseExample("abc", example);
+    },
+    Error,
+    "Invalid resource",
+  );
 });
 
 const BASIC_JSDOC = `
@@ -151,6 +205,7 @@ const EXPECTED_BASIC: Example = {
   description: "",
   difficulty: "beginner",
   tags: ["cli", "deploy"],
+  additionalResources: [],
   run: undefined,
   files: [{
     name: "",

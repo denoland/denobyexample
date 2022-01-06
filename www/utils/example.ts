@@ -6,6 +6,7 @@ export interface Example {
   description: string;
   difficulty: keyof typeof DIFFICULTIES;
   tags: (keyof typeof TAGS)[];
+  additionalResources: [string, string][];
   run?: string;
   files: ExampleFile[];
 }
@@ -27,11 +28,16 @@ export function parseExample(id: string, file: string): Example {
   // Extract the @key value pairs from the JS doc comment
   let description = "";
   const kvs: Record<string, string> = {};
+  const resources = [];
   for (let line of jsdoc.split("\n")) {
     line = line.trim().replace(/^\*/, "").trim();
     const [, key, value] = line.match(/^\s*@(\w+)\s+(.*)/) || [];
     if (key) {
-      kvs[key] = value.trim();
+      if (key === "resource") {
+        resources.push(value);
+      } else {
+        kvs[key] = value.trim();
+      }
     } else {
       description += " " + line;
     }
@@ -143,12 +149,23 @@ export function parseExample(id: string, file: string): Example {
     throw new Error(`Unknown difficulty '${difficulty}'`);
   }
 
+  const additionalResources: [string, string][] = [];
+  for (const resource of resources) {
+    // @resource {https://deno.land/std/http/server.ts} std/http/server.ts
+    const [_, url, title] = resource.match(/^\{(.*?)\}\s(.*)/) || [];
+    if (!url || !title) {
+      throw new Error(`Invalid resource: ${resource}`);
+    }
+    additionalResources.push([url, title]);
+  }
+
   return {
     id,
     title: kvs.title,
     description,
     difficulty,
     tags,
+    additionalResources,
     run: kvs.run,
     files,
   };
