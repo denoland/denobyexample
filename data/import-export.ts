@@ -2,6 +2,8 @@
  * @title Importing & Exporting
  * @difficulty beginner
  * @tags cli, deploy
+ * @resource {/dependency-management} Example: Dependency Management
+ * @resource {https://deno.land/manual@v1.17.2/linking_to_external_code} Manual: Linking to third party code
  *
  * To build composable programs, it is necessary to be able to import and export
  * functions from other modules. This is accomplished by using ECMA script

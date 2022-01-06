@@ -3,6 +3,8 @@
  * @difficulty beginner
  * @tags cli
  * @run <url> Deno Sushi --help --version=1.0.0 --no-color
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.args} Doc: Deno.args
+ * @resource {https://doc.deno.land/https://deno.land/std@0.120.0/flags/mod.ts} Doc: std/flags
  *
  * Command line arguments are often used to pass configuration options to a
  * program.

@@ -3,7 +3,9 @@
  * @difficulty intermediate
  * @tags cli, deploy
  * @run --allow-net <url>
- *
+ * @resource {/http-server}: Example: HTTP Server: Hello World
+ * @resource {https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream} MDN: ReadableStream
+ * 
  * An example HTTP server that streams a response back to the client.
  */
 

@@ -3,6 +3,7 @@
  * @difficulty beginner
  * @tags cli
  * @run --allow-read=./ --allow-write=./ <url>
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.rename} Doc: Deno.rename
  *
  * An example of how to move and rename files and directories in Deno.
  */

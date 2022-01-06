@@ -3,6 +3,10 @@
  * @difficulty beginner
  * @tags cli
  * @run --allow-read --allow-write <url>
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.writeFile} Doc: Deno.writeFile
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.create} Doc: Deno.create
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.File} Doc: Deno.File
+ * @resource {https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder} MDN: TextEncoder
  *
  * Many applications need to write files to disk. Deno provides a simple
  * interface for writing files.

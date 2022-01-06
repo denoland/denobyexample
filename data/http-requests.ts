@@ -3,6 +3,8 @@
  * @difficulty beginner
  * @tags cli, deploy, web
  * @run --allow-net <url>
+ * @resource {https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API} MDN: Fetch API
+ * @resource {https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream} MDN: ReadableStream
  *
  * This example demonstrates how to make a HTTP request to a server.
  */

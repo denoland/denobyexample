@@ -2,6 +2,10 @@
  * @title Dependency Management
  * @difficulty beginner
  * @tags cli, deploy
+ * @resource {/import-export} Example: Importing & Exporting
+ *
+ * It is unwieldy to have to import the same remote module over and over again.
+ * Deno provides some conventions to make managing dependencies easier.
  */
 
 // File: ./deps.ts
