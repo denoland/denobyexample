@@ -3,7 +3,7 @@
  * @difficulty intermediate
  * @tags cli, deploy
  * @run --allow-net <url>
- * @resource {/http-server}: Example: HTTP Server: Hello World
+ * @resource {/http-server} Example: HTTP Server: Hello World
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/URL_Pattern_API} MDN: URL Pattern API
  *
  * An example of a HTTP server that handles requests with different responses
