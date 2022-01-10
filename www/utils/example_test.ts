@@ -8,6 +8,7 @@ Deno.test("parse jsdoc", () => {
  * @difficulty beginner
  * @tags cli, web   ,   deploy
  * @run <url>
+ * @playground <url>
  *
  * Prompts are used to ask the user for input or feedback on actions.
  */
@@ -21,6 +22,7 @@ Deno.test("parse jsdoc", () => {
     tags: ["cli", "web", "deploy"],
     additionalResources: [],
     run: "<url>",
+    playground: "<url>",
     files: [{
       name: "",
       snippets: [],
@@ -107,6 +109,7 @@ Deno.test("parse jsdoc no run", () => {
     tags: ["cli", "deploy"],
     additionalResources: [],
     run: undefined,
+    playground: undefined,
     files: [{
       name: "",
       snippets: [],
@@ -132,6 +135,7 @@ Deno.test("parse jsdoc no description", () => {
     tags: ["cli", "deploy"],
     additionalResources: [],
     run: undefined,
+    playground: undefined,
     files: [{
       name: "",
       snippets: [],
@@ -165,6 +169,7 @@ Deno.test("parse jsdoc resources", () => {
       ],
     ],
     run: undefined,
+    playground: undefined,
     files: [{
       name: "",
       snippets: [],
@@ -207,6 +212,7 @@ const EXPECTED_BASIC: Example = {
   tags: ["cli", "deploy"],
   additionalResources: [],
   run: undefined,
+  playground: undefined,
   files: [{
     name: "",
     snippets: [],
