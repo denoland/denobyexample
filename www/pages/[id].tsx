@@ -17,7 +17,8 @@ import { DIFFICULTIES, TAGS } from "../utils/constants.ts";
 import { ExampleSnippet, parseExample } from "../utils/example.ts";
 
 export default function Example(props: PageProps) {
-  const [example, prev, next] = useData(props.params.id as string, fetcher) || [];
+  const [example, prev, next] = useData(props.params.id as string, fetcher) ||
+    [];
   if (!example) {
     return <div>404 Example Not Found</div>;
   }
@@ -185,14 +186,17 @@ function SnippetComponent(props: {
         {props.snippet.text}
       </div>
       <div
-        class={tw`col-span-3 relative bg-gray-100 ${props.firstOfFile ? "rounded-t-md" : ""
-          } ${props.lastOfFile ? "rounded-b-md" : ""} ${props.snippet.code.length === 0 ? "hidden sm:block" : ""
-          }`}
+        class={tw`col-span-3 relative bg-gray-100 ${
+          props.firstOfFile ? "rounded-t-md" : ""
+        } ${props.lastOfFile ? "rounded-b-md" : ""} ${
+          props.snippet.code.length === 0 ? "hidden sm:block" : ""
+        }`}
       >
         {props.filename && (
           <span
             class={tw
-              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${props.firstOfFile ? "block" : "block sm:hidden"
+              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${
+                props.firstOfFile ? "block" : "block sm:hidden"
               }`}
           >
             {props.filename}
@@ -215,7 +219,11 @@ async function fetcher(id: string) {
     const cur = TOC.indexOf(id);
     const prev = TOC[cur - 1];
     const next = TOC[cur + 1];
-    const [data, prevData, nextData] = await Promise.all([id, prev, next].map(name => name ? Deno.readTextFile(`./data/${name}.ts`) : Promise.resolve("")));
+    const [data, prevData, nextData] = await Promise.all(
+      [id, prev, next].map((name) =>
+        name ? Deno.readTextFile(`./data/${name}.ts`) : Promise.resolve("")
+      ),
+    );
     return [
       parseExample(id, data),
       prev ? parseExample(prev, prevData) : null,
