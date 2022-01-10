@@ -1,7 +1,7 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Page } from "../components/Page.tsx";
-import { DeployLogo, CircleArrow } from "../components/Logo.tsx";
+import { CircleArrow, DeployLogo } from "../components/Logo.tsx";
 import {
   Fragment,
   h,
@@ -103,7 +103,8 @@ export default function Example(props: PageProps) {
                 </p>
                 <p class={tw`mt-3`}>
                   <a
-                    class={tw`py-2 px-4 bg-black inline-block text-white text-base rounded-md opacity-90 hover:opacity-100`}
+                    class={tw
+                      `py-2 px-4 bg-black inline-block text-white text-base rounded-md opacity-90 hover:opacity-100`}
                     href={example.playground}
                     target="_blank"
                     rel="noreferrer"
@@ -121,8 +122,16 @@ export default function Example(props: PageProps) {
                 </p>
                 <ul class={tw`list-disc list-inside mt-1`}>
                   {example.additionalResources.map(([link, title]) => (
-                    <li class={tw`text-gray-700 hover:text-gray-900`} key={link + title}>
-                      <a class={tw`hover:underline focus:underline`} href={link}>{title}</a>
+                    <li
+                      class={tw`text-gray-700 hover:text-gray-900`}
+                      key={link + title}
+                    >
+                      <a
+                        class={tw`hover:underline focus:underline`}
+                        href={link}
+                      >
+                        {title}
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -135,7 +144,8 @@ export default function Example(props: PageProps) {
           {prev && (
             <a
               href={`/${prev}`}
-              class={tw`text-gray-600 absolute bottom-0 flex items-center gap-2 :hover:text-gray-900`}
+              class={tw
+                `text-gray-600 absolute bottom-0 flex items-center gap-2 :hover:text-gray-900`}
             >
               <CircleArrow />
               Prev
@@ -144,7 +154,8 @@ export default function Example(props: PageProps) {
           {next && (
             <a
               href={`/${next}`}
-              class={tw`text-gray-600 absolute bottom-0 right-0 flex items-center gap-2 :hover:text-gray-900`}
+              class={tw
+                `text-gray-600 absolute bottom-0 right-0 flex items-center gap-2 :hover:text-gray-900`}
             >
               Next
               <CircleArrow right />
@@ -177,14 +188,17 @@ function SnippetComponent(props: {
         {props.snippet.text}
       </div>
       <div
-        class={tw`col-span-3 relative bg-gray-100 ${props.firstOfFile ? "rounded-t-md" : ""
-          } ${props.lastOfFile ? "rounded-b-md" : ""} ${props.snippet.code.length === 0 ? "hidden sm:block" : ""
-          }`}
+        class={tw`col-span-3 relative bg-gray-100 ${
+          props.firstOfFile ? "rounded-t-md" : ""
+        } ${props.lastOfFile ? "rounded-b-md" : ""} ${
+          props.snippet.code.length === 0 ? "hidden sm:block" : ""
+        }`}
       >
         {props.filename && (
           <span
             class={tw
-              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${props.firstOfFile ? "block" : "block sm:hidden"
+              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${
+                props.firstOfFile ? "block" : "block sm:hidden"
               }`}
           >
             {props.filename}
