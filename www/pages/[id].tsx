@@ -97,7 +97,7 @@ export default function Example(props: PageProps) {
             {example.playground && (
               <div class={tw`col-span-3 mt-8`}>
                 <p class={tw`text-gray-700`}>
-                  Try this example on Deno playground:
+                  Try this example in a Deno Deploy playground:
                 </p>
                 <p class={tw`mt-3`}>
                   <a
