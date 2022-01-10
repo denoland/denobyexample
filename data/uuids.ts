@@ -3,6 +3,8 @@
  * @difficulty beginner
  * @tags cli, deploy, web
  * @run <url>
+ * @resource {https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID} MDN: crypto.randomUUID
+ * @resource {https://doc.deno.land/https://deno.land/std/uuid/mod.ts} Doc: std/uuid
  *
  * UUIDs (universally unique identifier) can be used to uniquely identify some
  * object or data.

@@ -3,6 +3,8 @@
  * @difficulty beginner
  * @tags cli
  * @run --allow-read --allow-write <url>
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.mkdir} Doc: Deno.mkdir
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.remove} Doc: Deno.remove
  *
  * Creating and removing directories is a common task. Deno has a number of
  * functions for this task.

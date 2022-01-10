@@ -3,6 +3,9 @@
  * @difficulty beginner
  * @tags cli, deploy
  * @run --allow-read <url>
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.readFile} Doc: Deno.readFile
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.open} Doc: Deno.open
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.File} Doc: Deno.File
  *
  * Many applications need to read files from disk. Deno provides a simple
  * interface for reading files.
