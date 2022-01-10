@@ -1,7 +1,7 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Page } from "../components/Page.tsx";
-import { DeployLogo } from "../components/Logo.tsx";
+import { DeployLogo, CircleArrow } from "../components/Logo.tsx";
 import {
   Fragment,
   h,
@@ -77,27 +77,7 @@ export default function Example(props: PageProps) {
           </div>
         ))}
         <div class={tw`grid grid-cols-1 sm:grid-cols-5 gap-x-6`}>
-          <div class={tw`col-span-2 mt-8 relative`}>
-            <p class={tw`text-gray-700 absolute bottom-0 text-sm`}>
-              {prev && (
-                <a
-                  href={`/${prev}`}
-                  class={tw`hover:underline focus:underline`}
-                >
-                  PREV
-                </a>
-              )}
-              &nbsp;&nbsp;
-              {next && (
-                <a
-                  href={`/${next}`}
-                  class={tw`hover:underline focus:underline`}
-                >
-                  NEXT
-                </a>
-              )}
-            </p>
-          </div>
+          <div class={tw`col-span-2 mt-8`} />
           <div class={tw`col-span-3 mt-8`}>
             {example.run && (
               <>
@@ -127,15 +107,50 @@ export default function Example(props: PageProps) {
                     href={example.playground}
                     target="_blank"
                     rel="noreferrer"
+                    title="Deploy"
                   >
                     <DeployLogo />
                   </a>
                 </p>
               </div>
             )}
+            {example.additionalResources.length > 0 && (
+              <div class={tw`col-span-3 mt-12 pt-6 border-t-1 border-gray-200`}>
+                <p class={tw`text-gray-500`}>
+                  Additional resources:
+                </p>
+                <ul class={tw`list-disc list-inside mt-1`}>
+                  {example.additionalResources.map(([link, title]) => (
+                    <li class={tw`text-gray-700 hover:text-gray-900`} key={link + title}>
+                      <a class={tw`hover:underline focus:underline`} href={link}>{title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
+        <div class={tw`col-span-2 mt-8 relative h-14`}>
+          {prev && (
+            <a
+              href={`/${prev}`}
+              class={tw`text-gray-600 absolute bottom-0 flex items-center gap-2 :hover:text-gray-900`}
+            >
+              <CircleArrow />
+              Prev
+            </a>
+          )}
+          {next && (
+            <a
+              href={`/${next}`}
+              class={tw`text-gray-600 absolute bottom-0 right-0 flex items-center gap-2 :hover:text-gray-900`}
+            >
+              Next
+              <CircleArrow right />
+            </a>
+          )}
+        </div>
       </main>
     </Page>
   );
@@ -156,7 +171,7 @@ function SnippetComponent(props: {
   return (
     <div
       class={tw
-        `grid grid-cols-1 sm:grid-cols-5 gap-x-6 group-hover:opacity-60 hover:!opacity-100 transition duration-150 ease-in`}
+        `grid grid-cols-1 sm:grid-cols-5 gap-x-6 group-hover:opacity-70 hover:!opacity-100 transition duration-150 ease-in`}
     >
       <div class={tw`py-4 text-gray-700 select-none col-span-2`}>
         {props.snippet.text}
