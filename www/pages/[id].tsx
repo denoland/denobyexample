@@ -103,7 +103,7 @@ export default function Example(props: PageProps) {
                 </p>
                 <p class={tw`mt-3`}>
                   <a
-                    class={tw`py-2 px-4 bg-black inline-block text-white text-lg rounded-md opacity-90 hover:opacity-100`}
+                    class={tw`py-2 px-4 bg-black inline-block text-white text-base rounded-md opacity-90 hover:opacity-100`}
                     href={example.playground}
                     target="_blank"
                     rel="noreferrer"
