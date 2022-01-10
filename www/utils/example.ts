@@ -8,6 +8,7 @@ export interface Example {
   tags: (keyof typeof TAGS)[];
   additionalResources: [string, string][];
   run?: string;
+  playground?: string;
   files: ExampleFile[];
 }
 
@@ -167,6 +168,7 @@ export function parseExample(id: string, file: string): Example {
     tags,
     additionalResources,
     run: kvs.run,
+    playground: kvs.playground,
     files,
   };
 }

@@ -1,6 +1,7 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { Page } from "../components/Page.tsx";
+import { DeployLogo } from "../components/Logo.tsx";
 import {
   Fragment,
   h,
@@ -97,24 +98,44 @@ export default function Example(props: PageProps) {
               )}
             </p>
           </div>
-          {example.run && (
-            <div class={tw`col-span-3 mt-8`}>
-              <p class={tw`text-gray-700`}>
-                Run{" "}
-                <a href={url} class={tw`hover:underline focus:underline`}>
-                  this example
-                </a>{" "}
-                locally using the Deno CLI:
-              </p>
-              <pre
-                class={tw
-                  `mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md`}
-              >
-                deno run {example.run.replace("<url>", url)}
-              </pre>
-            </div>
-          )}
+          <div class={tw`col-span-3 mt-8`}>
+            {example.run && (
+              <>
+                <p class={tw`text-gray-700`}>
+                  Run{" "}
+                  <a href={url} class={tw`hover:underline focus:underline`}>
+                    this example
+                  </a>{" "}
+                  locally using the Deno CLI:
+                </p>
+                <pre
+                  class={tw
+                    `mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md`}
+                >
+                  deno run {example.run.replace("<url>", url)}
+                </pre>
+              </>
+            )}
+            {example.playground && (
+              <div class={tw`col-span-3 mt-8`}>
+                <p class={tw`text-gray-700`}>
+                  Try this example on Deno playground:
+                </p>
+                <p class={tw`mt-3`}>
+                  <a
+                    class={tw`py-2 px-4 bg-black inline-block text-white text-lg rounded-md opacity-90 hover:opacity-100`}
+                    href={example.playground}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <DeployLogo />
+                  </a>
+                </p>
+              </div>
+            )}
+          </div>
         </div>
+
       </main>
     </Page>
   );
@@ -141,17 +162,14 @@ function SnippetComponent(props: {
         {props.snippet.text}
       </div>
       <div
-        class={tw`col-span-3 relative bg-gray-100 ${
-          props.firstOfFile ? "rounded-t-md" : ""
-        } ${props.lastOfFile ? "rounded-b-md" : ""} ${
-          props.snippet.code.length === 0 ? "hidden sm:block" : ""
-        }`}
+        class={tw`col-span-3 relative bg-gray-100 ${props.firstOfFile ? "rounded-t-md" : ""
+          } ${props.lastOfFile ? "rounded-b-md" : ""} ${props.snippet.code.length === 0 ? "hidden sm:block" : ""
+          }`}
       >
         {props.filename && (
           <span
             class={tw
-              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${
-                props.firstOfFile ? "block" : "block sm:hidden"
+              `font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${props.firstOfFile ? "block" : "block sm:hidden"
               }`}
           >
             {props.filename}
