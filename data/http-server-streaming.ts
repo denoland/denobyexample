@@ -15,7 +15,8 @@ import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 
 function handler(_req: Request): Response {
   // Set up a variable to store a timer ID, and the ReadableStream.
-  let timer: number | undefined = undefined;
+  let timer: number | undefined;
+
   const body = new ReadableStream({
     // When the stream is first created, start an interval that will emit a
     // chunk every second containing the current time.
