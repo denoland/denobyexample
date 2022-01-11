@@ -62,7 +62,7 @@ export default function Example(props: PageProps) {
           </div>
         )}
         {example.files.map((file) => (
-          <div class={tw`group mt-10`}>
+          <div class={tw`mt-10`}>
             {file.snippets.map((snippet, i) => (
               <SnippetComponent
                 key={i}
@@ -180,7 +180,7 @@ function SnippetComponent(props: {
   return (
     <div
       class={tw
-        `grid grid-cols-1 sm:grid-cols-5 gap-x-6 group-hover:opacity-70 hover:!opacity-100 transition duration-150 ease-in`}
+        `grid grid-cols-1 sm:grid-cols-5 gap-x-6  transition duration-150 ease-in`}
     >
       <div class={tw`py-4 text-gray-700 select-none col-span-2`}>
         {props.snippet.text}
