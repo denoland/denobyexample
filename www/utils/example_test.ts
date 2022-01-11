@@ -227,10 +227,8 @@ code 1;
 
 // snippet 2
 
-// snippet 3
-
-  // still snippet 3
-foo;
+  // snippet 3
+  foo;
 
 /** still snippet 3 */
 
@@ -252,7 +250,7 @@ foo;
           },
           {
             text: "snippet 3",
-            code: "\n  // still snippet 3\nfoo;\n\n/** still snippet 3 */",
+            code: "  foo;\n\n/** still snippet 3 */",
           },
           {
             text: "ending snippet",
@@ -352,8 +350,12 @@ foo;
             code: `globalThis.Hello = "World";`,
           },
           {
+            code: "foo;",
             text: "Back to main",
-            code: `foo;\n  // File: main.ts`,
+          },
+          {
+            code: "",
+            text: "File: main.ts",
           },
           {
             text: "foo File: bar.ts",
