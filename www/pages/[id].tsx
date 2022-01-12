@@ -144,7 +144,7 @@ export default function Example(props: PageProps) {
               <a
                 href={`/${prev.id}`}
                 class={tw
-                  `w-6/12 text-gray-600 flex items-center gap-2 :hover:text-gray-900`}
+                  `w-6/12 text-gray-600 flex items-center gap-3 lg:gap-2 :hover:text-gray-900`}
               >
                 <CircleArrow />
                 {prev.title}
@@ -155,7 +155,7 @@ export default function Example(props: PageProps) {
             <a
               href={`/${next.id}`}
               class={tw
-                `w-6/12 text-gray-600 flex items-center justify-end gap-2 :hover:text-gray-900`}
+                `w-6/12 text-gray-600 text-right flex items-center justify-end gap-3 lg:gap-2 :hover:text-gray-900`}
             >
               {next.title}
               <CircleArrow right />
