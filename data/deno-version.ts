@@ -2,11 +2,11 @@
  * @title Getting the Deno version
  * @difficulty beginner
  * @tags cli
+ * @run <url>
+ * @resource {https://doc.deno.land/deno/stable/~/Deno.version} Doc: Deno.version
  *
  * How to examine the version of Deno being used.
  */
-
-// File: ./main.ts
 
 // To print the current version of Deno, just reach into the Deno global object
 // where all non-web-standard APIs reside.

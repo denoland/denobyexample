@@ -3,12 +3,10 @@
  * @difficulty beginner
  * @tags cli
  * @run <url>
- * @resource {https://deno.land/#installation} Deno: Installation
- * @resource {https://deno.land/manual@v1.17.2/getting_started/setup_your_environment} Manual: Set up your environment
  */
 
-// The process id is easily accessible in the `Deno` namespace
+// The current process's process ID is available in the `Deno.pid` variable.
 console.log(Deno.pid);
 
-// As is the parent process id.
+// The parent process ID is available in the Deno namespace too.
 console.log(Deno.ppid);
