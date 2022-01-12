@@ -17,7 +17,7 @@ console.log("The message has been acknowledged.");
 
 // Instead of just an acknowledgement, we can also ask the user for a yes/no
 // response.
-const shouldProceed = confirm("Do you want to proceed?");
+const shouldProceed = confirm("blah blah bblah ");
 console.log("Should proceed?", shouldProceed);
 
 // We can also prompt the user for some text input. If the user cancels the
