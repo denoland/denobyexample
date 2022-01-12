@@ -7,6 +7,7 @@ export const TOC = [
   "timers",
   "prompts",
   "deno-version",
+  "pid",
   "environment-variables",
   "command-line-arguments",
   "reading-files",
