@@ -59,7 +59,10 @@ export function CircleArrow(props: { right?: boolean }) {
       width="1em"
       height="1em"
       viewBox="0 0 45.035156 44.982422"
-      style={{ transform: props.right ? "rotate(180deg)" : undefined }}
+      style={{
+        flexShrink: 0,
+        transform: props.right ? "rotate(180deg)" : undefined,
+      }}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
