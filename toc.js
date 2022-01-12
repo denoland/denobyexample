@@ -6,6 +6,7 @@ export const TOC = [
   "importing-json",
   "timers",
   "prompts",
+  "deno-version",
   "environment-variables",
   "command-line-arguments",
   "reading-files",
