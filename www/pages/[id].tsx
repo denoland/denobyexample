@@ -138,22 +138,24 @@ export default function Example(props: PageProps) {
           </div>
         </div>
 
-        <div class={tw`col-span-2 mt-8 relative h-14`}>
-          {prev && (
-            <a
-              href={`/${prev.id}`}
-              class={tw
-                `text-gray-600 absolute bottom-0 flex items-center gap-2 :hover:text-gray-900`}
-            >
-              <CircleArrow />
-              {prev.title}
-            </a>
-          )}
+        <div class={tw`col-span-2 mt-12 flex justify-between h-14`}>
+          {prev
+            ? (
+              <a
+                href={`/${prev.id}`}
+                class={tw
+                  `w-6/12 text-gray-600 flex items-center gap-2 :hover:text-gray-900`}
+              >
+                <CircleArrow />
+                {prev.title}
+              </a>
+            )
+            : <div class={tw`w-6/12`} />}
           {next && (
             <a
               href={`/${next.id}`}
               class={tw
-                `text-gray-600 absolute bottom-0 right-0 flex items-center gap-2 :hover:text-gray-900`}
+                `w-6/12 text-gray-600 flex items-center justify-end gap-2 :hover:text-gray-900`}
             >
               {next.title}
               <CircleArrow right />
