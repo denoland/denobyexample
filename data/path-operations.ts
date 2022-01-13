@@ -2,7 +2,7 @@
  * @title Path operations
  * @difficulty beginner
  * @tags cli
- * @run <url>
+ * @run --allow-read <url>
  * @resource {https://deno.land/std@0.120.0/path} Doc: Deno path library
  * @resource {https://doc.deno.land/deno/stable/~/Deno.cwd} Doc: Deno current directory function
  *
