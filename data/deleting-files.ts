@@ -2,7 +2,7 @@
  * @title Deleting files
  * @difficulty beginner
  * @tags cli
- * @run --allow-read --allow-write <url>
+ * @run --allow-write <url>
  * @resource {https://doc.deno.land/deno/stable/~/Deno.remove} Doc: Deno.remove
  * @resource {https://doc.deno.land/deno/stable/~/Deno.removeSync} Doc: Deno.removeSync
  *

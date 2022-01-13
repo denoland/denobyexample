@@ -11,6 +11,7 @@ export const TOC = [
   "reading-files",
   "writing-files",
   "deleting-files",
+  "path-operations",
   "moving-renaming-files",
   "temporary-files",
   "create-remove-directories",
