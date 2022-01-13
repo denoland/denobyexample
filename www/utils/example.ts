@@ -98,6 +98,8 @@ export function parseExample(id: string, file: string): Example {
         trimmedLine.startsWith("//deno-lint-ignore")
       ) {
         // skip lint directives
+      } else if (trimmedLine.startsWith("//-")) {
+        code += line.replace("//-", "//") + "\n";
       } else if (trimmedLine.startsWith("//")) {
         if (text || code.trimEnd()) {
           code = code.trimEnd();
