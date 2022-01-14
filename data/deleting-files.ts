@@ -10,8 +10,7 @@
  * interface for deleting files.
  */
 
-// The easiest way to delete a file or directory empty, is pass the path and
-// delete this file.
+// Files and empty directories can be deleted with the `Deno.remove` API.
 await Deno.remove("/path/to/empty_dir/or/file");
 
 // Throws error if permission is denied, path not found, or path is non empty
