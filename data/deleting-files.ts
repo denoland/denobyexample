@@ -13,8 +13,8 @@
 // Files and empty directories can be deleted with the `Deno.remove` API.
 await Deno.remove("/path/to/empty_dir/or/file");
 
-// Throws error if permission is denied, path not found, or path is non empty
-// directory for fix the last error you need set recursive true
+// To delete a directory with its contents, set the `recursive` flag on the
+// Deno.remove call.
 await Deno.remove("/path/to/populated_dir/or/file", { recursive: true });
 
 // For remove the file or directory synchronously you can use this:
