@@ -6,7 +6,7 @@
  * @resource {https://doc.deno.land/deno/stable/~/Deno.remove} Doc: Deno.remove
  * @resource {https://doc.deno.land/deno/stable/~/Deno.removeSync} Doc: Deno.removeSync
  *
- * Many applications need to delete files from disk. Deno provides a simple
+ * Deleting files from disk is a common operation. Deno provides a simple
  * interface for deleting files.
  */
 
