@@ -1,5 +1,5 @@
 /**
- * @title Deleting files
+ * @title Deleting files and directories
  * @difficulty beginner
  * @tags cli
  * @run --allow-write <url>
