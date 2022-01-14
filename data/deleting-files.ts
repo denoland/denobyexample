@@ -17,8 +17,5 @@ await Deno.remove("/path/to/empty_dir/or/file");
 // Deno.remove call.
 await Deno.remove("/path/to/populated_dir/or/file", { recursive: true });
 
-// For remove the file or directory synchronously you can use this:
+// A synchronous version of the API is also available.
 Deno.removeSync("/path/to/empty_dir/or/file");
-
-// For remove a non empty directorty synchronously you set recursive true
-Deno.removeSync("/path/to/populated_dir/or/file", { recursive: true });
