@@ -8,7 +8,7 @@
  * @resource {https://webassembly.github.io/spec/core/syntax/values.html} WebAssembly Spec: Values
  * @resource {https://webassembly.github.io/spec/core/syntax/types.html} WebAssembly Spec: Types
  *
- * WebAssembly is a binary format for describing a program's data and instructions. 
+ * WebAssembly is a binary format for describing a program's data and instructions.
  * It is a new and more efficient binary format.
  */
 
@@ -23,7 +23,7 @@ const bytes = new Uint8Array([
 ]);
 // we create an interface for the WebAssembly module containing all exports.
 interface WebAssemblyExports {
-    add(a: number, b: number): number;
+  add(a: number, b: number): number;
 }
 // The WebAssembly module is a binary format for describing a program's data and instructions.
 const exports = await WebAssembly.instantiate(bytes);
@@ -31,4 +31,3 @@ const exports = await WebAssembly.instantiate(bytes);
 const functions = exports.instance.exports as unknown as WebAssemblyExports;
 // we call the exported function.
 console.log(functions.add(1, 2)); // 3
-
