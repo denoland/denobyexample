@@ -49,7 +49,7 @@ export default function Example(props: PageProps) {
           ))}
         </ul>
         <p class={tw`mt-6 text-gray-900`}>
-          For WebGPU examples, go to our{" "}
+          For WebGPU examples, visit our{" "}
           <a
             class={tw`underline`}
             href="https://github.com/denoland/webgpu-examples"
