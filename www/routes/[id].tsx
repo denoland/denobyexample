@@ -270,7 +270,7 @@ function SnippetComponent(props: {
         <div
           class={tw
             `px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative` +
-            " highlight"}
+            " gfm-highlight"}
         >
           <pre dangerouslySetInnerHTML={{ __html: renderedSnippet }} />
         </div>
