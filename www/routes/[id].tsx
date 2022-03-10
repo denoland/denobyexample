@@ -1,24 +1,87 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
+import { Fragment, h, Head, PageProps, tw } from "../client_deps.ts";
+import { Handlers, Prism } from "../server_deps.ts";
 import { Page } from "../components/Page.tsx";
 import { CircleArrow, DeployLogo } from "../components/Logo.tsx";
-import {
-  Fragment,
-  h,
-  HandlerContext,
-  Head,
-  PageProps,
-  Prism,
-  tw,
-  useData,
-} from "../deps.ts";
 import { TOC } from "../../toc.js";
 import { DIFFICULTIES, TAGS } from "../utils/constants.ts";
-import { ExampleSnippet, parseExample } from "../utils/example.ts";
+import { Example, ExampleSnippet, parseExample } from "../utils/example.ts";
 
-export default function Example(props: PageProps) {
-  const [example, prev, next] = useData(props.params.id as string, fetcher) ||
-    [];
+interface Data {
+  example: Example;
+  prev: Example | null;
+  next: Example | null;
+}
+
+export const handler: Handlers<Data> = {
+  async GET(req, ctx) {
+    let id = ctx.params.id;
+    let endsWithTS = false;
+    if (id.endsWith(".ts")) {
+      endsWithTS = true;
+      id = id.slice(0, -3);
+    }
+
+    // Load the current, previous, and next example
+    let example: Example;
+    let prev: Example | null;
+    let next: Example | null;
+    try {
+      const cur = TOC.indexOf(id);
+      const prevId = TOC[cur - 1];
+      const nextId = TOC[cur + 1];
+      const [data, prevData, nextData] = await Promise.all(
+        [id, prevId, nextId].map((name) =>
+          name ? Deno.readTextFile(`./data/${name}.ts`) : Promise.resolve("")
+        ),
+      );
+      example = parseExample(id, data);
+      prev = prevData ? parseExample(prevId, prevData) : null;
+      next = nextData ? parseExample(nextId, nextData) : null;
+    } catch (e) {
+      if (e instanceof Deno.errors.NotFound) {
+        return new Response("404 Example Not Found", { status: 404 });
+      }
+      throw e;
+    }
+
+    // If the example was loaded with a .ts extension, we'll serve the raw
+    // source code.
+    if (endsWithTS) {
+      const accept = req.headers.get("accept") || "";
+      const acceptsHTML = accept.includes("text/html");
+      if (example.files.length > 1) {
+        return new Response(
+          "Source for multi file examples can not be viewed",
+          {
+            status: 400,
+          },
+        );
+      }
+
+      const file = example.files[0];
+      let code = "";
+      for (const snippet of file.snippets) {
+        code += snippet.code + "\n";
+      }
+      return new Response(code, {
+        headers: {
+          "content-type": acceptsHTML
+            ? "text/plain; charset=utf-8"
+            : "application/typescript; charset=utf-8",
+        },
+      });
+    }
+
+    // Otherwise, we'll render the example.
+    return ctx.render({ example, prev, next });
+  },
+};
+
+export default function ExamplePage(props: PageProps<Data>) {
+  const { example, prev, next } = props.data;
+
   if (!example) {
     return <div>404 Example Not Found</div>;
   }
@@ -215,65 +278,3 @@ function SnippetComponent(props: {
     </div>
   );
 }
-
-async function fetcher(id: string) {
-  try {
-    const cur = TOC.indexOf(id);
-    const prev = TOC[cur - 1];
-    const next = TOC[cur + 1];
-    const [data, prevData, nextData] = await Promise.all(
-      [id, prev, next].map((name) =>
-        name ? Deno.readTextFile(`./data/${name}.ts`) : Promise.resolve("")
-      ),
-    );
-    return [
-      parseExample(id, data),
-      prev ? parseExample(prev, prevData) : null,
-      next ? parseExample(next, nextData) : null,
-    ];
-  } catch (err) {
-    if (err instanceof Deno.errors.NotFound) {
-      return null;
-    }
-    console.error(err);
-  }
-}
-
-export const handler = async (ctx: HandlerContext) => {
-  const id = ctx.match.id;
-  if (id.endsWith(".ts")) {
-    const accept = ctx.req.headers.get("accept") || "";
-    const acceptsHTML = accept.includes("text/html");
-    try {
-      const data = await Deno.readTextFile(`./data/${id}`);
-      const example = parseExample(id, data);
-      if (example.files.length > 1) {
-        return new Response(
-          "Source for multi file examples can not be viewed",
-          {
-            status: 400,
-          },
-        );
-      }
-      const file = example.files[0];
-      let code = "";
-      for (const snippet of file.snippets) {
-        code += snippet.code + "\n";
-      }
-      return new Response(code, {
-        headers: {
-          "content-type": acceptsHTML
-            ? "text/plain; charset=utf-8"
-            : "application/typescript; charset=utf-8",
-        },
-      });
-    } catch (err) {
-      if (err instanceof Deno.errors.NotFound) {
-        return new Response("404 Example Not Found", { status: 404 });
-      }
-      console.error(err);
-      return new Response("500 Internal Server Error", { status: 500 });
-    }
-  }
-  return ctx.render!();
-};

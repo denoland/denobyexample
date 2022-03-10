@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import { h, tw } from "../deps.ts";
+import { h, tw } from "../client_deps.ts";
 import { DenoLogo } from "./Logo.tsx";
 
 const FOOTER_LINKS = [

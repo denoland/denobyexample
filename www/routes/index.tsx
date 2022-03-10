@@ -2,12 +2,28 @@
 /** @jsxFrag Fragment */
 import { TOC } from "../../toc.js";
 import { Page } from "../components/Page.tsx";
-import { h, Head, PageProps, tw, useData } from "../deps.ts";
-import { parseExample } from "../utils/example.ts";
+import { h, Head, PageProps, tw } from "../client_deps.ts";
+import { Example, parseExample } from "../utils/example.ts";
+import { Handlers } from "../server_deps.ts";
 
-export default function Example(props: PageProps) {
-  const examples = useData("", fetcher);
+interface Data {
+  examples: Example[];
+}
 
+export const handler: Handlers<Data> = {
+  async GET(_, ctx) {
+    const examples = await Promise.all(
+      TOC.map((id) =>
+        Deno.readTextFile(`./data/${id}.ts`)
+          .then((text) => parseExample(id, text))
+      ),
+    );
+    return ctx.render({ examples });
+  },
+};
+
+export default function IndexPage(props: PageProps<Data>) {
+  const { examples } = props.data;
   return (
     <Page title={`Deno by Example`} noSubtitle>
       <Head>
@@ -69,14 +85,5 @@ export default function Example(props: PageProps) {
         </p>
       </main>
     </Page>
-  );
-}
-
-function fetcher() {
-  return Promise.all(
-    TOC.map((id) =>
-      Deno.readTextFile(`./data/${id}.ts`)
-        .then((text) => parseExample(id, text))
-    ),
   );
 }
