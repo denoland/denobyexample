@@ -17,10 +17,10 @@ jobs:
         uses: denoland/setup-deno@v1.0.0
 
       - name: Format
-        run: make fmt_check
+        run: deno task fmt_check
 
       - name: Format
-        run: make lint
+        run: deno task lint
 
       - name: Test
-        run: make test
+        run: deno task test
