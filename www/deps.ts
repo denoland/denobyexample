@@ -5,11 +5,11 @@ export * from "https://raw.githubusercontent.com/lucacasonato/fresh/aa1e1bcdb469
 export * as gfm from "https://deno.land/x/gfm@0.1.15/mod.ts";
 
 // npm:prismjs
-export { default as Prism } from "https://esm.sh/prismjs@1.25.0?pin=v55";
-import "https://esm.sh/prismjs@1.25.0/components/prism-jsx.js?no-check&pin=v55";
-import "https://esm.sh/prismjs@1.25.0/components/prism-typescript.js?no-check&pin=v55";
-import "https://esm.sh/prismjs@1.25.0/components/prism-tsx.js?no-check&pin=v55";
+export { default as Prism } from "https://esm.sh/prismjs@1.25.0?pin=v77";
+import "https://esm.sh/prismjs@1.25.0/components/prism-jsx.js?no-check&pin=v77";
+import "https://esm.sh/prismjs@1.25.0/components/prism-typescript.js?no-check&pin=v77";
+import "https://esm.sh/prismjs@1.25.0/components/prism-tsx.js?no-check&pin=v77";
 
 // npm:twind
-export { setup, tw } from "https://esm.sh/twind@0.16.16?pin=v57";
-export { virtualSheet } from "https://esm.sh/twind@0.16.16/sheets?pin=v57";
+export { setup, tw } from "https://esm.sh/twind@0.16.16?pin=v77";
+export { virtualSheet } from "https://esm.sh/twind@0.16.16/sheets?pin=v77";
