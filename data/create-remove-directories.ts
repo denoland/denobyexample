@@ -32,5 +32,4 @@ await Deno.remove("./dir", { recursive: true });
 Deno.mkdirSync("new_dir");
 Deno.removeSync("new_dir");
 
-// Creating and removing directories requires the `read` and `write`
-// permissions.
+// Creating and removing directories requires the `write` permission.
