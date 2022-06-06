@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import { ComponentChildren, h, Head, tw } from "../deps.ts";
+import { ComponentChildren, h, Head, tw } from "../client_deps.ts";
 import { Footer } from "./Footer.tsx";
 import { Header } from "./Header.tsx";
 
