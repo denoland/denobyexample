@@ -50,10 +50,11 @@ export const handler: Handlers<Data> = {
       const cur = TOC.indexOf(id);
       const prev = TOC[cur - 1];
       const next = TOC[cur + 1];
-      console.log(cur);
       const [data, prevData, nextData] = await Promise.all(
         [id, prev, next].map((name) =>
-          name ? Deno.readTextFile(`./data/${name}.ts`) : Promise.resolve(undefined)
+          name
+            ? Deno.readTextFile(`./data/${name}.ts`)
+            : Promise.resolve(undefined)
         ),
       );
       ctx.render!([
@@ -222,7 +223,7 @@ function SnippetComponent(props: {
   lastOfFile: boolean;
   snippet: ExampleSnippet;
 }) {
- /* const renderedSnippet = Prism.highlight(
+  /* const renderedSnippet = Prism.highlight(
     props.snippet.code,
     Prism.languages.ts,
     "ts",
