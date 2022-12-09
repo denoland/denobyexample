@@ -76,7 +76,6 @@ export default function ExamplePage(props: PageProps<Data>) {
   if (props.data === null) {
     return <div>404 Example Not Found</div>;
   }
-  console.log("foo");
 
   const [example, prev, next] = props.data;
   const url = `${props.url.origin}${props.url.pathname}.ts`;
@@ -223,11 +222,11 @@ function SnippetComponent(props: {
   lastOfFile: boolean;
   snippet: ExampleSnippet;
 }) {
-  /* const renderedSnippet = Prism.highlight(
+  const renderedSnippet = Prism.highlight(
     props.snippet.code,
     Prism.languages.ts,
     "ts",
-  );*/
+  );
 
   return (
     <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-6  transition duration-150 ease-in">
@@ -251,7 +250,7 @@ function SnippetComponent(props: {
           </span>
         )}
         <div class="px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative highlight">
-          <pre dangerouslySetInnerHTML={{ __html: props.snippet.code }} />
+          <pre dangerouslySetInnerHTML={{ __html: renderedSnippet }} />
         </div>
       </div>
     </div>
