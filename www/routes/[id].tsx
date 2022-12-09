@@ -3,6 +3,7 @@ import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Page } from "../components/Page.tsx";
 import { CircleArrow, DeployLogo } from "../components/Logo.tsx";
+import { Prism } from "../utils/prism.ts";
 import { DIFFICULTIES, TAGS } from "../utils/constants.ts";
 import { Example, ExampleSnippet, parseExample } from "../utils/example.ts";
 
@@ -57,7 +58,7 @@ export const handler: Handlers<Data> = {
             : Promise.resolve(undefined)
         ),
       );
-      ctx.render!([
+      return ctx.render!([
         parseExample(id, data),
         prev ? parseExample(prev, prevData) : null,
         next ? parseExample(next, nextData) : null,
@@ -249,7 +250,7 @@ function SnippetComponent(props: {
             {props.filename}
           </span>
         )}
-        <div class="px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative highlight">
+        <div class="px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative gfm-highlight">
           <pre dangerouslySetInnerHTML={{ __html: renderedSnippet }} />
         </div>
       </div>
