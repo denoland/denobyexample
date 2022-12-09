@@ -1,4 +1,4 @@
-import { assertEquals, assertThrows } from "../test_deps.ts";
+import { assertEquals, assertThrows } from "$std/testing/asserts.ts";
 import { Example, parseExample } from "./example.ts";
 
 Deno.test("parse jsdoc", () => {
