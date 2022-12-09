@@ -5,11 +5,7 @@
 Start the project:
 
 ```
-deno run -A --watch main.ts
+deno task start
 ```
 
-After adding, removing, or moving a page in the `pages` directory, run:
-
-```
-fresh routes
-```
+This will watch the project directory and restart as necessary.

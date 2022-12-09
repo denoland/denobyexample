@@ -1,7 +1,3 @@
-/** @jsx h */
-
-import { h } from "../deps.ts";
-
 export function DenoLogo() {
   return (
     <svg
