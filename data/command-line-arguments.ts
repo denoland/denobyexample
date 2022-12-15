@@ -4,7 +4,7 @@
  * @tags cli
  * @run <url> Deno Sushi --help --version=1.0.0 --no-color
  * @resource {https://doc.deno.land/deno/stable/~/Deno.args} Doc: Deno.args
- * @resource {https://doc.deno.land/https://deno.land/std@0.120.0/flags/mod.ts} Doc: std/flags
+ * @resource {https://doc.deno.land/https://deno.land/std@0.168.0/flags/mod.ts} Doc: std/flags
  *
  * Command line arguments are often used to pass configuration options to a
  * program.
@@ -17,7 +17,7 @@ console.log(`Hello ${name}, I like ${food}!`);
 
 // Often you want to parse command line arguments like `--foo=bar` into
 // structured data. This can be done using `std/flags`.
-import { parse } from "https://deno.land/std@0.119.0/flags/mod.ts";
+import { parse } from "https://deno.land/std@0.168.0/flags/mod.ts";
 
 // The `parse` function takes the argument list, and a list of options. In these
 // options you specify the types of the accepted arguments and possibly default

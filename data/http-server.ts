@@ -11,7 +11,7 @@
  */
 
 // Import the http server from std/http.
-import { serve } from "https://deno.land/std@0.119.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 // HTTP servers need a handler function. This function is called for every
 // request that comes in. It must return a `Response`. The handler function can
