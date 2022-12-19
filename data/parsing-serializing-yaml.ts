@@ -31,7 +31,7 @@ const obj = {
   hello: "world",
   numbers: [1, 2, 3],
 };
-const yaml = stringify(obj, null, 2);
+const yaml = stringify(obj);
 console.log(yaml);
 //- hello: word
 //- numbers:
