@@ -5,6 +5,7 @@ export const TOC = [
   "dependency-management",
   "importing-json",
   "parsing-serializing-json",
+  "parsing-serializing-toml",
   "parsing-serializing-yaml",
   "timers",
   "prompts",
