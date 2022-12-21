@@ -2,7 +2,7 @@
  * @title Creating & Removing Directories
  * @difficulty beginner
  * @tags cli
- * @run --allow-read --allow-write <url>
+ * @run --allow-write <url>
  * @resource {https://doc.deno.land/deno/stable/~/Deno.mkdir} Doc: Deno.mkdir
  * @resource {https://doc.deno.land/deno/stable/~/Deno.remove} Doc: Deno.remove
  *
