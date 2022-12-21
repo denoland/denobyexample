@@ -3,6 +3,7 @@ export const TOC = [
   "color-logging",
   "import-export",
   "dependency-management",
+  "benchmarking",
   "importing-json",
   "parsing-serializing-json",
   "parsing-serializing-toml",
