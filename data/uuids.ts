@@ -16,7 +16,7 @@ const myUUID = crypto.randomUUID();
 console.log("Random UUID:", myUUID);
 
 // The standard library contains some more functions for working with UUIDs.
-import * as uuid from "https://deno.land/std@0.119.0/uuid/mod.ts";
+import * as uuid from "https://deno.land/std@0.168.0/uuid/mod.ts";
 
 // You can validate that a given string is a valid UUID.
 console.log(uuid.validate("not a UUID")); // false

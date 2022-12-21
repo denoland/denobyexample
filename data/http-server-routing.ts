@@ -12,7 +12,7 @@
  */
 
 // Import the http server from std/http.
-import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 // URL patterns can be used to match request URLs. They can contain named groups
 // that can be used to extract parts of the URL, e.g. the book ID.
