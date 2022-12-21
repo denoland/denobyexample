@@ -1,6 +1,5 @@
-/** @jsx h */
-
-import { ComponentChildren, h, Head, tw } from "../deps.ts";
+import type { ComponentChildren } from "preact";
+import { Head } from "$fresh/runtime.ts";
 import { Footer } from "./Footer.tsx";
 import { Header } from "./Header.tsx";
 
@@ -11,8 +10,8 @@ export function Page(props: {
 }) {
   return (
     <div
-      class={tw`min-h-screen grid grid-cols-1`}
-      style={"grid-template-rows: auto 1fr auto;"}
+      class="min-h-screen grid grid-cols-1"
+      style="grid-template-rows: auto 1fr auto;"
     >
       <Head>
         <link

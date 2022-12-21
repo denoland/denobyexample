@@ -2,7 +2,7 @@
  * @title Creating & Removing Directories
  * @difficulty beginner
  * @tags cli
- * @run --allow-read --allow-write <url>
+ * @run --allow-write <url>
  * @resource {https://doc.deno.land/deno/stable/~/Deno.mkdir} Doc: Deno.mkdir
  * @resource {https://doc.deno.land/deno/stable/~/Deno.remove} Doc: Deno.remove
  *
@@ -32,5 +32,4 @@ await Deno.remove("./dir", { recursive: true });
 Deno.mkdirSync("new_dir");
 Deno.removeSync("new_dir");
 
-// Creating and removing directories requires the `read` and `write`
-// permissions.
+// Creating and removing directories requires the `write` permission.
