@@ -2,7 +2,7 @@
  * @title Benchmarking
  * @difficulty beginner
  * @tags cli
- * @run deno bench --allow-net <url>
+ * @run deno bench <url>
  * @resource {https://deno.land/manual@v1.29.1/tools/benchmarker} Deno: Benchmarker tool
  * @resource {/http-requests} Example: HTTP Requests
  *
@@ -19,7 +19,7 @@ Deno.bench("URL parsing", () => {
 
 // We are also able to use an async function.
 Deno.bench("Async method", async () => {
-  await 1;
+  await crypto.subtle.digest("SHA-256", new Uint8Array([1, 2, 3]));
 });
 
 // We can optionally use long form bench definitions.
