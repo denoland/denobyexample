@@ -100,7 +100,6 @@ export function parseExample(id: string, file: string): Example {
         trimmedLine.startsWith("//deno-fmt-ignore")
       ) {
         // skip deno directives
-        console.log("skipped line", trimmedLine)
       } else if (trimmedLine.startsWith("//-")) {
         code += line.replace("//-", "//") + "\n";
       } else if (trimmedLine.startsWith("//")) {
