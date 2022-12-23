@@ -143,7 +143,10 @@ export default function ExamplePage(props: PageProps<Data>) {
                   locally using the Deno CLI:
                 </p>
                 <pre class="mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md">
-                  deno run {example.run.replace("<url>", url)}
+                  {example.run.startsWith("deno")
+                    ?example.run.replace("<url>", url)
+                    :"deno run " + example.run.replace("<url>", url)
+                  }
                 </pre>
               </>
             )}
