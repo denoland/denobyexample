@@ -21,6 +21,9 @@ jobs:
 
       - name: Format
         run: deno task lint
+      
+      - name: Check Valid Data
+        run: deno run --allow-read ./_tools/check_valid_data.ts
 
       - name: Test
         run: deno task test
