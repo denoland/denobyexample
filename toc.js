@@ -19,6 +19,7 @@ export const TOC = [
   "moving-renaming-files",
   "temporary-files",
   "create-remove-directories",
+  "watching-files",
   "webassembly",
   "http-requests",
   "uuids",
