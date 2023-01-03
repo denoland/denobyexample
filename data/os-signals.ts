@@ -35,5 +35,4 @@ setTimeout(() => {
   clearInterval(interval);
   Deno.removeSignalListener("SIGINT", sigIntHandler);
   console.log("done! it has been 10 seconds");
-  Deno.exit();
 }, 10_000);
