@@ -1,5 +1,5 @@
 /**
- * @title Listening for OS Signals
+ * @title Handling OS Signals
  * @difficulty beginner
  * @tags cli
  * @run <url>
