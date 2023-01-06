@@ -11,6 +11,7 @@ export const TOC = [
   "timers",
   "prompts",
   "deno-version",
+  "permissions",
   "pid",
   "os-signals",
   "environment-variables",
