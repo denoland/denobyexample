@@ -1,8 +1,9 @@
 /**
  * @title TCP Listener: Ping
- * @difficulty beginner
+ * @difficulty intermediate
  * @tags cli
  * @run --allow-net <url>
+ * @resource {https://deno.land/api?s=Deno.listen} Deno.listen: API
  *
  * An example of a TCP listener on localhost that will log the message if written to and close the connection if connected to.
  */
