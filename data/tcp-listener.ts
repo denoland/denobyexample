@@ -21,7 +21,7 @@ const listener = Deno.listen({
 for await (const conn of listener) {
   // Instantiate an buffer array to store the contents of our read TCP stream.
   const buf = new Uint8Array(1024);
-  // Read the contents of the TCP stream into our buffer array. 
+  // Read the contents of the TCP stream into our buffer array.
   await conn.read(buf);
   // Here we log the results of the bytes that were read into our buffer array.
   console.log("Server - received: ", decoder.decode(buf));
