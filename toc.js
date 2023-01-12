@@ -28,4 +28,5 @@ export const TOC = [
   "http-server",
   "http-server-routing",
   "http-server-streaming",
+  "tcp-listener",
 ];
