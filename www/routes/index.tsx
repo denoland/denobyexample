@@ -55,6 +55,16 @@ export default function Home(props: PageProps<Example[]>) {
             </li>
           ))}
         </ul>
+        <p class="mt-6 text-gray-900">
+          For WebGPU examples, visit our{" "}
+          <a
+            class="underline"
+            href="https://github.com/denoland/webgpu-examples"
+          >
+            WebGPU examples repo
+          </a>
+          .
+        </p>
         <p class="mt-12 text-gray-500">
           <a
             href="https://github.com/denoland/denobyexample"
