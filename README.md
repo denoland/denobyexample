@@ -63,17 +63,18 @@ in the example page.
 Now add your example to the `toc.js` file. This will cause it to show up on the
 index page.
 
-After you have added the example, run `make fmt` and `make lint` to format and
-lint the example.
+After you have added the example, run `deno task fmt` and `deno task lint` to
+format and lint the example.
 
 ### Running the webserver locally
 
 To run the webserver locally, open a terminal and run:
 
 ```sh
-make dev
+deno task start
 ```
 
 You can then view the page at http://localhost:8000/
 
-Before opening a PR with a change, make sure `make fmt` and `make lint` pass.
+Before opening a PR with a change, make sure `deno task fmt` and
+`deno task lint` pass.

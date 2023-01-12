@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "start": "deno run -A --watch=static/,routes/ www/dev.ts",
+
+    "fmt": "deno fmt",
+    "fmt_check": "deno fmt --check",
+    "lint": "deno lint",
+    "test": "deno test -A"
+  },
+
+  "importMap": "./www/import_map.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}
