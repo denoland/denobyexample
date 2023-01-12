@@ -11,16 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Deno
         uses: denoland/setup-deno@v1.0.0
 
       - name: Format
-        run: make fmt_check
+        run: deno task fmt_check
 
       - name: Format
-        run: make lint
+        run: deno task lint
+      
+      - name: Check Valid Data
+        run: deno run --allow-read ./_tools/check_valid_data.ts
 
       - name: Test
-        run: make test
+        run: deno task test

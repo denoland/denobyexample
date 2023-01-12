@@ -95,9 +95,11 @@ export function parseExample(id: string, file: string): Example {
         parseMode = "file";
       } else if (
         trimmedLine.startsWith("// deno-lint-ignore") ||
-        trimmedLine.startsWith("//deno-lint-ignore")
+        trimmedLine.startsWith("//deno-lint-ignore") ||
+        trimmedLine.startsWith("// deno-fmt-ignore") ||
+        trimmedLine.startsWith("//deno-fmt-ignore")
       ) {
-        // skip lint directives
+        // skip deno directives
       } else if (trimmedLine.startsWith("//-")) {
         code += line.replace("//-", "//") + "\n";
       } else if (trimmedLine.startsWith("//")) {
@@ -114,9 +116,11 @@ export function parseExample(id: string, file: string): Example {
     } else if (parseMode == "comment") {
       if (
         trimmedLine.startsWith("// deno-lint-ignore") ||
-        trimmedLine.startsWith("//deno-lint-ignore")
+        trimmedLine.startsWith("//deno-lint-ignore") ||
+        trimmedLine.startsWith("// deno-fmt-ignore") ||
+        trimmedLine.startsWith("//deno-fmt-ignore")
       ) {
-        // skip lint directives
+        // skip deno directives
       } else if (trimmedLine.startsWith("//")) {
         text += " " + trimmedLine.slice(2).trim();
       } else {
