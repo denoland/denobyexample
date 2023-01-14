@@ -45,6 +45,10 @@ const worker2 = new Worker(
   },
 );
 
+// This will error since the worker does not have permission to
+// access the file
+worker2.postMessage({ filename: "./log.txt" });
+
 // File: ./worker.ts
 
 // On the web worker side, we can receive the message and do some processing
