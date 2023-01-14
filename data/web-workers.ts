@@ -17,7 +17,7 @@
 // Currently, Deno only suppors module-type workers. To instantiate one
 // we can use similar syntax to what is found on the web.
 const worker = new Worker(
-  new URL("./worker.js", import.meta.url).href,
+  new URL("./worker.ts", import.meta.url).href,
   {
     type: "module",
   },
@@ -31,7 +31,7 @@ worker.postMessage({ filename: "./log.txt" });
 // the worker inherits the permissions of the thread it was instantiated
 // from.
 const worker2 = new Worker(
-  new URL("./worker.js", import.meta.url).href,
+  new URL("./worker.ts", import.meta.url).href,
   {
     type: "module",
     deno: {
