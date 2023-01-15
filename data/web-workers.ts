@@ -45,8 +45,8 @@ const worker2 = new Worker(
   },
 );
 
-// This will error since the worker does not have permission to
-// access the file
+// This will cause the worker to try to read a file it doesn't have access to.
+// This will throw a permission error.
 worker2.postMessage({ filename: "./log.txt" });
 
 // File: ./worker.ts
