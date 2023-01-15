@@ -7,7 +7,7 @@
  * @resource {https://deno.land/manual/runtime/workers} Deno: Workers
  *
  * Workers are the only ways of running javascript off of the main thread.
- * This can be useful for a wide variety of programs, especiall those where
+ * This can be useful for a wide variety of programs, especially those where
  * there is a lot of computation that needs to be done without blocking a
  * thread.
  */
