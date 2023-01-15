@@ -14,7 +14,7 @@
 
 // File: ./main.ts
 
-// Currently, Deno only suppors module-type workers. To instantiate one
+// Currently, Deno only supports module-type workers. To instantiate one
 // we can use similar syntax to what is found on the web.
 const worker = new Worker(
   new URL("./worker.ts", import.meta.url).href,
