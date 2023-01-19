@@ -6,8 +6,8 @@
  * @resource {https://deno.land/std@0.172.0/path} Deno: std/path
  * @resource {https://deno.land/api?s=Deno.cwd} Deno: Deno.cwd
  *
- * Many applications need to delete files from disk. Deno provides a simple
- * interface for deleting files.
+ * Many applications need to manipulate file paths in one way or another.
+ * The Deno standard library provides simple utilities for this.
  */
 
 // First well import the librery from the Deno Std
