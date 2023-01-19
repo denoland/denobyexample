@@ -30,7 +30,7 @@ console.log(base); // ./deno/is/awesome
 const ext = path.extname("./deno/is/awesome/mod.ts");
 console.log(ext); // .ts
 
-// You want format a path generating from a object
+// We can format a path using a FormatInputPathObject
 const formatPath = path.format({
   root: "/",
   dir: "/home/user/dir",
