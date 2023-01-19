@@ -3,7 +3,7 @@
  * @difficulty beginner
  * @tags cli
  * @run --allow-read <url>
- * @resource {https://deno.land/std@0.120.0/path} Doc: Deno path library
+ * @resource {https://deno.land/std@0.172.0/path} Deno: std/path
  * @resource {https://doc.deno.land/deno/stable/~/Deno.cwd} Doc: Deno current directory function
  *
  * Many applications need to delete files from disk. Deno provides a simple
