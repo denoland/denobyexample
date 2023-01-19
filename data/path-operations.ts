@@ -4,7 +4,7 @@
  * @tags cli
  * @run --allow-read <url>
  * @resource {https://deno.land/std@0.172.0/path} Deno: std/path
- * @resource {https://doc.deno.land/deno/stable/~/Deno.cwd} Doc: Deno current directory function
+ * @resource {https://deno.land/api?s=Deno.cwd} Deno: Deno.cwd
  *
  * Many applications need to delete files from disk. Deno provides a simple
  * interface for deleting files.
