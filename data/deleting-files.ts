@@ -3,7 +3,7 @@
  * @difficulty beginner
  * @tags cli
  * @resource {https://deno.land/api?s=Deno.remove} Deno: Deno.remove
- * @resource {https://doc.deno.land/deno/stable/~/Deno.removeSync} Doc: Deno.removeSync
+ * @resource {https://deno.land/api?s=Deno.removeSync} Deno: Deno.removeSync
  *
  * Deleting files from disk is a common operation. Deno provides a simple
  * interface for deleting files.
