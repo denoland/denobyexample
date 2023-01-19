@@ -22,7 +22,7 @@ console.log(`PATH 1: ${p1} PATH 2: ${p2}`); // PATH 1: /home/foo PATH 2: \\home\
 const p = path.basename("./deno/is/awesome/mod.ts");
 console.log(p); // mod.ts
 
-// You want get the directory name from a Path
+// We can get the directory of a file path using the dirname method
 const base = path.dirname("./deno/is/awesome/mod.ts");
 console.log(base); // ./deno/is/awesome
 
