@@ -43,7 +43,8 @@ const formatPath = path.format({
 });
 console.log(formatPath); // "/home/user/dir/index.html"
 
-// You want join files with the os separator
+// When we want to make our code cross-platform, we can use the join method.
+// This joins any number of string by the OS-specific file seperator
 const joinPath = path.join("foo", "bar");
 console.log(joinPath); // foo/bar LINUX MACOS -- foo\\bar WINDOWS
 
