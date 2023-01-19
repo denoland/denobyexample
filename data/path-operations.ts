@@ -10,7 +10,7 @@
  * The Deno standard library provides simple utilities for this.
  */
 
-// First well import the librery from the Deno Std
+// First we will import the module from the Deno standard library
 import * as path from "https://deno.land/std@0.172.0/path/mod.ts";
 
 // If you want from url file to a os dir you can use this
