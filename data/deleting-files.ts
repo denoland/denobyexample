@@ -2,7 +2,7 @@
  * @title Deleting files and directories
  * @difficulty beginner
  * @tags cli
- * @resource {https://doc.deno.land/deno/stable/~/Deno.remove} Doc: Deno.remove
+ * @resource {https://deno.land/api?s=Deno.remove} Deno: Deno.remove
  * @resource {https://doc.deno.land/deno/stable/~/Deno.removeSync} Doc: Deno.removeSync
  *
  * Deleting files from disk is a common operation. Deno provides a simple
