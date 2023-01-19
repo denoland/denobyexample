@@ -11,7 +11,7 @@
  */
 
 // First well import the librery from the Deno Std
-import * as path from "https://deno.land/std@0.120.0/path/mod.ts";
+import * as path from "https://deno.land/std@0.172.0/path/mod.ts";
 
 // If you want from url file to a os dir you can use this
 const p1 = path.posix.fromFileUrl("file:///home/foo");
