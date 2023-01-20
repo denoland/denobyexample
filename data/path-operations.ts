@@ -22,7 +22,7 @@ console.log(`PATH 1: ${p1} PATH 2: ${p2}`); // PATH 1: /home/foo PATH 2: \\home\
 // We can also choose to not specify and automatically use whatever Deno is running on
 const p3 = path.fromFileUrl("file:///home/foo");
 
-// You want get the last part of a file path you can use this
+// We can get the last part of a file path using the basename method
 const p = path.basename("./deno/is/awesome/mod.ts");
 console.log(p); // mod.ts
 
