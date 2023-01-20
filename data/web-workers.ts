@@ -12,6 +12,17 @@
  * thread.
  */
 
+// File: ./worker.ts
+
+// First we will define a web worker, we can receive messages from the main
+// thread and do some processing as a result of them.
+self.onmessage = async (e) => {
+  const { filename } = e.data;
+  const text = await Deno.readTextFile(filename);
+  console.log(text);
+  self.close();
+};
+
 // File: ./main.ts
 
 // Currently, Deno only supports module-type workers. To instantiate one
@@ -26,10 +37,9 @@ const worker = new Worker(
 // We can send a message to the worker by using the `postMessage` method
 worker.postMessage({ filename: "./log.txt" });
 
-// It is also possible to only give workers certain permissions
-// This can be done through the deno.permissions option. By default
-// the worker inherits the permissions of the thread it was instantiated
-// from.
+// By default the worker inherits the permissions of the thread it was
+// instantiated from. We can give workers certain permissions by using
+// the deno.permissions option.
 const worker2 = new Worker(
   new URL("./worker.ts", import.meta.url).href,
   {
@@ -45,16 +55,7 @@ const worker2 = new Worker(
   },
 );
 
-// This will cause the worker to try to read a file it doesn't have access to.
-// This will throw a permission error.
+// Because we instantiated this worker with specific permissions, this will
+// cause the worker to try to read a file it doesn't have access to and thus
+// will throw a permission error.
 worker2.postMessage({ filename: "./log.txt" });
-
-// File: ./worker.ts
-
-// On the web worker side, we can receive the message and do some processing
-self.onmessage = async (e) => {
-  const { filename } = e.data;
-  const text = await Deno.readTextFile(filename);
-  console.log(text);
-  self.close();
-};
