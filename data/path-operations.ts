@@ -48,6 +48,6 @@ console.log(formatPath); // "/home/user/dir/index.html"
 const joinPath = path.join("foo", "bar");
 console.log(joinPath); // foo/bar LINUX MACOS -- foo\\bar WINDOWS
 
-// You want get the current directory
+// We can get the current working directory using the built-in cwd method
 const current = Deno.cwd();
 console.log(current); // Prints the current directory
