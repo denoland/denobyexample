@@ -31,4 +31,5 @@ export const TOC = [
   "http-server-routing",
   "http-server-streaming",
   "tcp-listener",
+  "tcp-connector",
 ];
