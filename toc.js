@@ -25,6 +25,7 @@ export const TOC = [
   "watching-files",
   "webassembly",
   "http-requests",
+  "dns-queries",
   "uuids",
   "http-server",
   "http-server-routing",
