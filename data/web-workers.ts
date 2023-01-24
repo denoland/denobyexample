@@ -2,7 +2,6 @@
  * @title Web Workers
  * @difficulty intermediate
  * @tags cli, web
- * @run <url>
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers} MDN: Web Workers
  * @resource {https://deno.land/manual/runtime/workers} Deno: Workers
  *
