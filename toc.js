@@ -23,6 +23,7 @@ export const TOC = [
   "temporary-files",
   "create-remove-directories",
   "watching-files",
+  "web-workers",
   "webassembly",
   "http-requests",
   "uuids",
