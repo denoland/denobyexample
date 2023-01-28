@@ -3,7 +3,7 @@
  * @difficulty intermediate
  * @tags cli, deploy
  * @run --allow-net <url>
- * @resource {https://doc.deno.land/https://deno.land/std/http/mod.ts} Doc: std/http
+ * @resource {$std/http/mod.ts} Doc: std/http
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/Response} MDN: Response
  * @playground https://dash.deno.com/playground/example-helloworld
  *
@@ -11,7 +11,7 @@
  */
 
 // Import the http server from std/http.
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { serve } from "$std/http/server.ts";
 
 // HTTP servers need a handler function. This function is called for every
 // request that comes in. It must return a `Response`. The handler function can

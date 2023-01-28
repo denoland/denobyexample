@@ -11,7 +11,7 @@
  */
 
 // Import the http server from std/http.
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { serve } from "$std/http/server.ts";
 
 function handler(_req: Request): Response {
   // Set up a variable to store a timer ID, and the ReadableStream.

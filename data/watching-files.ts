@@ -3,9 +3,9 @@
  * @difficulty beginner
  * @tags cli
  * @run --allow-read <url>
- * @resource {https://deno.land/api@v1.29.1?s=Deno.watchFs} Deno: watchFs
+ * @resource {https://deno.land/api?s=Deno.watchFs} Doc: Deno.watchFs
  * @resource {https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of} MDN: for await of
- * @resource {https://deno.land/std@0.170.0/async/debounce.ts} Deno: std/debounce
+ * @resource {$std/async/debounce.ts} Doc: std/debounce
  *
  * When creating frameworks or CLI tools, it is often neccessary to watch the filesystem for changes.
  */
@@ -25,7 +25,7 @@ for await (const event of watcher) {
 // to every change instantly. Events will be duplicated and multiple events will
 // be dispatched for the same changes. To get around this, we can "debounce" our
 // functions.
-import { debounce } from "https://deno.land/std@0.170.0/async/debounce.ts";
+import { debounce } from "$std/async/debounce.ts";
 
 // In this specific case, we use the standard library to do the work for us.
 // This function will run at most once every two hundred milliseconds

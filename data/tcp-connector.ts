@@ -3,8 +3,8 @@
  * @difficulty intermediate
  * @tags cli
  * @run --allow-net <url>
- * @resource {https://deno.land/api?s=Deno.connect} Deno.connect: API
- * @resource {/tcp-listener.ts} Example TCP server that will accept connections
+ * @resource {https://deno.land/api?s=Deno.connect} Doc: Deno.connect
+ * @resource {/tcp-listener.ts} Example: TCP Listener
  *
  * An example of connecting to a TCP server on localhost and writing a 'ping' message to the server.
  */

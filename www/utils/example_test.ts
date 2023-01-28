@@ -1,5 +1,6 @@
 import { assertEquals, assertThrows } from "$std/testing/asserts.ts";
 import { Example, parseExample } from "./example.ts";
+import importMap from "../import_map.json" assert { type: "json" };
 
 Deno.test("parse jsdoc", () => {
   const example = `
@@ -377,5 +378,38 @@ foo;
     ],
   };
   const actual = parseExample("abc", example);
+  assertEquals(actual, expected);
+});
+
+Deno.test("replace $std/", () => {
+  const example = `
+/**
+ * @title Replacement test
+ * @difficulty beginner
+ * @tags cli
+ * @run <url>
+ * @playground <url>
+ * @resource {$std/flags/mod.ts} Doc: std/flags
+ *
+ * Simple check for replacing std version
+ */
+`;
+  const expected: Example = {
+    id: "replacement-test",
+    title: "Replacement test",
+    description: "Simple check for replacing std version",
+    difficulty: "beginner",
+    tags: ["cli"],
+    additionalResources: [
+      [importMap.imports["$std/"] + "flags/mod.ts", "Doc: std/flags"],
+    ],
+    run: "<url>",
+    playground: "<url>",
+    files: [{
+      name: "",
+      snippets: [],
+    }],
+  };
+  const actual = parseExample("replacement-test", example);
   assertEquals(actual, expected);
 });

@@ -3,7 +3,7 @@
  * @difficulty beginner
  * @tags cli
  * @run <url>
- * @resource {https://doc.deno.land/deno/stable/~/Deno.version} Doc: Deno.version
+ * @resource {https://deno.land/api?s=Deno.version} Doc: Deno.version
  *
  * How to examine the version of Deno being used.
  */
