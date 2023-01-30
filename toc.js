@@ -26,6 +26,7 @@ export const TOC = [
   "web-workers",
   "webassembly",
   "http-requests",
+  "dns-queries",
   "uuids",
   "http-server",
   "http-server-routing",
