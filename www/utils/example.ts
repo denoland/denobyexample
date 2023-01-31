@@ -1,5 +1,4 @@
 import { DIFFICULTIES, TAGS } from "./constants.ts";
-import importMap from "../import_map.json" assert { type: "json" };
 
 export interface Example {
   id: string;
@@ -25,7 +24,7 @@ export interface ExampleSnippet {
 
 export function parseExample(id: string, file: string): Example {
   // Substitute $std/ with the full import url
-  file = file.replaceAll("$std/", importMap.imports["$std/"]);
+  file = file.replaceAll("$std/", "https://deno.land/std@0.175.0/");
 
   // Extract the multi line JS doc comment at the top of the file
   const [, jsdoc, rest] = file.match(/^\s*\/\*\*(.*?)\*\/\s*(.*)/s) || [];
