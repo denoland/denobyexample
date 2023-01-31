@@ -6,6 +6,7 @@ import { CircleArrow, DeployLogo } from "../components/Logo.tsx";
 import { Prism } from "../utils/prism.ts";
 import { DIFFICULTIES, TAGS } from "../utils/constants.ts";
 import { Example, ExampleSnippet, parseExample } from "../utils/example.ts";
+import CopyButton from "../islands/CopyButton.tsx";
 
 type Data = [Example, Example | null, Example | null] | null;
 
@@ -119,6 +120,11 @@ export default function ExamplePage(props: PageProps<Data>) {
         )}
         {example.files.map((file) => (
           <div class="mt-10">
+            <div class="relative hidden sm:block">
+              <CopyButton
+                text={file.snippets.map((snippet) => snippet.code).join("\n\n")}
+              />
+            </div>
             {file.snippets.map((snippet, i) => (
               <SnippetComponent
                 key={i}
@@ -253,6 +259,9 @@ function SnippetComponent(props: {
             {props.filename}
           </span>
         )}
+        <div class="relative block sm:hidden">
+          <CopyButton text={props.snippet.code} />
+        </div>
         <div class="px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative gfm-highlight">
           <pre dangerouslySetInnerHTML={{ __html: renderedSnippet }} />
         </div>
