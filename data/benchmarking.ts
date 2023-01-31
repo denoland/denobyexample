@@ -3,7 +3,7 @@
  * @difficulty beginner
  * @tags cli
  * @run deno bench <url>
- * @resource {https://deno.land/manual@v1.29.1/tools/benchmarker} Deno: Benchmarker tool
+ * @resource {https://deno.land/manual@v1.30.0/tools/benchmarker} Manual: Benchmarker tool
  * @resource {/http-requests} Example: HTTP Requests
  *
  * When writing libraries, a very common task that needs to be done is

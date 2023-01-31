@@ -10,8 +10,8 @@
  */
 
 // The standard library provides hex and base64 encoding and decoding utilities
-import * as base64 from "https://deno.land/std@0.171.0/encoding/base64.ts";
-import * as hex from "https://deno.land/std@0.171.0/encoding/hex.ts";
+import * as base64 from "$std/encoding/base64.ts";
+import * as hex from "$std/encoding/hex.ts";
 
 // We can easily encode a string or an array buffer into base64 using the base64.encode method.
 const base64Encoded = base64.encode("somestringtoencode");

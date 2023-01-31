@@ -13,8 +13,8 @@
 // The Deno ecosystem has a convention to re-export all remote dependencies from
 // a deps.ts file at the root of the repo. This keeps remote dependencies
 // organized, and in a single place.
-export * as http from "https://deno.land/std@0.168.0/http/mod.ts";
-export * as path from "https://deno.land/std@0.168.0/path/mod.ts";
+export * as http from "$std/http/mod.ts";
+export * as path from "$std/path/mod.ts";
 
 // File: ./main.ts
 

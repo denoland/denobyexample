@@ -33,7 +33,7 @@ console.log(readStatus.state);
 // In the case that we no longer need a permission, it is also possible
 // to revoke a process's access to that permission. This is useful when
 // a process starts running untrusted code.
-import { assert } from "https://deno.land/std@0.172.0/testing/asserts.ts";
+import { assert } from "$std/testing/asserts.ts";
 
 const runStatus = await Deno.permissions.revoke({ name: "run" });
 assert(runStatus.state !== "granted");

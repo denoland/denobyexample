@@ -4,7 +4,7 @@
  * @tags cli, deploy, web
  * @run <url>
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID} MDN: crypto.randomUUID
- * @resource {https://doc.deno.land/https://deno.land/std/uuid/mod.ts} Doc: std/uuid
+ * @resource {$std/uuid/mod.ts} Doc: std/uuid
  *
  * UUIDs (universally unique identifier) can be used to uniquely identify some
  * object or data.
@@ -16,7 +16,7 @@ const myUUID = crypto.randomUUID();
 console.log("Random UUID:", myUUID);
 
 // The standard library contains some more functions for working with UUIDs.
-import * as uuid from "https://deno.land/std@0.168.0/uuid/mod.ts";
+import * as uuid from "$std/uuid/mod.ts";
 
 // You can validate that a given string is a valid UUID.
 console.log(uuid.validate("not a UUID")); // false

@@ -3,9 +3,9 @@
  * @difficulty beginner
  * @tags cli
  * @run --allow-read --allow-write <url>
- * @resource {https://doc.deno.land/deno/stable/~/Deno.writeFile} Doc: Deno.writeFile
- * @resource {https://doc.deno.land/deno/stable/~/Deno.create} Doc: Deno.create
- * @resource {https://doc.deno.land/deno/stable/~/Deno.File} Doc: Deno.File
+ * @resource {https://deno.land/api?s=Deno.writeFile} Doc: Deno.writeFile
+ * @resource {https://deno.land/api?s=Deno.create} Doc: Deno.create
+ * @resource {https://deno.land/api?s=Deno.File} Doc: Deno.File
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder} MDN: TextEncoder
  *
  * Many applications need to write files to disk. Deno provides a simple
@@ -30,7 +30,7 @@ console.log(`${written} bytes written.`);
 // A `file.write` returns the number of bytes written, as it might not write all
 // bytes passed. Use the `writeAll` utility from `std/streams` to make sure the
 // entire buffer is written.
-import { writeAll } from "https://deno.land/std/streams/conversion.ts";
+import { writeAll } from "$std/streams/write_all.ts";
 await writeAll(file, new TextEncoder().encode("World!"));
 
 // Make sure to close the file after you are done with it.
@@ -40,7 +40,7 @@ file.close();
 Deno.writeFileSync("hello.txt", bytes);
 Deno.writeTextFileSync("hello.txt", "Hello World");
 const f = Deno.createSync("hello.txt");
-import { writeAllSync } from "https://deno.land/std/streams/conversion.ts";
+import { writeAllSync } from "$std/streams/write_all.ts";
 writeAllSync(f, new TextEncoder().encode("World!"));
 f.close();
 

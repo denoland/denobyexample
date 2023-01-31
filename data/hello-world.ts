@@ -4,7 +4,7 @@
  * @tags cli, deploy, web
  * @run <url>
  * @resource {https://deno.land/#installation} Deno: Installation
- * @resource {https://deno.land/manual@v1.17.2/getting_started/setup_your_environment} Manual: Set up your environment
+ * @resource {https://deno.land/manual@v1.30.0/getting_started/setup_your_environment} Manual: Set up your environment
  */
 
 // The one and only line in this program will print "Hello, World!" to the
