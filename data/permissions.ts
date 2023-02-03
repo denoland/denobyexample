@@ -20,6 +20,9 @@ if (status.state === "granted") {
   console.log("'env' permission is denied.");
 }
 
+// There are also synchronous versions of all the permisison APIs
+Deno.permissions.requestSync({ name: "env" });
+
 // We can also query permissions without asking for them. In this case,
 // we are querying whether or not we have the read permission. Not only
 // can we query whether we have a permission or not, we can even specify
