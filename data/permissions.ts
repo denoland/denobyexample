@@ -13,7 +13,7 @@
 // In the most simple case, we can just request a permission by it's name.
 // In this case, we ask for --allow-env and prompt the user. The user will
 // not be prompted if it was already allowed in the past and not revoked.
-const status = await Deno.permissions.request({ name: "env" });
+let status = await Deno.permissions.request({ name: "env" });
 if (status.state === "granted") {
   console.log("'env' permission is granted.");
 } else {
@@ -21,7 +21,12 @@ if (status.state === "granted") {
 }
 
 // There are also synchronous versions of all the permisison APIs
-Deno.permissions.requestSync({ name: "env" });
+status = Deno.permissions.requestSync({ name: "env" });
+if (status.state === "granted") {
+  console.log("'env' permission is granted.");
+} else {
+  console.log("'env' permission is denied.");
+}
 
 // We can also query permissions without asking for them. In this case,
 // we are querying whether or not we have the read permission. Not only
