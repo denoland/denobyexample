@@ -9,6 +9,7 @@ export const TOC = [
   "parsing-serializing-toml",
   "parsing-serializing-yaml",
   "hex-base64-encoding",
+  "hashing",
   "timers",
   "prompts",
   "deno-version",
