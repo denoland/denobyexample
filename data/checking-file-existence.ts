@@ -33,5 +33,5 @@ try {
 import { exists } from "$std/fs/exists.ts";
 
 if (await exists("./foo.text")) {
-  // do some operation entirely unrelated to the file system
+  console.log("exists!");
 }
