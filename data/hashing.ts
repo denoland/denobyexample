@@ -49,6 +49,6 @@ const readableStream = file.readable;
 // We can then use this as an async iterable and hash the file
 const fileHashBuffer = await crypto.subtle.digest("SHA-256", readableStream);
 
-// We can the obtain the hex result using toHashString like earlier
+// We can then obtain the hex result using toHashString like earlier
 const fileHash = toHashString(fileHashBuffer);
 console.log(fileHash);
