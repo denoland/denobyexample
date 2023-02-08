@@ -28,10 +28,14 @@ try {
 // This applies to almost every usecase. If you have a niche
 // usecase that requires you to check for existence of a file
 // without doing an filesystem operations other than that
-// (which is quite rare), the standard library provides a
-// utiltity for this.
-import { exists } from "$std/fs/exists.ts";
-
-if (await exists("./foo.text")) {
+// (which is quite rare), then you can simply lstat the file
+// and catch the error.
+try {
+  await Deno.lstat("example.txt");
   console.log("exists!");
+} catch (err) {
+  if (!(err instanceof Deno.errors.NotFound)) {
+    throw err;
+  }
+  console.log("not exists!");
 }
