@@ -18,7 +18,7 @@
 // Instead, you should just create a folder and try to catch
 // errors like so.
 try {
-  Deno.mkdir("new_dir");
+  await Deno.mkdir("new_dir");
 } catch (err) {
   if (!(err instanceof Deno.errors.AlreadyExists)) {
     throw err;
