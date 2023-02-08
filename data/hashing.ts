@@ -8,7 +8,7 @@
  * Hashing data is a common operation that is facilitated
  * through Deno's support of the Web Crypto API. There are
  * some more advanced uses that may require extensions to
- * the api that are provided the by the standard library.
+ * the api that are provided by the standard library.
  */
 
 // Our original plaintext message
