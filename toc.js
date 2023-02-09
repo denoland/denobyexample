@@ -24,6 +24,7 @@ export const TOC = [
   "temporary-files",
   "create-remove-directories",
   "watching-files",
+  "checking-file-existence",
   "web-workers",
   "webassembly",
   "http-requests",
