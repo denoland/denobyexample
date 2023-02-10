@@ -1,12 +1,12 @@
-import { TOC } from "../../toc.js";
+import { TOC } from "../../../toc.js";
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { Page } from "../components/Page.tsx";
-import { CircleArrow, DeployLogo } from "../components/Logo.tsx";
-import { Prism } from "../utils/prism.ts";
-import { DIFFICULTIES, TAGS } from "../utils/constants.ts";
-import { Example, ExampleSnippet, parseExample } from "../utils/example.ts";
-import CopyButton from "../islands/CopyButton.tsx";
+import { Page } from "../../components/Page.tsx";
+import { CircleArrow, DeployLogo } from "../../components/Logo.tsx";
+import { Prism } from "../../utils/prism.ts";
+import { DIFFICULTIES, TAGS } from "../../utils/constants.ts";
+import { Example, ExampleSnippet, parseExample } from "../../utils/example.ts";
+import CopyButton from "../../islands/CopyButton.tsx";
 
 type Data = [Example, Example | null, Example | null] | null;
 
@@ -80,7 +80,9 @@ export default function ExamplePage(props: PageProps<Data>) {
   }
 
   const [example, prev, next] = props.data;
-  const url = `${props.url.origin}${props.url.pathname}.ts`;
+  const url = `${props.url.origin}${props.url.pathname}${
+    example.files.length > 1 ? "/main" : ""
+  }.ts`;
 
   const description = (example.description || example.title) +
     " -- Deno by example is a collection of annotated examples for how to use Deno, and the various features it provides.";

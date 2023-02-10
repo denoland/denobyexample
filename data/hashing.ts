@@ -2,6 +2,7 @@
  * @title Hashing
  * @difficulty intermediate
  * @tags cli, deploy
+ * @run --allow-read <url>
  * @resource {https://deno.land/api?s=SubtleCrypto} Doc: crypto.subtle
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest} MDN: Cryptographic Digests
  *

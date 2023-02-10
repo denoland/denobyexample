@@ -2,6 +2,7 @@
  * @title Importing & Exporting
  * @difficulty beginner
  * @tags cli, deploy
+ * @run <url>
  * @resource {/dependency-management} Example: Dependency Management
  * @resource {https://deno.land/manual@v1.30.0/basics/modules} Manual: Modules
  *
