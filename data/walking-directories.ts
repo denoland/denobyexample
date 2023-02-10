@@ -18,7 +18,7 @@ for await (const dirEntry of Deno.readDir(".")) {
 }
 
 // If on the other hand you need to recursively walk
-// a repository, the standard library has a method for this
+// a repository, the standard library has a method for this.
 // In the most simple case it is a drop-in replacement
 import { walk } from "$std/fs/walk.ts";
 
