@@ -16,7 +16,6 @@ export const TOC = [
   "permissions",
   "pid",
   "os-signals",
-  "subprocess",
   "environment-variables",
   "command-line-arguments",
   "reading-files",
