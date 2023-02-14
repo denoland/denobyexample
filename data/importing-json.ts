@@ -2,6 +2,7 @@
  * @title Importing JSON
  * @difficulty beginner
  * @tags cli, web
+ * @run --allow-net <url>
  *
  * JSON files can be imported in JS and TS files using the `import` keyword.
  * This makes including static data in a library much easier.
