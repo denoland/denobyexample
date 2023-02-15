@@ -28,6 +28,7 @@ export const TOC = [
   "checking-file-existence",
   "web-workers",
   "webassembly",
+  "byte-manipulation",
   "http-requests",
   "dns-queries",
   "uuids",
