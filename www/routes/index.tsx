@@ -52,7 +52,6 @@ export default function Home(props: PageProps<Example[]>) {
               <a
                 href={`/${example.id}`}
                 class="underline"
-                data-bs-toggle="tooltip"
                 title={example.description}
               >
                 {example.title}
