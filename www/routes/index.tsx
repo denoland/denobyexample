@@ -49,7 +49,11 @@ export default function Home(props: PageProps<Example[]>) {
         <ul class="mt-6 text-gray-900">
           {props.data.map((example) => (
             <li>
-              <a href={`/${example.id}`} class="underline">
+              <a
+                href={`/${example.id}`}
+                class="underline"
+                title={example.description}
+              >
                 {example.title}
               </a>
             </li>
