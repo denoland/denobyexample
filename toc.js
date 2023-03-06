@@ -36,6 +36,7 @@ export const TOC = [
   "http-server",
   "http-server-routing",
   "http-server-streaming",
+  "http-server-files",
   "tcp-listener",
   "tcp-connector",
 ];
