@@ -16,7 +16,6 @@ import { serveDir, serveFile } from "$std/http/file_server.ts";
 import { serve } from "$std/http/server.ts";
 
 // Here we start a simple server
-console.log("Listening on http://localhost:8000");
 serve((req: Request) => {
   // Get the path from the url (ie. example.com/whatever -> /whatever)
   const pathname = new URL(req.url).pathname;
