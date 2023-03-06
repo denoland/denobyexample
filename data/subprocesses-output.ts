@@ -6,14 +6,21 @@
  * @resource {https://deno.land/api?s=Deno.Command} Doc: Deno.Command
  *
  * We don't often write programs in isolation. In a lot of cases we want
- * to interact with the outside system and the shell is a common way to do this.
+ * to interact with the outside system and spawning a subprocess is a
+ * common way to do this.
  */
 
 // The Deno namespace has a unified api for interacting with the shell called
 // Deno.command. With it, we can initialize some information about the command
 // but it will not be executed immediately.
 const command = new Deno.Command("deno", {
-  args: ["eval", "console.log('hello from deno')"],
+  args: [
+    "eval",
+"\
+    console.log('hello from deno'); \
+    console.error('hello from stderr'); \
+    ",
+  ],
 });
 
 // In the most simple case we just want to run the process to completion. This
