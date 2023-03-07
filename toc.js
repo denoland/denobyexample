@@ -32,6 +32,7 @@ export const TOC = [
   "http-requests",
   "dns-queries",
   "uuids",
+  "subprocesses-output",
   "http-server",
   "http-server-routing",
   "http-server-streaming",
