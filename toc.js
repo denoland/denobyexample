@@ -20,6 +20,7 @@ export const TOC = [
   "command-line-arguments",
   "reading-files",
   "writing-files",
+  "path-operations",
   "moving-renaming-files",
   "temporary-files",
   "create-remove-directories",
