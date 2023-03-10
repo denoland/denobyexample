@@ -1,4 +1,4 @@
-import { TOC } from "../../toc.js";
+import { TOC } from "../../toc.ts";
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Page } from "../components/Page.tsx";
