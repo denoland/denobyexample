@@ -16,6 +16,7 @@ export const handler: Handlers<ExampleGroup[]> = {
       TOC.map(async (category): Promise<ExampleGroup> => {
         return {
           title: category.title,
+          icon: category.icon,
           items: await Promise.all(category.items.map(loadExample)),
         };
       }),

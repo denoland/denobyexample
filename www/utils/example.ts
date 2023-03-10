@@ -1,7 +1,9 @@
 import { DIFFICULTIES, TAGS } from "./constants.ts";
+import { FunctionComponent } from "preact";
 
 export interface ExampleGroup {
   title: string;
+  icon?: FunctionComponent;
   items: Example[];
 }
 

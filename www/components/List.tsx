@@ -17,7 +17,16 @@ export function IndexItem(props: { example: Example }) {
 export function IndexGroup(props: { group: ExampleGroup }) {
   return (
     <li>
-      <h2 class="font-bold text-lg">{props.group.title}</h2>
+      <h2 class="text-lg flex gap-1 mb-1 items-center">
+        {props.group.icon && (
+          <div>
+            <props.group.icon />
+          </div>
+        )}
+        <div class="font-bold">
+          {props.group.title}
+        </div>
+      </h2>
       <ul>
         {props.group.items.map((example) => <IndexItem example={example} />)}
       </ul>

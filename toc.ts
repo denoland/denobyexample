@@ -1,11 +1,23 @@
+import IconFlag3 from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/flag-3.tsx";
+import IconTransform from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/transform.tsx";
+import IconFileShredder from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/file-shredder.tsx";
+import IconTerminal2 from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/terminal-2.tsx";
+import IconDeviceDesktop from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/device-desktop.tsx";
+import IconFiles from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/files.tsx";
+import IconNetwork from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/network.tsx";
+import IconStars from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/stars.tsx";
+import { FunctionComponent } from "preact";
+
 interface TocGroup {
   title: string;
+  icon?: FunctionComponent;
   items: string[];
 }
 
 export const TOC: TocGroup[] = [
   {
     title: "Basics",
+    icon: IconFlag3,
     items: [
       "hello-world",
       "color-logging",
@@ -16,6 +28,7 @@ export const TOC: TocGroup[] = [
   },
   {
     title: "Encoding",
+    icon: IconTransform,
     items: [
       "importing-json",
       "parsing-serializing-json",
@@ -27,6 +40,7 @@ export const TOC: TocGroup[] = [
   },
   {
     title: "Cryptography",
+    icon: IconFileShredder,
     items: [
       "hashing",
       "uuids",
@@ -34,6 +48,7 @@ export const TOC: TocGroup[] = [
   },
   {
     title: "CLI",
+    icon: IconTerminal2,
     items: [
       "command-line-arguments",
       "prompts",
@@ -43,6 +58,7 @@ export const TOC: TocGroup[] = [
   },
   {
     title: "System",
+    icon: IconDeviceDesktop,
     items: [
       "benchmarking",
       "pid",
@@ -53,6 +69,7 @@ export const TOC: TocGroup[] = [
   },
   {
     title: "File System",
+    icon: IconFiles,
     items: [
       "reading-files",
       "writing-files",
@@ -66,6 +83,7 @@ export const TOC: TocGroup[] = [
   },
   {
     title: "Network",
+    icon: IconNetwork,
     items: [
       "http-requests",
       "dns-queries",
@@ -79,6 +97,7 @@ export const TOC: TocGroup[] = [
   },
   {
     title: "Advanced",
+    icon: IconStars,
     items: [
       "web-workers",
       "webassembly",
