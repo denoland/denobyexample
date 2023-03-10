@@ -1,5 +1,10 @@
 import { DIFFICULTIES, TAGS } from "./constants.ts";
 
+export interface ExampleGroup {
+  title: string;
+  items: Example[];
+}
+
 export interface Example {
   id: string;
   title: string;

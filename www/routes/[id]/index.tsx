@@ -49,9 +49,10 @@ export const handler: Handlers<Data> = {
     }
 
     try {
-      const cur = TOC.indexOf(id);
-      const prev = TOC[cur - 1];
-      const next = TOC[cur + 1];
+      const flatToc = TOC.flatMap((category) => category.items);
+      const cur = flatToc.indexOf(id);
+      const prev = flatToc[cur - 1];
+      const next = flatToc[cur + 1];
       const [data, prevData, nextData] = await Promise.all(
         [id, prev, next].map((name) =>
           name

@@ -2,22 +2,30 @@ import { TOC } from "../../toc.ts";
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Page } from "../components/Page.tsx";
-import { Example, parseExample } from "../utils/example.ts";
+import { ExampleGroup, parseExample } from "../utils/example.ts";
+import { IndexGroup } from "../components/List.tsx";
 
-export const handler: Handlers<Example[]> = {
+async function loadExample(id: string) {
+  const data = await Deno.readTextFile(`./data/${id}.ts`);
+  return parseExample(id, data);
+}
+
+export const handler: Handlers<ExampleGroup[]> = {
   async GET(_req, { render }) {
     const data = await Promise.all(
-      TOC.map((id) =>
-        Deno.readTextFile(`./data/${id}.ts`)
-          .then((text) => parseExample(id, text))
-      ),
+      TOC.map(async (category): Promise<ExampleGroup> => {
+        return {
+          title: category.title,
+          items: await Promise.all(category.items.map(loadExample)),
+        };
+      }),
     );
 
     return render!(data);
   },
 };
 
-export default function Home(props: PageProps<Example[]>) {
+export default function Home(props: PageProps<ExampleGroup[]>) {
   return (
     <Page title={`Deno by Example`} noSubtitle>
       <Head>
@@ -47,17 +55,9 @@ export default function Home(props: PageProps<Example[]>) {
           many of the features Deno provides.
         </p>
         <ul class="mt-6 text-gray-900">
-          {props.data.map((example) => (
-            <li>
-              <a
-                href={`/${example.id}`}
-                class="underline"
-                title={example.description}
-              >
-                {example.title}
-              </a>
-            </li>
-          ))}
+          {props.data.map(
+            (group) => <IndexGroup group={group} />,
+          )}
         </ul>
         <p class="mt-6 text-gray-900">
           For WebGPU examples, visit our{" "}
