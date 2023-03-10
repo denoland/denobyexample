@@ -54,7 +54,7 @@ export default function Home(props: PageProps<ExampleGroup[]>) {
           various things in Deno, but can also be used as a guide to learn about
           many of the features Deno provides.
         </p>
-        <ul class="mt-6 text-gray-900">
+        <ul class="mt-6 text-gray-900 space-y-8">
           {props.data.map(
             (group) => <IndexGroup group={group} />,
           )}
