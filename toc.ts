@@ -79,6 +79,7 @@ export const TOC: TocGroup[] = [
       "watching-files",
       "walking-directories",
       "checking-file-existence",
+      "path-operations",
     ],
   },
   {
