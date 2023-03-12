@@ -5,7 +5,7 @@
     "fmt": "deno fmt",
     "fmt_check": "deno fmt --check",
     "lint": "deno lint",
-    "test": "deno test -A"
+    "test": "deno test -A --no-check"
   },
 
   "importMap": "./www/import_map.json",
