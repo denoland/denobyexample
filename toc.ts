@@ -38,14 +38,7 @@ export const TOC: TocGroup[] = [
       "byte-manipulation",
     ],
   },
-  {
-    title: "Cryptography",
-    icon: IconFileShredder,
-    items: [
-      "hashing",
-      "uuids",
-    ],
-  },
+
   {
     title: "CLI",
     icon: IconTerminal2,
@@ -54,6 +47,20 @@ export const TOC: TocGroup[] = [
       "prompts",
       "deno-version",
       "permissions",
+    ],
+  },
+  {
+    title: "Network",
+    icon: IconNetwork,
+    items: [
+      "http-requests",
+      "dns-queries",
+      "http-server",
+      "http-server-routing",
+      "http-server-streaming",
+      "http-server-files",
+      "tcp-listener",
+      "tcp-connector",
     ],
   },
   {
@@ -82,18 +89,13 @@ export const TOC: TocGroup[] = [
       "path-operations",
     ],
   },
+
   {
-    title: "Network",
-    icon: IconNetwork,
+    title: "Cryptography",
+    icon: IconFileShredder,
     items: [
-      "http-requests",
-      "dns-queries",
-      "http-server",
-      "http-server-routing",
-      "http-server-streaming",
-      "http-server-files",
-      "tcp-listener",
-      "tcp-connector",
+      "hashing",
+      "uuids",
     ],
   },
   {
