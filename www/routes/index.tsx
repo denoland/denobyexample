@@ -35,7 +35,7 @@ export default function Home(props: PageProps<ExampleGroup[]>) {
           content="Deno by example is a collection of annotated examples for how to use Deno, and the various features it provides."
         />
       </Head>
-      <main class="max-w-screen-sm mx-auto p-4">
+      <main class="max-w-screen-lg mx-auto p-4">
         <h1>
           <span class="text(5xl gray-900) tracking-tight font-bold">
             Deno
@@ -55,7 +55,7 @@ export default function Home(props: PageProps<ExampleGroup[]>) {
           various things in Deno, but can also be used as a guide to learn about
           many of the features Deno provides.
         </p>
-        <ul class="mt-6 text-gray-900 space-y-8">
+        <ul class="mt-16 text-gray-900 md:flex md:flex-wrap gap-12 space-y-8 md:space-y-0">
           {props.data.map(
             (group) => <IndexGroup group={group} />,
           )}

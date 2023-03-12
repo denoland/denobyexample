@@ -16,7 +16,7 @@ export function IndexItem(props: { example: Example }) {
 
 export function IndexGroup(props: { group: ExampleGroup }) {
   return (
-    <li>
+    <li class="md:w-1/4">
       <h2 class="text-lg flex gap-1 mb-1 items-center">
         {props.group.icon && (
           <div>
