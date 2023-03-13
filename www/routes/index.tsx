@@ -1,23 +1,32 @@
-import { TOC } from "../../toc.js";
+import { TOC } from "../../toc.ts";
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Page } from "../components/Page.tsx";
-import { Example, parseExample } from "../utils/example.ts";
+import { ExampleGroup, parseExample } from "../utils/example.ts";
+import { IndexGroup } from "../components/List.tsx";
 
-export const handler: Handlers<Example[]> = {
+async function loadExample(id: string) {
+  const data = await Deno.readTextFile(`./data/${id}.ts`);
+  return parseExample(id, data);
+}
+
+export const handler: Handlers<ExampleGroup[]> = {
   async GET(_req, { render }) {
     const data = await Promise.all(
-      TOC.map((id) =>
-        Deno.readTextFile(`./data/${id}.ts`)
-          .then((text) => parseExample(id, text))
-      ),
+      TOC.map(async (category): Promise<ExampleGroup> => {
+        return {
+          title: category.title,
+          icon: category.icon,
+          items: await Promise.all(category.items.map(loadExample)),
+        };
+      }),
     );
 
     return render!(data);
   },
 };
 
-export default function Home(props: PageProps<Example[]>) {
+export default function Home(props: PageProps<ExampleGroup[]>) {
   return (
     <Page title={`Deno by Example`} noSubtitle>
       <Head>
@@ -26,7 +35,7 @@ export default function Home(props: PageProps<Example[]>) {
           content="Deno by example is a collection of annotated examples for how to use Deno, and the various features it provides."
         />
       </Head>
-      <main class="max-w-screen-sm mx-auto p-4">
+      <main class="max-w-screen-lg mx-auto p-4">
         <h1>
           <span class="text(5xl gray-900) tracking-tight font-bold">
             Deno
@@ -46,18 +55,10 @@ export default function Home(props: PageProps<Example[]>) {
           various things in Deno, but can also be used as a guide to learn about
           many of the features Deno provides.
         </p>
-        <ul class="mt-6 text-gray-900">
-          {props.data.map((example) => (
-            <li>
-              <a
-                href={`/${example.id}`}
-                class="underline"
-                title={example.description}
-              >
-                {example.title}
-              </a>
-            </li>
-          ))}
+        <ul class="mt-16 text-gray-900 md:flex md:flex-wrap gap-12 space-y-8 md:space-y-0">
+          {props.data.map(
+            (group) => <IndexGroup group={group} />,
+          )}
         </ul>
         <p class="mt-6 text-gray-900">
           For WebGPU examples, visit our{" "}

@@ -1,4 +1,4 @@
-import { TOC } from "../../../toc.js";
+import { TOC } from "../../../toc.ts";
 import { Head } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Page } from "../../components/Page.tsx";
@@ -49,9 +49,10 @@ export const handler: Handlers<Data> = {
     }
 
     try {
-      const cur = TOC.indexOf(id);
-      const prev = TOC[cur - 1];
-      const next = TOC[cur + 1];
+      const flatToc = TOC.flatMap((category) => category.items);
+      const cur = flatToc.indexOf(id);
+      const prev = flatToc[cur - 1];
+      const next = flatToc[cur + 1];
       const [data, prevData, nextData] = await Promise.all(
         [id, prev, next].map((name) =>
           name
@@ -59,10 +60,14 @@ export const handler: Handlers<Data> = {
             : Promise.resolve(undefined)
         ),
       );
+      if (!data) {
+        return new Response("404 Example Not Found", { status: 404 });
+      }
+
       return ctx.render!([
         parseExample(id, data),
-        prev ? parseExample(prev, prevData) : null,
-        next ? parseExample(next, nextData) : null,
+        prev && prevData ? parseExample(prev, prevData) : null,
+        next && nextData ? parseExample(next, nextData) : null,
       ]);
     } catch (err) {
       if (err instanceof Deno.errors.NotFound) {

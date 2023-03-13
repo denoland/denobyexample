@@ -1,6 +1,7 @@
-import { TOC } from "../toc.js";
+import { TOC } from "../toc.ts";
 
 const files: string[] = [];
+const tocFlatten = TOC.flatMap((group) => group.items);
 
 // Check if every file in data is listed in the TOC
 for await (const dirEntry of Deno.readDir("data")) {
@@ -15,13 +16,13 @@ for await (const dirEntry of Deno.readDir("data")) {
 
   files.push(slug);
 
-  if (!TOC.includes(slug)) {
+  if (!tocFlatten.includes(slug)) {
     throw `${dirEntry.name} is not listed in toc.js`;
   }
 }
 
 // Check if everything in TOC is a file in data
-for (const filename of TOC) {
+for (const filename of tocFlatten) {
   if (!files.includes(filename)) {
     throw `Found "${filename}" in TOC but no file found in directory`;
   }

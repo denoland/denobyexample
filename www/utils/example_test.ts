@@ -1,3 +1,9 @@
+/// <reference no-default-lib="true" />
+/// <reference lib="dom" />
+/// <reference lib="dom.iterable" />
+/// <reference lib="dom.asynciterable" />
+/// <reference lib="deno.ns" />
+
 import { assertEquals, assertThrows } from "$std/testing/asserts.ts";
 import { Example, parseExample } from "./example.ts";
 import importMap from "../import_map.json" assert { type: "json" };
