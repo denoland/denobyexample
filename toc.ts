@@ -72,6 +72,7 @@ export const TOC: TocGroup[] = [
       "os-signals",
       "environment-variables",
       "subprocesses-output",
+      "subprocesses-spawn",
     ],
   },
   {

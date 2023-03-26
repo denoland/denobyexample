@@ -10,9 +10,9 @@
  * common way to do this.
  */
 
-// The Deno namespace has a unified api for interacting with the shell called
-// Deno.command. With it, we can initialize some information about the command
-// but it will not be executed immediately.
+// The Deno namespace has a unified api for interacting with the outside system
+// called Deno.Command. With it, we can initialize some information about the
+// command but it will not be executed immediately.
 const command = new Deno.Command("deno", {
   args: [
     "eval",
