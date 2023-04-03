@@ -30,7 +30,6 @@ import { toHashString } from "$std/crypto/to_hash_string.ts";
 const hash = toHashString(hashBuffer);
 console.log(hash);
 
-
 // For our second example, we'll hash the contents of a file.
 // Hashing a file is a common operation and doing this
 // without loading the whole file into memory is a typical
@@ -56,4 +55,3 @@ const fileHashBuffer = await crypto.subtle.digest("SHA-256", readableStream);
 // Finally, we obtain the hex result using toHashString like earlier.
 const fileHash = toHashString(fileHashBuffer);
 console.log(fileHash);
-
