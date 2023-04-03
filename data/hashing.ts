@@ -12,22 +12,14 @@
  * more advanced uses.
  */
 
-// The standard library has extensions to the Web
-// Crypto API that are useful when doing things
-// like hashing a file. These can be accessed through the
-// "crypto" module, a drop-in replacement for the Web Crypto
-// API that delegates to the native implementation when
-// possible.
-import { crypto } from "$std/crypto/mod.ts";
-
-// In our first example, we'll hash contents of a string variable.
+// In our first example, we'll hash the contents of a string variable.
 const message = "The easiest, most secure JavaScript runtime.";
 
-// Before we can pass our message to the crypto module,
+// Before we can pass our message to the hashing function,
 // we first need to encode it into a uint8 array.
 const messageBuffer = new TextEncoder().encode(message);
 
-// We use the crypto.subtle.digest method to hash our original message.
+// Here, we use the built-in crypto.subtle.digest method to hash our original message.
 // The hash is returned as an ArrayBuffer. To obtain a string
 // we'll need to do a little more work.
 const hashBuffer = await crypto.subtle.digest("SHA-256", messageBuffer);
@@ -43,12 +35,22 @@ console.log(hash);
 // Hashing a file is a common operation and doing this
 // without loading the whole file into memory is a typical
 // requirement.
+
+// The standard library has extensions to the Web
+// Crypto API that are useful when doing things
+// like hashing a file. These can be accessed through the
+// "crypto" module, a drop-in replacement for the Web Crypto
+// API that delegates to the native implementation when
+// possible.
+import { crypto } from "$std/crypto/mod.ts";
 const file = await Deno.open("example.txt", { read: true });
 
 // We obtain an async iterable using the readable property.
 const readableStream = file.readable;
 
-// We then use this as an async iterable and hash the file.
+// This time, when we call crypto.subtle.digest, we're using the
+// imported version that allows us to operate on the
+// async iterable.
 const fileHashBuffer = await crypto.subtle.digest("SHA-256", readableStream);
 
 // Finally, we obtain the hex result using toHashString like earlier.
