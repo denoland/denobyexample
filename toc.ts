@@ -59,6 +59,7 @@ export const TOC: TocGroup[] = [
       "http-server-routing",
       "http-server-streaming",
       "http-server-files",
+      "http-server-websocket",
       "tcp-listener",
       "tcp-connector",
     ],
