@@ -16,8 +16,8 @@ const socket = new WebSocket("ws://ws.example.com");
 // wait to make sure that we are connected. We can do
 // so by listening to the "open" event.
 socket.addEventListener("open", () => {
-  // We can ready the "ready state" of our instance
-  // this determines if we are able to send messages.
+  // We can read the "ready state" of our instance.
+  // This determines if we are able to send messages.
   // The ready state for open should be 1.
   console.log(socket.readyState);
 
