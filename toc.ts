@@ -81,6 +81,7 @@ export const TOC: TocGroup[] = [
     items: [
       "reading-files",
       "writing-files",
+      "deleting-files",
       "moving-renaming-files",
       "temporary-files",
       "create-remove-directories",
