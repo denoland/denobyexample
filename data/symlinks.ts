@@ -21,9 +21,9 @@ console.log(await Deno.realPath("link"));
 
 // Symlinks are automatically resolved, so we can just read
 // them like text files
-console.log(await Deno.readTextFileSync("link"));
+console.log(await Deno.readTextFile("link"));
 
 // In certain cases, soft links don't work. In this case we
 // can choose to make "hard links".
 await Deno.link("example.txt", "hardlink");
-console.log(await Deno.readTextFileSync("hardlink"));
+console.log(await Deno.readTextFile("hardlink"));
