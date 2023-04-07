@@ -27,8 +27,8 @@ socket.addEventListener("open", () => {
   socket.send("ping");
 });
 
-// We can handle messages back from the server by listing
-// to the "message" event. We can ready the data sent by
+// We can handle messages back from the server by listening
+// to the "message" event. We can read the data sent by
 // the server using the data property of the event.
 socket.addEventListener("message", (event) => {
   console.log(event.data);
