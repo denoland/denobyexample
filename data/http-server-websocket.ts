@@ -1,5 +1,5 @@
 /**
- * @title HTTP Server: Websockets
+ * @title HTTP Server: WebSockets
  * @difficulty intermediate
  * @tags cli, deploy
  * @run --allow-net <url>
