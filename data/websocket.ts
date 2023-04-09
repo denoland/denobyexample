@@ -1,5 +1,5 @@
 /**
- * @title Outbound Websockets
+ * @title Outbound WebSockets
  * @difficulty beginner
  * @tags cli, deploy, web
  * @run --allow-net <url>
