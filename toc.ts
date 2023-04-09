@@ -54,6 +54,7 @@ export const TOC: TocGroup[] = [
     icon: IconNetwork,
     items: [
       "http-requests",
+      "websocket",
       "dns-queries",
       "http-server",
       "http-server-routing",
