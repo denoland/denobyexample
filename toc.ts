@@ -86,6 +86,7 @@ export const TOC: TocGroup[] = [
       "moving-renaming-files",
       "temporary-files",
       "create-remove-directories",
+      "symlinks",
       "watching-files",
       "walking-directories",
       "checking-file-existence",
