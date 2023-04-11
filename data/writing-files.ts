@@ -5,7 +5,7 @@
  * @run --allow-read --allow-write <url>
  * @resource {https://deno.land/api?s=Deno.writeFile} Doc: Deno.writeFile
  * @resource {https://deno.land/api?s=Deno.create} Doc: Deno.create
- * @resource {https://deno.land/api?s=Deno.File} Doc: Deno.File
+ * @resource {https://deno.land/api?s=Deno.FsFile} Doc: Deno.FsFile
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder} MDN: TextEncoder
  *
  * Many applications need to write files to disk. Deno provides a simple
