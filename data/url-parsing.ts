@@ -5,7 +5,7 @@
  * @run <url>
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/URL} MDN: URL
  *
- * URLs are a web standard interface to parse and manipulate URLs.
+ * URL is the web standard interface to parse and manipulate URLs.
  */
 
 // We can create a new object in a variety of ways
@@ -13,7 +13,7 @@
 let url = new URL("https://deno.land/manual/introduction");
 
 // Alternatively we are able to pass a (relative) url which will
-// be automatically resolved to a absolute url
+// be automatically resolved to an absolute url
 url = new URL("/manual/introduction", "https://deno.land");
 
 // To get the full url out of an object, we can check the href property
