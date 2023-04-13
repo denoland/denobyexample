@@ -24,6 +24,7 @@ export const TOC: TocGroup[] = [
       "import-export",
       "dependency-management",
       "timers",
+      "url-parsing",
     ],
   },
   {
