@@ -33,7 +33,7 @@ await outputWriter.write(encoded);
 // Now we close the write stream (and the file)
 await outputWriter.close();
 
-// For our next example, let's ready the text from the file!
+// For our next example, let's read the text from the file!
 const input = await Deno.open("example.txt");
 
 // Let's get a reader from the input
