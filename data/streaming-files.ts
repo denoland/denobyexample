@@ -11,7 +11,7 @@
  * may be used for this purpose.
  */
 
-// For our first example we will demonstrate using a writeable strema.
+// For our first example we will demonstrate using a writeable stream.
 // To handle any low level file operations we must first open the file.
 const output = await Deno.open("example.txt", {
   create: true,
