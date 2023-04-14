@@ -5,7 +5,7 @@
  * @run --allow-read <url>
  * @resource {https://deno.land/api?s=Deno.readFile} Doc: Deno.readFile
  * @resource {https://deno.land/api?s=Deno.open} Doc: Deno.open
- * @resource {https://deno.land/api?s=Deno.File} Doc: Deno.File
+ * @resource {https://deno.land/api?s=Deno.FsFile} Doc: Deno.FsFile
  *
  * Many applications need to read files from disk. Deno provides a simple
  * interface for reading files.
@@ -22,7 +22,7 @@ const bytes = await Deno.readFile("hello.txt");
 const text = await Deno.readTextFile("hello.txt");
 
 // Often you need more control over when what parts of the file are read.
-// For this you start by opening a file to get a `Deno.File` object.
+// For this you start by opening a file to get a `Deno.FsFile` object.
 const file = await Deno.open("hello.txt");
 
 // Read some bytes from the beginning of the file. Allow up to 5 to be read but
