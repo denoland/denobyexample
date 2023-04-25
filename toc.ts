@@ -35,6 +35,7 @@ export const TOC: TocGroup[] = [
       "parsing-serializing-json",
       "parsing-serializing-toml",
       "parsing-serializing-yaml",
+      "parsing-serializing-csv",
       "hex-base64-encoding",
       "byte-manipulation",
     ],
