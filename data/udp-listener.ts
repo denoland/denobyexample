@@ -22,7 +22,7 @@ const listener = Deno.listenDatagram({
 // Await asynchronous messages that are sent to our UDP listener.
 for await (const [data, address] of listener) {
   // Here we log the address of the sender of the data
-  console.log("Server - received information from", address)
+  console.log("Server - received information from", address);
 
   // Here we log the results of the bytes that were read into our buffer array.
   console.log("Server - received:", decoder.decode(data));

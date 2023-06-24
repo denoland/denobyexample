@@ -22,7 +22,7 @@ const listener = await Deno.listenDatagram({
 const peerAddress: Deno.NetAddr = {
   transport: "udp",
   hostname: "127.0.0.1",
-  port: 10000
+  port: 10000,
 };
 
 // Encode the 'ping' message and write to the UDP connection for the server to receive.
