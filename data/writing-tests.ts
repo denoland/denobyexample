@@ -33,7 +33,8 @@ Deno.test("testing steps", async (t) => {
   const data = encoder.encode("Hello world!");
 
   await t.step("write some bytes", async () => {
-    await file.write(data);
+    const bytesWritten = await file.write(data);
+    assertEquals(bytesWritten, data.length);
     await file.seek(0, Deno.SeekMode.Start);
   });
 
