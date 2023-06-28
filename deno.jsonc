@@ -7,8 +7,7 @@
     "lint": "deno lint",
     "test": "deno test -A"
   },
-
-  "importMap": "./www/import_map.json",
+  "importMap": "./www/deno.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
