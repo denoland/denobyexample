@@ -49,6 +49,7 @@ export const TOC: TocGroup[] = [
       "prompts",
       "deno-version",
       "permissions",
+      "writing-tests",
     ],
   },
   {
