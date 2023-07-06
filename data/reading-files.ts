@@ -39,7 +39,7 @@ const bytesRead2 = await file.read(buffer2);
 console.log(`Read ${bytesRead2} bytes`);
 
 // You can use rewind back to the start using seek as well.
-file.seek(0, Deno.SeekMode.Start);
+await file.seek(0, Deno.SeekMode.Start);
 
 // Make sure to close the file when you are done.
 file.close();
