@@ -247,7 +247,7 @@ function SnippetComponent(props: {
 
   return (
     <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-6  transition duration-150 ease-in">
-      <div class="py-4 text-gray-700 select-none col-span-2">
+      <div class="py-4 text-gray-700 col-span-2">
         {props.snippet.text}
       </div>
       <div
