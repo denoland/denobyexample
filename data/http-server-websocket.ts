@@ -9,11 +9,8 @@
  * An example of a HTTP server that handles websocket requests.
  */
 
-// Import the http server from std/http.
-import { serve } from "$std/http/server.ts";
-
-// To start the server on the default port, call `serve` with the handler.
-serve((req) => {
+// To start the server on the default port, call `Deno.serve` with the handler.
+Deno.serve((req) => {
   // First, we verify if the client is negotiating to upgrade to websockets.
   // If not, we can give a status of 501 to specify we don't support plain
   // http requests.

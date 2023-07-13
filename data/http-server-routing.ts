@@ -11,9 +11,6 @@
  * based on the incoming URL.
  */
 
-// Import the http server from std/http.
-import { serve } from "$std/http/server.ts";
-
 // URL patterns can be used to match request URLs. They can contain named groups
 // that can be used to extract parts of the URL, e.g. the book ID.
 const BOOK_ROUTE = new URLPattern({ pathname: "/books/:id" });
@@ -33,6 +30,5 @@ function handler(req: Request): Response {
   });
 }
 
-// To start the server on the default port, call `serve` with the handler.
-console.log("Listening on http://localhost:8000");
-serve(handler);
+// To start the server on the default port, call `Deno.serve` with the handler.
+Deno.serve(handler);

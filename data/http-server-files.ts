@@ -3,7 +3,8 @@
  * @difficulty intermediate
  * @tags cli, deploy
  * @run --allow-net --allow-read <url>
- * @resource {$std/http/mod.ts} Doc: std/http
+ * @resource {https://deno.land/api?s=Deno.serve} Doc: Deno.serve
+ * @resource {$std/http/file_server.ts} Doc: std/http/file_server
  * @resource {/http-server} Example: HTTP Server: Hello World
  *
  * An example of a HTTP server that serves files.
@@ -12,11 +13,8 @@
 // Import utility methods for serving files with mime types.
 import { serveDir, serveFile } from "$std/http/file_server.ts";
 
-// Import the http server from std/http.
-import { serve } from "$std/http/server.ts";
-
 // Here we start a simple server
-serve((req: Request) => {
+Deno.serve((req: Request) => {
   // Get the path from the url (ie. example.com/whatever -> /whatever)
   const pathname = new URL(req.url).pathname;
 
