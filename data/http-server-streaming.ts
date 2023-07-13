@@ -10,9 +10,6 @@
  * An example HTTP server that streams a response back to the client.
  */
 
-// Import the http server from std/http.
-import { serve } from "$std/http/server.ts";
-
 function handler(_req: Request): Response {
   // Set up a variable to store a timer ID, and the ReadableStream.
   let timer: number | undefined = undefined;
@@ -42,6 +39,5 @@ function handler(_req: Request): Response {
   });
 }
 
-// To start the server on the default port, call `serve` with the handler.
-console.log("Listening on http://localhost:8000");
-serve(handler);
+// To start the server on the default port, call `Deno.serve` with the handler.
+Deno.serve(handler);
