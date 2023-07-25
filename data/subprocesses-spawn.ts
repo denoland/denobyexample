@@ -22,7 +22,7 @@ const command = new Deno.Command("deno", {
   stdout: "piped",
 });
 
-// In the a slightly more complex case, we want to interact with a spawned
+// In a slightly more complex case, we want to interact with a spawned
 // process. To do this, we first need to spawn it.
 const process = await command.spawn();
 
