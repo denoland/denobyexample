@@ -7,7 +7,7 @@
  * @resource {https://deno.land/manual/node/npm_specifiers} npm: specifiers
  * @resource {https://www.npmjs.com/package/express} express module on npm
  *
- * Use JavaScript modules from npm in your Deno programs with the "npm:" 
+ * Use JavaScript modules from npm in your Deno programs with the "npm:"
  * specifier in your imports.
  */
 

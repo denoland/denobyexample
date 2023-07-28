@@ -5,7 +5,7 @@
  * @run <url>
  * @resource {https://www.typescriptlang.org/docs/handbook/intro.html} TypeScript handbook
  *
- * Deno natively understands TypeScript code with no compiler to configure. 
+ * Deno natively understands TypeScript code with no compiler to configure.
  * Start writing code in .ts files, and the runtime will work with them just
  * fine.
  */
@@ -15,7 +15,7 @@ interface Person {
   name: string;
   age: number;
 }
- 
+
 // Provide a typed input to a function
 function greet(person: Person) {
   return "Hello, " + person.name + "!";
