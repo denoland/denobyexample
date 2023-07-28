@@ -1,3 +1,4 @@
+import IconDatabase from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/database.tsx";
 import IconFlag3 from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/flag-3.tsx";
 import IconTransform from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/transform.tsx";
 import IconFileShredder from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/file-shredder.tsx";
@@ -23,6 +24,9 @@ export const TOC: TocGroup[] = [
       "color-logging",
       "import-export",
       "dependency-management",
+      "node",
+      "npm",
+      "typescript",
       "timers",
       "url-parsing",
     ],
@@ -98,7 +102,14 @@ export const TOC: TocGroup[] = [
       "streaming-files",
     ],
   },
-
+  {
+    title: "Databases",
+    icon: IconDatabase,
+    items: [
+      "postgres",
+      "kv",
+    ],
+  },
   {
     title: "Cryptography",
     icon: IconFileShredder,
