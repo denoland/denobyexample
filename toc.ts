@@ -66,6 +66,7 @@ export const TOC: TocGroup[] = [
       "http-server-websocket",
       "tcp-listener",
       "tcp-connector",
+      "piping-streams",
     ],
   },
   {
