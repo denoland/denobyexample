@@ -13,8 +13,8 @@ const listener = Deno.listenTls({
   hostname: "127.0.0.1",
   port: 443,
   transport: "tcp",
-  certFile: "./server.crt",
-  keyFile: "./server.key",
+  cert: Deno.readTextFileSync("./server.crt"),
+  key: Deno.readTextFileSync("./server.key"),
 });
 
 // Await asynchronous connections that are established to our TCP listener.
