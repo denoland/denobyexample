@@ -68,6 +68,7 @@ export const TOC: TocGroup[] = [
       "tcp-connector",
       "tls-listener",
       "tls-connector",
+      "piping-streams",
     ],
   },
   {
