@@ -143,9 +143,9 @@ export default function ExamplePage(props: PageProps<Data>) {
             ))}
           </div>
         ))}
-        <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-6">
-          <div class="col-span-2 mt-8" />
-          <div class="col-span-3 mt-8">
+        <div class="grid grid-cols-1 sm:grid-cols-10 gap-x-8">
+          <div class="col-span-3 mt-8" />
+          <div class="col-span-7 mt-8">
             {example.run && (
               <>
                 <p class="text-gray-700">
@@ -246,12 +246,12 @@ function SnippetComponent(props: {
   );
 
   return (
-    <div class="grid grid-cols-1 sm:grid-cols-5 gap-x-6  transition duration-150 ease-in">
-      <div class="py-4 text-gray-700 select-none col-span-2">
+    <div class="grid grid-cols-1 sm:grid-cols-10 gap-x-8  transition duration-150 ease-in">
+      <div class="py-4 text-gray-700 select-none col-span-3 text-sm">
         {props.snippet.text}
       </div>
       <div
-        class={`col-span-3 relative bg-gray-100 ${
+        class={`col-span-7 relative bg-gray-100 ${
           props.firstOfFile ? "rounded-t-md" : ""
         } ${props.lastOfFile ? "rounded-b-md" : ""} ${
           props.snippet.code.length === 0 ? "hidden sm:block" : ""
