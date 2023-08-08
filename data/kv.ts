@@ -79,5 +79,5 @@ await kv.atomic()
     value: new Deno.KvU64(10n),
   })
   .commit();
-const newScore = (await kv.get(aliceScoreKey)).value as Deno.KvU64;
+const newScore = (await kv.get<Deno.KvU64>(aliceScoreKey)).value;
 console.log("Alice's new score is: ", newScore);
