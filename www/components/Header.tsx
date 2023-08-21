@@ -1,22 +1,21 @@
-import { DenoLogo } from "./Logo.tsx";
-
 export function Header(props: { noSubtitle?: boolean }) {
   return (
     <header class="px(3 lg:14) h(12 lg:20) text-gray-500 flex justify-between items-center">
-      <a class="flex items-center flex-shrink-0" href="/">
-        <DenoLogo />
-        <span class="ml-4 flex items-baseline gap-x-1 flex-col sm:flex-row tracking-tighter">
-          <span class="text(2xl gray-900) font-bold leading-none">
-            Deno
-          </span>
-          {!props.noSubtitle &&
-            (
+      {!props.noSubtitle
+        ? (
+          <a class="flex items-center flex-shrink-0" href="/">
+            <img src="/logo.png" alt="logo" class="w-12 h-12" />
+            <span class="ml-4 flex items-baseline gap-x-1 flex-col sm:flex-row tracking-tighter">
+              <span class="text(2xl gray-900) font-bold leading-none">
+                Deno
+              </span>
               <span class="font-medium italic text(sm sm:base gray-600) leading-none">
                 by example
               </span>
-            )}
-        </span>
-      </a>
+            </span>
+          </a>
+        )
+        : <div />}
       <div class="flex items-center gap-6">
         <a
           href="https://deno.land/manual"

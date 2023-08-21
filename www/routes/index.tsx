@@ -36,13 +36,16 @@ export default function Home(props: PageProps<ExampleGroup[]>) {
         />
       </Head>
       <main class="max-w-screen-lg mx-auto p-4">
-        <h1>
-          <span class="text(5xl gray-900) tracking-tight font-bold">
-            Deno
-          </span>
-          <span class="text(2xl gray-700) tracking-tight italic font-medium ml-2">
-            by example
-          </span>
+        <h1 class="flex items-center gap-4">
+          <img src="/logo.png" alt="logo" class="w-24 h-24" />
+          <div>
+            <span class="text(5xl gray-900) tracking-tight font-bold">
+              Deno
+            </span>
+            <span class="text(2xl gray-700) tracking-tight italic font-medium ml-2">
+              by example
+            </span>
+          </div>
         </h1>
         <p class="mt-8 text-gray-900">
           Deno is a simple, modern and secure runtime for JavaScript and
