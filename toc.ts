@@ -111,7 +111,7 @@ export const TOC: TocGroup[] = [
     items: [
       "postgres",
       "kv",
-      "redis"
+      "redis",
     ],
   },
   {
