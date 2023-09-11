@@ -117,12 +117,18 @@ export default function ExamplePage(props: PageProps<Data>) {
             ))}
           </div>
         </div>
-        <h1 class="mt-2 text-3xl font-bold">{example.title}</h1>
+        <div class="flex justify-between items-center">
+          <h1 class="mt-2 text-3xl font-bold">{example.title}</h1>
+          <a
+            href={`https://github.com/denoland/denobyexample/blob/main/data${props.url.pathname}.ts`}
+            class="px-4 py-2 rounded bg-gray-100 hover:bg-gray-300 text-slate-900"
+          >
+            Edit
+          </a>
+        </div>
         {example.description && (
           <div class="mt-1">
-            <p class="text-gray-500">
-              {example.description}
-            </p>
+            <p class="text-gray-500">{example.description}</p>
           </div>
         )}
         {example.files.map((file) => (
@@ -157,9 +163,8 @@ export default function ExamplePage(props: PageProps<Data>) {
                 </p>
                 <pre class="mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md">
                   {example.run.startsWith("deno")
-                    ?example.run.replace("<url>", url)
-                    :"deno run " + example.run.replace("<url>", url)
-                  }
+                    ? example.run.replace("<url>", url)
+                    : "deno run " + example.run.replace("<url>", url)}
                 </pre>
               </>
             )}
@@ -183,19 +188,14 @@ export default function ExamplePage(props: PageProps<Data>) {
             )}
             {example.additionalResources.length > 0 && (
               <div class="col-span-3 mt-12 pt-6 border-t-1 border-gray-200">
-                <p class="text-gray-500">
-                  Additional resources:
-                </p>
+                <p class="text-gray-500">Additional resources:</p>
                 <ul class="list-disc list-inside mt-1">
                   {example.additionalResources.map(([link, title]) => (
                     <li
                       class="text-gray-700 hover:text-gray-900"
                       key={link + title}
                     >
-                      <a
-                        class="hover:underline focus:underline"
-                        href={link}
-                      >
+                      <a class="hover:underline focus:underline" href={link}>
                         {title}
                       </a>
                     </li>
