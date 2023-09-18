@@ -76,7 +76,7 @@ resp = await fetch("https://example.com", {
 // Fetch also supports streaming the request body.
 const bodyStream = new ReadableStream({
   start(controller) {
-    controller.enqueue("Hello, World!");
+    controller.enqueue(new TextEncoder().encode("Hello, World!"));
     controller.close();
   },
 });
