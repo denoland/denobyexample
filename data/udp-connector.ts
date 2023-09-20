@@ -13,7 +13,7 @@
 const encoder = new TextEncoder();
 
 // Create a UDP listener to allow us to send a ping to the other UDP server.
-const listener = await Deno.listenDatagram({
+const listener = Deno.listenDatagram({
   port: 10001,
   transport: "udp",
 });

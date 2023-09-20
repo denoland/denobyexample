@@ -24,11 +24,11 @@ const command = new Deno.Command("deno", {
 
 // In a slightly more complex case, we want to interact with a spawned
 // process. To do this, we first need to spawn it.
-const process = await command.spawn();
+const process = command.spawn();
 
 // We can now pipe the input into stdin. To do this we must first get
 // a writer from the stream and write to it
-const writer = await process.stdin.getWriter();
+const writer = process.stdin.getWriter();
 writer.write(new TextEncoder().encode("console.log('hello')"));
 writer.releaseLock();
 

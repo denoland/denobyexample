@@ -18,6 +18,6 @@
     "$gfm": "https://deno.land/x/gfm@0.1.28/mod.ts",
     "$prism": "https://esm.sh/prismjs@1.29.0",
     "$prism/": "https://esm.sh/prismjs@1.29.0/",
-    "$std/": "https://deno.land/std@0.194.0/"
+    "$std/": "https://deno.land/std@0.202.0/"
   }
 }

@@ -25,9 +25,9 @@ const messageBuffer = new TextEncoder().encode(message);
 const hashBuffer = await crypto.subtle.digest("SHA-256", messageBuffer);
 
 // We can decode this into a string using the standard
-// library's toHashString method.
-import { toHashString } from "$std/crypto/to_hash_string.ts";
-const hash = toHashString(hashBuffer);
+// library's encodeHex method.
+import { encodeHex } from "$std/encoding/hex.ts";
+const hash = encodeHex(hashBuffer);
 console.log(hash);
 
 // For our second example, we'll hash the contents of a file.
@@ -52,6 +52,6 @@ const readableStream = file.readable;
 // async iterable.
 const fileHashBuffer = await crypto.subtle.digest("SHA-256", readableStream);
 
-// Finally, we obtain the hex result using toHashString like earlier.
-const fileHash = toHashString(fileHashBuffer);
+// Finally, we obtain the hex result using encodeHex like earlier.
+const fileHash = encodeHex(fileHashBuffer);
 console.log(fileHash);

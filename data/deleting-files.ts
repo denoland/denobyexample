@@ -21,7 +21,7 @@ Deno.removeSync("example.txt");
 // call would error out. If we want to recursively delete
 // the contents of a directory, we should set recursive to
 // true
-await Deno.removeSync("./dir", { recursive: true });
+await Deno.remove("./dir", { recursive: true });
 
 // A common patern is to remove a file or directory only
 // if it already exists. The correct way of doing this is

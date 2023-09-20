@@ -12,12 +12,12 @@
 
 // JSON files can be imported in JS and TS modules. When doing so, you need to
 // specify the "json" import assertion type.
-import file from "./version.json" assert { type: "json" };
+import file from "./version.json" with { type: "json" };
 console.log(file.version);
 
 // Dynamic imports are also supported.
 const module = await import("./version.json", {
-  assert: { type: "json" },
+  with: { type: "json" },
 });
 console.log(module.default.version);
 
