@@ -6,7 +6,7 @@
  * @resource {/import-export} Example: Importing & Exporting
  * @resource {https://datatracker.ietf.org/doc/html/rfc4180} Spec: CSV
  *
- * CSV is a data serialization format that is designed to be portal for table-like applications.
+ * CSV is a data serialization format that is designed to be portable for table-like applications.
  */
 import { parse, stringify } from "$std/csv/mod.ts";
 
