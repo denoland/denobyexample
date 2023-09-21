@@ -3,6 +3,7 @@
  * @difficulty beginner
  * @tags cli, deploy, web
  * @run --allow-net <url>
+ * @resource {/http-server-websocket} HTTP Server: WebSockets
  * @resource {https://developer.mozilla.org/en-US/docs/Web/API/WebSocket} MDN: WebSocket
  *
  * Opening a WebSocket connection for real-time, bi-directional communication with Deno is very simple.
@@ -10,7 +11,7 @@
 
 // First we need to use the WebSocket constructor to initiate
 // our connection to an external server
-const socket = new WebSocket("ws://ws.example.com");
+const socket = new WebSocket("ws://localhost:8000");
 
 // Before we do anything with the websocket, we should
 // wait to make sure that we are connected. We can do

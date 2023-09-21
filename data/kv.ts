@@ -56,7 +56,7 @@ console.log(record1, record2);
 // List several records by key prefix - note that results are ordered
 // lexicographically, so our players will be fetched in the order
 // "alice", "briana", "carlos"
-const records = await kv.list({ prefix: ["players"] });
+const records = kv.list({ prefix: ["players"] });
 const players = [];
 for await (const res of records) {
   players.push(res.value as Player);

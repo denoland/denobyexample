@@ -20,6 +20,10 @@ await Deno.writeFile("hello.txt", bytes, { mode: 0o644 });
 // You can also write a string instead of a byte array.
 await Deno.writeTextFile("hello.txt", "Hello World");
 
+// Synchronous writing is also supported.
+Deno.writeFileSync("hello.txt", bytes);
+Deno.writeTextFileSync("hello.txt", "Hello World");
+
 // For more granular writes, open a new file for writing.
 const file = await Deno.create("hello.txt");
 
@@ -28,20 +32,12 @@ const written = await file.write(bytes);
 console.log(`${written} bytes written.`);
 
 // A `file.write` returns the number of bytes written, as it might not write all
-// bytes passed. Use the `writeAll` utility from `std/streams` to make sure the
-// entire buffer is written.
-import { writeAll } from "$std/streams/write_all.ts";
-await writeAll(file, new TextEncoder().encode("World!"));
+// bytes passed. We can get a Writer instead to make sure the entire buffer is written.
+const writer = file.writable.getWriter();
+await writer.write(new TextEncoder().encode("World!"));
 
-// Make sure to close the file after you are done with it.
-file.close();
-
-// Synchronous writing is also supported.
-Deno.writeFileSync("hello.txt", bytes);
-Deno.writeTextFileSync("hello.txt", "Hello World");
-const f = Deno.createSync("hello.txt");
-import { writeAllSync } from "$std/streams/write_all.ts";
-writeAllSync(f, new TextEncoder().encode("World!"));
-f.close();
+// Closing the writer automatically closes the file.
+// If you don't use a writer, make sure to close the file after you are done with it.
+await writer.close();
 
 // The `--allow-write` permission is required to write files.
