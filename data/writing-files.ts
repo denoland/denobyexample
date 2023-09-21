@@ -32,7 +32,7 @@ const written = await file.write(bytes);
 console.log(`${written} bytes written.`);
 
 // A `file.write` returns the number of bytes written, as it might not write all
-// bytes passed. We can get a Writer insteda to make sure the entire buffer is written.
+// bytes passed. We can get a Writer instead to make sure the entire buffer is written.
 const writer = file.writable.getWriter();
 await writer.write(new TextEncoder().encode("World!"));
 
