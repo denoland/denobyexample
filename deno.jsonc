@@ -7,10 +7,7 @@
     "lint": "deno lint",
     "test": "deno test -A"
   },
-  "imports": {
-    "preact": "https://esm.sh/preact@10.15.1",
-    "$std/": "https://deno.land/std@0.202.0/"
-  },
+  "importMap": "./www/import_map.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
