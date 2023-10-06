@@ -114,6 +114,7 @@ export const TOC: TocGroup[] = [
       "postgres",
       "kv",
       "redis",
+      "mongo",
     ],
   },
   {
