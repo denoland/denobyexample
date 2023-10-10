@@ -6,7 +6,7 @@
 
 import { assertEquals, assertThrows } from "$std/testing/asserts.ts";
 import { Example, parseExample } from "./example.ts";
-import importMap from "../import_map.json" assert { type: "json" };
+import importMap from "../deno.json" with { type: "json" };
 
 Deno.test("parse jsdoc", () => {
   const example = `
