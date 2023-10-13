@@ -16,7 +16,7 @@
 const command = new Deno.Command("deno", {
   args: [
     "eval",
-"\
+    "\
     console.log('hello from deno'); \
     console.error('hello from stderr'); \
     ",
