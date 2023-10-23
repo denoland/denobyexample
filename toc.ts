@@ -129,6 +129,7 @@ export const TOC: TocGroup[] = [
     title: "Advanced",
     icon: IconStars,
     items: [
+      "ffi",
       "web-workers",
       "webassembly",
     ],
