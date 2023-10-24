@@ -14,8 +14,12 @@ for await (const dirEntry of Deno.readDir("data")) {
 
   const slug = dirEntry.name.slice(0, -3);
 
-  files.push(slug);
+  // ignore .json
+  if (!dirEntry.name.endsWith(".ts")) {
+    continue;
+  }
 
+  files.push(slug);
   if (!tocFlatten.includes(slug)) {
     throw `${dirEntry.name} is not listed in toc.js`;
   }
