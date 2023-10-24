@@ -4,13 +4,13 @@
  * @tags cli
  * @run --unstable --allow-ffi <url>
  * @resource {https://docs.deno.com/runtime/manual/runtime/ffi_api} Manual: FFI
- * @resource {https://denonomicon.deno.dev/} Denonomicon
+ * @resource {https://denonomicon.deno.dev} Denonomicon
  *
  * Foreign Function Interface (FFI) is a way to call functions written in other languages from JavaScript.
  */
 
 // Prerequisites:
-// - [Julia](https://julialang.org/downloads/) installed
+// - Julia from https://julialang.org/downloads/ installed
 // - `julia` in your `PATH`
 
 // This example shows how to use the julia FFI library to execute Julia code from Deno.
