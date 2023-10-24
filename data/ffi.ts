@@ -4,6 +4,7 @@
  * @tags cli
  * @run --unstable --allow-ffi <url>
  * @resource {https://docs.deno.com/runtime/manual/runtime/ffi_api} Manual: FFI
+ * @resource {https://denonomicon.deno.dev/} Denonomicon
  *
  * Foreign Function Interface (FFI) is a way to call functions written in other languages from JavaScript.
  */
