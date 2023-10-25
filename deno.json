@@ -1,4 +1,17 @@
 {
+  "tasks": {
+    "fmt": "deno fmt",
+    "fmt_check": "deno fmt --check",
+    "lint": "deno lint",
+    "test": "deno test -A",
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "build": "deno run -A dev.ts build",
+    "preview": "deno run -A main.ts"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.4.3/",
     "preact": "https://esm.sh/preact@10.15.1",
@@ -12,5 +25,15 @@
     "$prism": "https://esm.sh/prismjs@1.29.0",
     "$prism/": "https://esm.sh/prismjs@1.29.0/",
     "$std/": "https://deno.land/std@0.202.0/"
+  },
+  "lock": false,
+  "lint": {
+    "rules": {
+      "tags": ["fresh", "recommended"]
+    },
+    "exclude": ["_fresh"]
+  },
+  "fmt": {
+    "exclude": ["_fresh"]
   }
 }
