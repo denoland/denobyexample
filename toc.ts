@@ -123,6 +123,7 @@ export const TOC: TocGroup[] = [
     items: [
       "hashing",
       "uuids",
+      "ulid",
     ],
   },
   {
