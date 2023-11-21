@@ -31,7 +31,7 @@ export interface ExampleSnippet {
 
 export function parseExample(id: string, file: string): Example {
   // Substitute $std/ with the full import url
-  file = file.replaceAll("$std/", "https://deno.land/std@0.202.0/");
+  file = file.replaceAll("$std/", "https://deno.land/std@0.207.0/");
 
   // Extract the multi line JS doc comment at the top of the file
   const [, jsdoc, rest] = file.match(/^\s*\/\*\*(.*?)\*\/\s*(.*)/s) || [];
