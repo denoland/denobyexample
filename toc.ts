@@ -7,6 +7,7 @@ import IconDeviceDesktop from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/de
 import IconFiles from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/files.tsx";
 import IconNetwork from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/network.tsx";
 import IconStars from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/stars.tsx";
+import IconClock from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/clock.tsx";
 import { FunctionComponent } from "preact";
 
 interface TocGroup {
@@ -115,6 +116,14 @@ export const TOC: TocGroup[] = [
       "kv",
       "redis",
       "mongo",
+    ],
+  },
+  {
+    title: "Scheduled tasks",
+    icon: IconClock,
+    items: [
+      "cron",
+      "queues",
     ],
   },
   {
