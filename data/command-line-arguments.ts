@@ -26,6 +26,7 @@ const flags = parse(Deno.args, {
   boolean: ["help", "color"],
   string: ["version"],
   default: { color: true },
+  negatable: ["color"],
 });
 console.log("Wants help?", flags.help);
 console.log("Version:", flags.version);
