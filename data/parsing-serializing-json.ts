@@ -6,7 +6,7 @@
  * @resource {https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON} MDN: JSON
  *
  * JSON is a widely used data interchange format. It is a human-readable, but
- * also easially machine-readable.
+ * also easily machine-readable.
  */
 
 // To parse a JSON string, you can use the builtin JSON.parse function. The
