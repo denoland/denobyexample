@@ -22,8 +22,8 @@ console.log(await resp.text()); // "Hello, World!"
 // can be read only once.
 resp = await fetch("https://example.com");
 await resp.arrayBuffer();
-/** or await response2.json(); */
-/** or await response2.blob(); */
+/** or await resp.json(); */
+/** or await resp.blob(); */
 
 // The response body can also be streamed in chunks.
 resp = await fetch("https://example.com");
