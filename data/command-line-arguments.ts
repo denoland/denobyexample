@@ -22,6 +22,7 @@ import { parseArgs } from "$std/cli/parse_args.ts";
 // The `parseArgs` function takes the argument list, and a list of options. In these
 // options you specify the types of the accepted arguments and possibly default
 // values. An object is returned with the parsed arguments.
+// NOTE: this function is based on [`minimist`](https://github.com/minimistjs/minimist), not compatible with the `parseArgs()` function in `node:util`.
 const flags = parseArgs(Deno.args, {
   boolean: ["help", "color"],
   string: ["version"],
