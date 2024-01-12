@@ -4,7 +4,7 @@
  * @tags cli
  * @run <url> Deno Sushi --help --version=1.0.0 --no-color
  * @resource {https://deno.land/api?s=Deno.args} Doc: Deno.args
- * @resource {$std/flags/mod.ts} Doc: std/flags
+ * @resource {$std/cli/parse_args.ts} Doc: std/cli
  *
  * Command line arguments are often used to pass configuration options to a
  * program.
@@ -16,13 +16,14 @@ const food = Deno.args[1];
 console.log(`Hello ${name}, I like ${food}!`);
 
 // Often you want to parse command line arguments like `--foo=bar` into
-// structured data. This can be done using `std/flags`.
-import { parse } from "$std/flags/mod.ts";
+// structured data. This can be done using `std/cli`.
+import { parseArgs } from "$std/cli/parse_args.ts";
 
-// The `parse` function takes the argument list, and a list of options. In these
+// The `parseArgs` function takes the argument list, and a list of options. In these
 // options you specify the types of the accepted arguments and possibly default
 // values. An object is returned with the parsed arguments.
-const flags = parse(Deno.args, {
+// NOTE: this function is based on [`minimist`](https://github.com/minimistjs/minimist), not compatible with the `parseArgs()` function in `node:util`.
+const flags = parseArgs(Deno.args, {
   boolean: ["help", "color"],
   string: ["version"],
   default: { color: true },
