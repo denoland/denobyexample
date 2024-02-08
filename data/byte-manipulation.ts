@@ -19,7 +19,7 @@ const c = new Uint8Array([4, 5]);
 // We can concatenate two byte arrays using the
 // concat method
 import { concat } from "$std/bytes/concat.ts";
-const d = concat(a, b);
+const d = concat([a, b]);
 console.log(d); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 // Sometimes we need to repeat certain bytes
