@@ -15,7 +15,7 @@ import * as hex from "$std/encoding/hex.ts";
 
 // We can easily encode a string or an array buffer into base64 using the base64.encode method.
 const base64Encoded = base64.encode("somestringtoencode");
-console.log(base64.encode(new Int8Array([1, 32, 67, 120, 19])));
+console.log(base64.encode(new Uint8Array([1, 32, 67, 120, 19])));
 
 // We can then decode base64 into a byte array using the decode method.
 const base64Decoded = base64.decode(base64Encoded);
