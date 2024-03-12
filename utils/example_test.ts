@@ -46,7 +46,7 @@ Deno.test("parse jsdoc unknown tag", () => {
  * @difficulty beginner
  * @tags foo, cli, deploy
  * @run <url>
- * 
+ *
  * xyz
  */
 `;
@@ -66,7 +66,7 @@ Deno.test("parse jsdoc unknown difficulty", () => {
  * @difficulty garbage
  * @tags cli, deploy
  * @run <url>
- * 
+ *
  * xyz
  */
 `;
@@ -85,7 +85,7 @@ Deno.test("parse jsdoc missing title", () => {
  * @difficulty garbage
  * @tags cli, deploy
  * @run <url>
- * 
+ *
  * xyz
  */
 `;
@@ -104,7 +104,7 @@ Deno.test("parse jsdoc no run", () => {
  * @title abc
  * @difficulty beginner
  * @tags cli, deploy
- * 
+ *
  * xyz
  */
 `;
@@ -159,7 +159,7 @@ Deno.test("parse jsdoc resources", () => {
  * @difficulty beginner
  * @tags cli, deploy
  * @resource {https://deno.land#install} Deno: Installation
- * @resource {https://deno.land/manual/getting_started/setup_your_environment} Deno Manual: Setup your environemnt
+ * @resource {https://deno.land/manual/getting_started/setup_your_environment} Deno Manual: Setup your environment
  */
 `;
   const expected: Example = {
@@ -172,7 +172,7 @@ Deno.test("parse jsdoc resources", () => {
       ["https://deno.land#install", "Deno: Installation"],
       [
         "https://deno.land/manual/getting_started/setup_your_environment",
-        "Deno Manual: Setup your environemnt",
+        "Deno Manual: Setup your environment",
       ],
     ],
     run: undefined,

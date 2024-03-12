@@ -3,7 +3,7 @@
  * @difficulty intermediate
  * @tags cli, deploy
  * @run --unstable <url>
- * @resource {https://docs.deno.com/kv/manual/cron} Deno Cron user guide
+ * @resource {https://docs.deno.com/deploy/kv/manual/cron} Deno Cron user guide
  * @resource {https://deno.land/api?s=Deno.cron&unstable=} Deno Cron Runtime API docs
  *
  * Deno Cron is a cron task scheduler built into the Deno runtime and works with

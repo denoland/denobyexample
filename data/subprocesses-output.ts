@@ -27,7 +27,7 @@ const command = new Deno.Command("deno", {
 // can be achieved using command.output()
 let result = await command.output();
 
-// It can also be achieved syncronously using command.outputSync()
+// It can also be achieved synchronously using command.outputSync()
 result = command.outputSync();
 
 // We can now interact with stdout and stderr

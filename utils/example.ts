@@ -55,7 +55,7 @@ export function parseExample(id: string, file: string): Example {
   }
   description = description.trim();
 
-  // Seperate the code into snippets.
+  // Separate the code into snippets.
   const files: ExampleFile[] = [{
     name: "",
     snippets: [],

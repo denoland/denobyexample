@@ -9,7 +9,7 @@
  */
 
 // In the case that we want to remove a simple file,
-// we can simply call Deno.remove with the filname as
+// we can simply call Deno.remove with the filename as
 // a parameter
 await Deno.remove("example.txt");
 
@@ -23,7 +23,7 @@ Deno.removeSync("example.txt");
 // true
 await Deno.remove("./dir", { recursive: true });
 
-// A common patern is to remove a file or directory only
+// A common pattern is to remove a file or directory only
 // if it already exists. The correct way of doing this is
 // by just doing it and trying to catch any NotFound errors.
 try {

@@ -7,7 +7,7 @@
  * @resource {https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of} MDN: for await of
  * @resource {$std/async/debounce.ts} Doc: std/debounce
  *
- * When creating frameworks or CLI tools, it is often neccessary to watch the filesystem for changes.
+ * When creating frameworks or CLI tools, it is often necessary to watch the filesystem for changes.
  */
 // The easiest way to watch a filesystem is to use the Deno builtin watchFs.
 // Deno.watchFs returns an FsWatcher which is an async iterable.

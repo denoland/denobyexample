@@ -50,7 +50,7 @@ Deno.test("testing steps", async (t) => {
 // The test runner by default makes it very hard to shoot yourself in the foot. For
 // each test, the test runner checks to make sure all resources created during the
 // test are freed. There are situations where this is not useful behavior. We can use
-// the more complex test definiton to disable this behavior
+// the more complex test definition to disable this behavior
 Deno.test({
   name: "leaky test",
   async fn() {

@@ -20,7 +20,7 @@ if (status.state === "granted") {
   console.log("'env' permission is denied.");
 }
 
-// There are also synchronous versions of all the permisison APIs
+// There are also synchronous versions of all the permission APIs
 status = Deno.permissions.requestSync({ name: "env" });
 if (status.state === "granted") {
   console.log("'env' permission is granted.");
