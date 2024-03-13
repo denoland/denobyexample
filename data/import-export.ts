@@ -4,7 +4,7 @@
  * @tags cli, deploy
  * @run <url>
  * @resource {/dependency-management} Example: Dependency Management
- * @resource {https://deno.land/manual@v1.30.0/basics/modules} Manual: Modules
+ * @resource {https://docs.deno.com/runtime/manual/basics/modules} Manual: Modules
  *
  * To build composable programs, it is necessary to be able to import and export
  * functions from other modules. This is accomplished by using ECMA script

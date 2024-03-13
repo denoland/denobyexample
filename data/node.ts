@@ -3,8 +3,8 @@
  * @difficulty beginner
  * @tags cli, deploy
  * @run --allow-env <url>
- * @resource {https://deno.land/manual/node} Node.js / npm support in Deno
- * @resource {https://deno.land/manual/node/node_specifiers} node: specifiers
+ * @resource {https://docs.deno.com/runtime/manual/node} Node.js / npm support in Deno
+ * @resource {https://docs.deno.com/runtime/manual/node/node_specifiers} node: specifiers
  *
  * Deno supports most built-in Node.js modules natively - you can include them
  * in your code using "node:" specifiers in your imports.

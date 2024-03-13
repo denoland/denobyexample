@@ -26,7 +26,7 @@ console.log(url.origin); // https://deno.land
 console.log(url.pathname); // /manual/introduction
 console.log(url.protocol); // https:
 
-// When parsing a url we often need to read the search paramters.
+// When parsing a url we often need to read the search parameters.
 url = new URL("https://deno.land/api?s=Deno.readFile");
 
 console.log(url.searchParams.get("s")); // Deno.readFile
