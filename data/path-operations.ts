@@ -3,15 +3,16 @@
  * @difficulty beginner
  * @tags cli
  * @run --allow-read <url>
- * @resource {$std/path} Deno: std/path
+ * @resource {https://jsr.io/@std/path} Doc: @std/path
  * @resource {https://deno.land/api?s=Deno.cwd} Deno: Deno.cwd
+ * @dependency jsr:@std/path
  *
  * Many applications need to manipulate file paths in one way or another.
  * The Deno standard library provides simple utilities for this.
  */
 
 // First we will import the module from the Deno standard library
-import * as path from "$std/path/mod.ts";
+import * as path from "@std/path";
 
 // Converting from a file url to a directory can be done simply by the `fromFileUrl`
 // method from the appropriate implementation.

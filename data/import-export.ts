@@ -34,7 +34,10 @@ sayHello("World");
 import * as util from "./util.ts";
 util.sayHello("World");
 
-// Imports don't have to be relative, they can also reference absolute file or
-// https URLs.
+// Imports don't have to be relative, they can also reference absolute files,
+// https URLs, or JSR packages.
 import { VERSION } from "https://deno.land/std/version.ts";
 console.log(VERSION);
+
+// deno-lint-ignore no-unused-vars
+import { parse } from "jsr:@std/yaml";

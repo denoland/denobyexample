@@ -4,6 +4,8 @@
  * @tags cli, deploy
  * @run <url>
  * @resource {https://github.com/ulid/spec} ULID: Specification
+ * @resource {https://jsr.io/@std/ulid} Doc: @std/ulid
+ * @dependency jsr:@std/ulid
  *
  * One common need for distributed systems are identifiers. ULIDs are a universally
  * unique lexicographically sortable identifier with some nice properties. They are
@@ -12,7 +14,7 @@
  */
 
 // The standard library contains a function for generating ULIDs.
-import { ulid } from "$std/ulid/mod.ts";
+import { ulid } from "@std/ulid";
 
 // To generate a ULID, simply call the function.
 console.log(ulid());

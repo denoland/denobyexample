@@ -5,10 +5,12 @@
  * @run <url>
  * @resource {/import-export} Example: Importing & Exporting
  * @resource {https://datatracker.ietf.org/doc/html/rfc4180} Spec: CSV
+ * @resource {https://jsr.io/@std/csv} Doc: @std/csv
+ * @dependency jsr:@std/csv
  *
  * CSV is a data serialization format that is designed to be portable for table-like applications.
  */
-import { parse, stringify } from "$std/csv/mod.ts";
+import { parse, stringify } from "@std/csv";
 
 // To parse a CSV string, you can use the the standard library's CSV
 // parse function. The value is returned as a JavaScript object.

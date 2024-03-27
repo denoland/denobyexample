@@ -5,10 +5,12 @@
  * @run <url>
  * @resource {/import-export} Example: Importing & Exporting
  * @resource {https://toml.io} Spec: TOML
+ * @resource {https://jsr.io/@std/toml} Doc: @std/toml
+ * @dependency jsr:@std/toml
  *
  * TOML is a widely used configuration language designed to be feature-rich and intuitive to write.
  */
-import { parse, stringify } from "$std/toml/mod.ts";
+import { parse, stringify } from "@std/toml";
 
 // To parse a TOML string, you can use the the standard library's TOML
 // parse function. The value is returned as a JavaScript object.

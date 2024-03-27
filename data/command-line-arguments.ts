@@ -4,7 +4,8 @@
  * @tags cli
  * @run <url> Deno Sushi --help --version=1.0.0 --no-color
  * @resource {https://deno.land/api?s=Deno.args} Doc: Deno.args
- * @resource {$std/cli/parse_args.ts} Doc: std/cli
+ * @resource {https://jsr.io/@std/cli} Doc: std/cli
+ * @dependency jsr:@std/cli
  *
  * Command line arguments are often used to pass configuration options to a
  * program.
@@ -17,7 +18,7 @@ console.log(`Hello ${name}, I like ${food}!`);
 
 // Often you want to parse command line arguments like `--foo=bar` into
 // structured data. This can be done using `std/cli`.
-import { parseArgs } from "$std/cli/parse_args.ts";
+import { parseArgs } from "@std/cli/parse_args";
 
 // The `parseArgs` function takes the argument list, and a list of options. In these
 // options you specify the types of the accepted arguments and possibly default

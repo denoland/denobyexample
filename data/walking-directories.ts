@@ -4,7 +4,8 @@
  * @tags cli
  * @run --allow-read <url>
  * @resource {https://deno.land/api?s=Deno.readDir} Doc: Deno.readDir
- * @resource {$std/fs/walk.ts} Doc: std/walk
+ * @resource {https://jsr.io/@std/fs} Doc: @std/fs
+ * @dependency jsr:@std/fs
  *
  * When doing something like filesystem routing, it is
  * useful to be able to walk down a directory to visit
@@ -20,7 +21,7 @@ for await (const dirEntry of Deno.readDir(".")) {
 // If on the other hand you need to recursively walk
 // a repository, the standard library has a method for this.
 // In the most simple case it is a drop-in replacement
-import { walk } from "$std/fs/walk.ts";
+import { walk } from "@std/fs/walk";
 
 for await (const dirEntry of walk(".")) {
   console.log("Recursive walking:", dirEntry.name);

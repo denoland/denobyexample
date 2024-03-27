@@ -5,24 +5,27 @@
  * @run --allow-net --allow-read --allow-env <url>
  * @resource {https://docs.deno.com/runtime/manual/node} Node.js / npm support in Deno
  * @resource {https://docs.deno.com/runtime/manual/node/npm_specifiers} npm: specifiers
- * @resource {https://www.npmjs.com/package/express} express module on npm
+ * @resource {https://www.npmjs.com/package/express} express on npmjs.com
+ * @dependency npm:express
+ * @dependency npm:@types/express
  *
  * Use JavaScript modules from npm in your Deno programs with the "npm:"
  * specifier in your imports.
  */
 
-// Import the express module from npm using an npm: prefix, and appending a
-// version number. Dependencies from npm can be configured in an import map
-// also.
-import express from "npm:express@4.18.2";
+// After adding the module using deno add, you can import it like any other
+// module.
 
-// Create an express server
+// @deno-types="@types/express";
+import express from "express";
+
+// Create an express server.
 const app = express();
 
-// Configure a route that will process HTTP GET requests
+// Configure a route that will process HTTP GET requests.
 app.get("/", (_req, res) => {
   res.send("Welcome to the Dinosaur API!");
 });
 
-// Start an HTTP server using the configured Express app
+// Start an HTTP server using the configured Express app.
 app.listen(3000);

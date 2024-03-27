@@ -4,19 +4,18 @@
  * @tags cli, deploy
  * @run --allow-read --allow-write <url>
  *
- * Sometimes we as developers think that we need to check
- * if a file exists or not. More often than not, we are
- * entirely wrong.
+ * Often one reaches to checking if a file exists before performing an operation
+ * on it. This is a common anti-pattern that can lead to race conditions. This
+ * example demonstrates how to avoid this anti-pattern.
  */
 
-// Let's say we wanted to create a folder if one doesn't
-// already exist. Logically it makes sense to first verify
-// that the folder exists, then try to create it right?
-// Wrong. This will create a race condition where if a folder
-// gets created in between when you check if the folder exists
-// and when you create a folder, your program will crash.
-// Instead, you should just create a folder and try to catch
-// errors like so.
+// You may want to create a folder if it does not exist. The naive way to do
+// this is to check if the folder exists and then create it if it does not.
+// This is an anti-pattern as it can lead to no folder being created if the
+// folder is deleted between the check and the creation.
+//
+// Instead of checking for existence, you should simply try to create the
+// folder and catch the error if it already exists.
 try {
   await Deno.mkdir("new_dir");
 } catch (err) {
@@ -25,11 +24,11 @@ try {
   }
 }
 
-// This applies to almost every usecase. If you have a niche
-// usecase that requires you to check for existence of a file
-// without doing an filesystem operations other than that
-// (which is quite rare), then you can simply lstat the file
-// and catch the error.
+// In some cases, you may still have to check if a file exists or not. For
+// example you may want to avoid expensive work to compute the content of a file
+// to be created, if the file already exists.
+// In this case, you can call `Deno.lstat` to check if the file exists, and
+// catch the `NotFound` error if it does not.
 try {
   await Deno.lstat("example.txt");
   console.log("exists!");
@@ -37,5 +36,5 @@ try {
   if (!(err instanceof Deno.errors.NotFound)) {
     throw err;
   }
-  console.log("not exists!");
+  console.log("does not exists!");
 }

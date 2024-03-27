@@ -5,10 +5,12 @@
  * @run <url>
  * @resource {/import-export} Example: Importing & Exporting
  * @resource {https://yaml.org} Spec: YAML
+ * @resource {https://jsr.io/@std/yaml} Doc: @std/yaml
+ * @dependency jsr:@std/yaml
  *
  * YAML is a widely used data serialization language designed to be easily human readable and writeable.
  */
-import { parse, stringify } from "$std/yaml/mod.ts";
+import { parse, stringify } from "@std/yaml";
 
 // To parse a YAML string, you can use the the standard library's YAML
 // parse function. The value is returned as a JavaScript object.

@@ -3,7 +3,8 @@
  * @difficulty beginner
  * @tags cli
  * @run <url>
- * @resource {$std/bytes} Doc: std/bytes
+ * @resource {https://jsr.io/@std/bytes} Doc: @std/bytes
+ * @dependency jsr:@std/bytes
  *
  * When working with lower-level data we often deal
  * with byte arrays in the form of Uint8Arrays. There
@@ -11,23 +12,23 @@
  * be done and are included with the standard library.
  */
 
-// Let's initialize some byte arrays
+import { concat } from "@std/bytes/concat";
+import { repeat } from "@std/bytes/repeat";
+import { copy } from "@std/bytes/copy";
+
 const a = new Uint8Array([0, 1, 2, 3, 4]);
 const b = new Uint8Array([5, 6, 7, 8, 9]);
 const c = new Uint8Array([4, 5]);
 
 // We can concatenate two byte arrays using the
-// concat method
-import { concat } from "$std/bytes/concat.ts";
+// concat method.
 const d = concat([a, b]);
 console.log(d); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-// Sometimes we need to repeat certain bytes
-import { repeat } from "$std/bytes/repeat.ts";
+// Repeat can be used to repeat a chunk of bytes a specified number of times.
 console.log(repeat(c, 4)); // [4, 5, 4, 5, 4, 5, 4, 5]
 
-// Sometimes we need to mutate a Uint8Array and need a copy
-import { copy } from "$std/bytes/copy.ts";
+// We can also copy a chunk of bytes from one array to another.
 const cpy = new Uint8Array(5);
 console.log("Bytes copied:", copy(b, cpy)); // 5
 console.log("Bytes:", cpy); // [5, 6, 7, 8, 9]

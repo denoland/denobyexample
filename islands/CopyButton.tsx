@@ -16,9 +16,13 @@ function Copy() {
   );
 }
 
-export default function CopyButton(props: { text: string }) {
+export default function CopyButton(props: { text: string; class?: string }) {
   return (
-    <div class="absolute top-2 right-2 flex items-center z-10">
+    <div
+      class={`absolute top-2 right-2 flex items-center z-10 ${
+        props.class ?? ""
+      }`}
+    >
       <button
         class="rounded border border-[#D2D2DC] p-1.5 bg-gray-100 hover:bg-[#D2D2DC]"
         onClick={() => navigator?.clipboard?.writeText(props.text)}

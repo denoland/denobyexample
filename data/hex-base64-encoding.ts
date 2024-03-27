@@ -3,6 +3,8 @@
  * @difficulty beginner
  * @tags cli
  * @run <url>
+ * @resource {https://jsr.io/@std/encoding} Doc: @std/encoding
+ * @dependency jsr:@std/encoding
  *
  * There are a few cases where it would be practical to encode
  * and decode between different string and array buffer formats.
@@ -10,31 +12,25 @@
  */
 
 // The standard library provides hex and base64 encoding and decoding utilities
-import * as base64 from "$std/encoding/base64.ts";
-import * as hex from "$std/encoding/hex.ts";
+import { decodeBase64, encodeBase64 } from "@std/encoding/base64";
+import { decodeHex, encodeHex } from "@std/encoding/hex";
 
-// We can easily encode a string or an array buffer into base64 using the base64.encode method.
-const base64Encoded = base64.encode("somestringtoencode");
-console.log(base64.encode(new Uint8Array([1, 32, 67, 120, 19])));
+// We can easily encode a string into base64 using the encodeBase64 method.
+const base64Encoded = encodeBase64("somestringtoencode");
+console.log(base64Encoded); // "c29tZXN0cmluZ3RvZW5jb2Rl"
 
-// We can then decode base64 into a byte array using the decode method.
-const base64Decoded = base64.decode(base64Encoded);
+// We can then decode base64 into a byte array using the decodeBase64 method.
+const base64Decoded = decodeBase64(base64Encoded);
+console.log(base64Decoded); // Uint8Array(18) [ 115, 111, 109, 101, 115, ... ]
 
 // If we want to get the value as a string we can use the built-in TextDecoder.
-// We will use these a lot so we can store them in variables to reuse them.
-const textEncoder = new TextEncoder();
 const textDecoder = new TextDecoder();
-console.log(textDecoder.decode(base64Decoded));
+console.log(textDecoder.decode(base64Decoded)); // "somestringtoencode"
 
-// To encode hex, we always use array buffers.
-// To use a string as an input we can encode our text.
-const arrayBuffer = textEncoder.encode("somestringtoencode");
-const hexEncoded = hex.encode(arrayBuffer);
-console.log(hexEncoded);
-
-// To read our hex values as a string, we can decode the buffer.
-console.log(textDecoder.decode(hexEncoded));
+// We can also encode a string into hex using the encodeHex method.
+const hexEncoded = encodeHex("some text to encode");
+console.log(hexEncoded); // "736f6d65207465787420746f20656e636f6465"
 
 // We can convert back to a string by using the decode method.
-const hexDecoded = hex.decode(hexEncoded);
-console.log(textDecoder.decode(hexDecoded));
+const hexDecoded = decodeHex(hexEncoded);
+console.log(textDecoder.decode(hexDecoded)); // "some text to encode"

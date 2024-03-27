@@ -16,6 +16,7 @@ export interface Example {
   additionalResources: [string, string][];
   run?: string;
   playground?: string;
+  dependencies: string[];
   files: ExampleFile[];
 }
 
@@ -30,9 +31,6 @@ export interface ExampleSnippet {
 }
 
 export function parseExample(id: string, file: string): Example {
-  // Substitute $std/ with the full import url
-  file = file.replaceAll("$std/", "https://deno.land/std@0.207.0/");
-
   // Extract the multi line JS doc comment at the top of the file
   const [, jsdoc, rest] = file.match(/^\s*\/\*\*(.*?)\*\/\s*(.*)/s) || [];
 
@@ -40,12 +38,15 @@ export function parseExample(id: string, file: string): Example {
   let description = "";
   const kvs: Record<string, string> = {};
   const resources = [];
+  const dependencies = [];
   for (let line of jsdoc.split("\n")) {
     line = line.trim().replace(/^\*/, "").trim();
     const [, key, value] = line.match(/^\s*@(\w+)\s+(.*)/) || [];
     if (key) {
       if (key === "resource") {
         resources.push(value);
+      } else if (key === "dependency") {
+        dependencies.push(value);
       } else {
         kvs[key] = value.trim();
       }
@@ -61,6 +62,7 @@ export function parseExample(id: string, file: string): Example {
     snippets: [],
   }];
   let parseMode = "code";
+  let inFileComment = false;
   let currentFile = files[0];
   let text = "";
   let code = "";
@@ -68,7 +70,7 @@ export function parseExample(id: string, file: string): Example {
   for (const line of rest.split("\n")) {
     const trimmedLine = line.trim();
     if (parseMode == "code") {
-      if (line.startsWith("// File:")) {
+      if (!inFileComment && line.startsWith("// File:")) {
         if (text || code.trimEnd()) {
           code = code.trimEnd();
           currentFile.snippets.push({ text, code });
@@ -85,7 +87,7 @@ export function parseExample(id: string, file: string): Example {
           };
           files.push(currentFile);
         }
-      } else if (line.startsWith("/* File:")) {
+      } else if (!inFileComment && line.startsWith("/* File:")) {
         if (text || code.trimEnd()) {
           code = code.trimEnd();
           currentFile.snippets.push({ text, code });
@@ -102,7 +104,8 @@ export function parseExample(id: string, file: string): Example {
           };
           files.push(currentFile);
         }
-        parseMode = "file";
+        parseMode = "code";
+        inFileComment = true;
       } else if (
         trimmedLine.startsWith("// deno-lint-ignore") ||
         trimmedLine.startsWith("//deno-lint-ignore") ||
@@ -120,6 +123,8 @@ export function parseExample(id: string, file: string): Example {
         text = trimmedLine.slice(2).trim();
         code = "";
         parseMode = "comment";
+      } else if (inFileComment && line === "*/") {
+        inFileComment = false;
       } else {
         code += line + "\n";
       }
@@ -136,12 +141,6 @@ export function parseExample(id: string, file: string): Example {
       } else {
         code += line + "\n";
         parseMode = "code";
-      }
-    } else if (parseMode == "file") {
-      if (line == "*/") {
-        parseMode = "code";
-      } else {
-        code += line + "\n";
       }
     }
   }
@@ -185,6 +184,7 @@ export function parseExample(id: string, file: string): Example {
     additionalResources,
     run: kvs.run,
     playground: kvs.playground,
+    dependencies: dependencies,
     files,
   };
 }

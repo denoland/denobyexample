@@ -99,36 +99,53 @@ export default function ExamplePage(props: PageProps<Data>) {
         <meta name="description" content={description} />
       </Head>
       <main class="max-w-screen-lg mx-auto p-4">
-        <div class="flex gap-2">
-          <p
-            class="text-gray-500 italic"
-            title={DIFFICULTIES[example.difficulty].description}
-          >
-            {DIFFICULTIES[example.difficulty].title}
-          </p>
-          <div class="flex gap-2 items-center">
-            {example.tags.map((tag) => (
-              <span
-                class="text-xs bg-gray-200 py-0.5 px-2 rounded-md"
-                title={TAGS[tag].description}
-              >
-                {TAGS[tag].title}
-              </span>
-            ))}
+        <div class="flex justify-between items-center gap-4">
+          <div class="flex gap-2">
+            <p
+              class="text-gray-500 italic"
+              title={DIFFICULTIES[example.difficulty].description}
+            >
+              {DIFFICULTIES[example.difficulty].title}
+            </p>
+            <div class="flex gap-2 items-center">
+              {example.tags.map((tag) => (
+                <span
+                  class="text-xs bg-gray-200 py-0.5 px-2 rounded-md"
+                  title={TAGS[tag].description}
+                >
+                  {TAGS[tag].title}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-        <div class="flex justify-between items-center">
-          <h1 class="mt-2 text-3xl font-bold">{example.title}</h1>
           <a
             href={`https://github.com/denoland/denobyexample/blob/main/data${props.url.pathname}.ts`}
-            class="px-4 py-2 rounded bg-gray-100 hover:bg-gray-300 text-slate-900"
+            class="text-gray-500 hover:text-gray-900 focus:text-gray-900 hover:underline text-right text-sm"
           >
-            Edit
+            Edit on GitHub
           </a>
         </div>
+        <h1 class="text-3xl font-bold mt-3">{example.title}</h1>
         {example.description && (
-          <div class="mt-1">
+          <div class="mt-2 max-w-3xl">
             <p class="text-gray-500">{example.description}</p>
+          </div>
+        )}
+        {example.dependencies.length > 0 && (
+          <div class="grid grid-cols-1 sm:grid-cols-10 gap-x-8 mt-8">
+            <p class="col-span-3 text-gray-700 text-sm my-4">
+              Add the dependencies for this example.
+            </p>
+            <div class="col-span-7 mt-2 text-sm rounded-md relative bg-gray-100">
+              <CopyButton
+                text={`deno add ${example.dependencies.join(" ")}`}
+                class="top-3"
+              />
+              <pre class="p-4 overflow-x-auto">
+                <span class="text-gray-500 select-none">$ </span>
+                <span>deno add {example.dependencies.join(" ")}</span>
+              </pre>
+            </div>
           </div>
         )}
         {example.files.map((file) => (
@@ -161,11 +178,20 @@ export default function ExamplePage(props: PageProps<Data>) {
                   </a>{" "}
                   locally using the Deno CLI:
                 </p>
-                <pre class="mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md">
+                <div class="mt-2 text-sm rounded-md relative bg-gray-100">
+                  <CopyButton
+                    text={example.run.startsWith("deno")
+                      ? example.run.replace("<url>", url)
+                      : "deno run " + example.run.replace("<url>", url)}
+                    class="top-3"
+                  />
+                  <pre class="p-4 overflow-x-auto">
+                  <span class="text-gray-500 select-none">$ </span>
                   {example.run.startsWith("deno")
                     ? example.run.replace("<url>", url)
                     : "deno run " + example.run.replace("<url>", url)}
-                </pre>
+                  </pre>
+                </div>
               </>
             )}
             {example.playground && (
