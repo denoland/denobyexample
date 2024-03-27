@@ -4,7 +4,8 @@
  * @tags cli
  * @run deno test --allow-read --allow-write <url>
  * @resource {https://deno.land/api?s=Deno.test} Doc: Deno.test
- * @resource {$std/testing/asserts.ts} Doc: std/testing/asserts
+ * @resource {https://jsr.io/@std/assert} Doc: @std/assert
+ * @dependency jsr:@std/assert
  *
  * One of the most common tasks in developing software is writing tests for
  * existing code. Deno has a built-in test runner which makes this very easy.
@@ -12,7 +13,7 @@
 
 // First, we import assert statements from the standard library. There are
 // quite a few options but we will just import the most common ones here.
-import { assert, assertEquals } from "$std/assert/mod.ts";
+import { assert, assertEquals } from "@std/assert";
 
 // The most simple way to use the test runner is to just pass it a description
 // and a callback function

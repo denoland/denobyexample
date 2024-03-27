@@ -10,13 +10,13 @@
  * fine.
  */
 
-// Define an interface in TypeScript
+// Define an interface in TypeScript.
 interface Person {
   name: string;
   age: number;
 }
 
-// Provide a typed input to a function
+// Provide a typed input to a function.
 function greet(person: Person) {
   return "Hello, " + person.name + "!";
 }

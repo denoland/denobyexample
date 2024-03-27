@@ -5,23 +5,29 @@
  * @resource {/import-export} Example: Importing & Exporting
  * @run <url>
  *
- * It is unwieldy to have to import the same remote module over and over again.
- * Deno provides some conventions to make managing dependencies easier.
+ * It is unwieldy to have to specify version constraints for the same module
+ * over and over again in your code. Deno provides tools to make managing
+ * dependencies easier.
  */
 
-// File: ./deps.ts
-
-// The Deno ecosystem has a convention to re-export all remote dependencies from
-// a deps.ts file at the root of the repo. This keeps remote dependencies
-// organized, and in a single place.
-export * as http from "$std/http/mod.ts";
-export * as path from "$std/path/mod.ts";
+/* File: ./deno.json
+// The `deno.json` file acts like an import map, allowing you to specify
+// aliases for remote modules.
+{
+  "imports": {
+    "@std/path": "jsr:@std/path@^0.220",
+    "@std/bytes": "jsr:@std/bytes@^0.220"
+  }
+}
+*/
 
 // File: ./main.ts
 
-// Other files can then import dependencies from the deps.ts file.
+// Other files can import modules using the aliases specified in `deno.json`.
 // deno-lint-ignore no-unused-vars
-import { path } from "./deps.ts";
+import * as path from "@std/path";
+// deno-lint-ignore no-unused-vars
+import { concat } from "@std/bytes/concat";
 
-// Doing this makes package version upgrades really easy, as all external
-// dependency specifiers live in the same file.
+// Doing this makes package version upgrades really easy, as the version
+// constraints for all dependencies are in one place.

@@ -5,7 +5,7 @@
  * @run deno bench <url>
  * @resource {https://docs.deno.com/runtime/manual/tools/benchmarker} Manual: Benchmarker tool
  * @resource {/http-requests} Example: HTTP Requests
- *
+ * 
  * When writing libraries, a very common task that needs to be done is
  * testing the speed of methods, usually against other libraries. Deno
  * provides an easy-to-use subcommand for this purpose.

@@ -4,14 +4,15 @@
  * @tags cli, deploy
  * @run --allow-net --allow-read <url>
  * @resource {https://deno.land/api?s=Deno.serve} Doc: Deno.serve
- * @resource {$std/http/file_server.ts} Doc: std/http/file_server
+ * @resource {https://jsr.io/@std/http/doc/file_server/~} Doc: @std/http/file_server
  * @resource {/http-server} Example: HTTP Server: Hello World
+ * @dependency jsr:@std/http
  *
  * An example of a HTTP server that serves files.
  */
 
 // Import utility methods for serving files with mime types.
-import { serveDir, serveFile } from "$std/http/file_server.ts";
+import { serveDir, serveFile } from "@std/http/file_server";
 
 // Here we start a simple server
 Deno.serve((req: Request) => {
