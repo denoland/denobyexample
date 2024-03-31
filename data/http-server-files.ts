@@ -2,7 +2,7 @@
  * @title HTTP Server: Serving Files
  * @difficulty intermediate
  * @tags cli, deploy
- * @run --allow-net --allow-read <url>
+ * @run --allow-net --allow-read=static/ <url>
  * @resource {https://deno.land/api?s=Deno.serve} Doc: Deno.serve
  * @resource {$std/http/file_server.ts} Doc: std/http/file_server
  * @resource {/http-server} Example: HTTP Server: Hello World
