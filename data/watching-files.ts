@@ -25,7 +25,7 @@ for await (const event of watcher) {
 // to every change instantly. Events will be duplicated and multiple events will
 // be dispatched for the same changes. To get around this, we can "debounce" our
 // functions.
-import { debounce } from "$std/async/debounce.ts";
+import { debounce } from "jsr:@std/async/debounce";
 
 // In this specific case, we use the standard library to do the work for us.
 // This function will run at most once every two hundred milliseconds

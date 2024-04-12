@@ -27,7 +27,7 @@ req.body?.pipeTo(download.writable);
 // case, we will pipe our file through a stream which will highlight all "<" characters in the terminal.
 
 // First we will import a utility from the standard library to help us with this.
-import { bgBrightYellow } from "$std/fmt/colors.ts";
+import { bgBrightYellow } from "jsr:@std/fmt/colors";
 
 // Then we will create a transform stream utility class
 class HighlightTransformStream extends TransformStream<string, string> {

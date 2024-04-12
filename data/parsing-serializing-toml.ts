@@ -8,7 +8,7 @@
  *
  * TOML is a widely used configuration language designed to be feature-rich and intuitive to write.
  */
-import { parse, stringify } from "$std/toml/mod.ts";
+import { parse, stringify } from "jsr:@std/toml";
 
 // To parse a TOML string, you can use the the standard library's TOML
 // parse function. The value is returned as a JavaScript object.

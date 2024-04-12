@@ -18,16 +18,16 @@ const c = new Uint8Array([4, 5]);
 
 // We can concatenate two byte arrays using the
 // concat method
-import { concat } from "$std/bytes/concat.ts";
+import { concat } from "jsr:@std/bytes/concat";
 const d = concat([a, b]);
 console.log(d); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 // Sometimes we need to repeat certain bytes
-import { repeat } from "$std/bytes/repeat.ts";
+import { repeat } from "jsr:@std/bytes/repeat";
 console.log(repeat(c, 4)); // [4, 5, 4, 5, 4, 5, 4, 5]
 
 // Sometimes we need to mutate a Uint8Array and need a copy
-import { copy } from "$std/bytes/copy.ts";
+import { copy } from "jsr:@std/bytes/copy";
 const cpy = new Uint8Array(5);
 console.log("Bytes copied:", copy(b, cpy)); // 5
 console.log("Bytes:", cpy); // [5, 6, 7, 8, 9]

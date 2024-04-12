@@ -2,23 +2,26 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/[id]/[file].ts";
-import * as $1 from "./routes/[id]/index.tsx";
-import * as $2 from "./routes/gfm.css.ts";
-import * as $3 from "./routes/index.tsx";
-import * as $$0 from "./islands/CopyButton.tsx";
+import * as $_id_file_ from "./routes/[id]/[file].ts";
+import * as $_id_index from "./routes/[id]/index.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $gfm_css from "./routes/gfm.css.ts";
+import * as $index from "./routes/index.tsx";
+import * as $CopyButton from "./islands/CopyButton.tsx";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/[id]/[file].ts": $0,
-    "./routes/[id]/index.tsx": $1,
-    "./routes/gfm.css.ts": $2,
-    "./routes/index.tsx": $3,
+    "./routes/[id]/[file].ts": $_id_file_,
+    "./routes/[id]/index.tsx": $_id_index,
+    "./routes/_app.tsx": $_app,
+    "./routes/gfm.css.ts": $gfm_css,
+    "./routes/index.tsx": $index,
   },
   islands: {
-    "./islands/CopyButton.tsx": $$0,
+    "./islands/CopyButton.tsx": $CopyButton,
   },
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;

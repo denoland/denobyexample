@@ -11,7 +11,7 @@
  */
 
 // Import utility methods for serving files with mime types.
-import { serveDir, serveFile } from "$std/http/file_server.ts";
+import { serveDir, serveFile } from "jsr:@std/http/file-server";
 
 // Here we start a simple server
 Deno.serve((req: Request) => {

@@ -8,7 +8,7 @@
  *
  * YAML is a widely used data serialization language designed to be easily human readable and writeable.
  */
-import { parse, stringify } from "$std/yaml/mod.ts";
+import { parse, stringify } from "jsr:@std/yaml";
 
 // To parse a YAML string, you can use the the standard library's YAML
 // parse function. The value is returned as a JavaScript object.
