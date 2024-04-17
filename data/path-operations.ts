@@ -11,7 +11,7 @@
  */
 
 // First we will import the module from the Deno standard library
-import * as path from "$std/path/mod.ts";
+import * as path from "jsr:@std/path";
 
 // Converting from a file url to a directory can be done simply by the `fromFileUrl`
 // method from the appropriate implementation.

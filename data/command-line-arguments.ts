@@ -17,7 +17,7 @@ console.log(`Hello ${name}, I like ${food}!`);
 
 // Often you want to parse command line arguments like `--foo=bar` into
 // structured data. This can be done using `std/cli`.
-import { parseArgs } from "$std/cli/parse_args.ts";
+import { parseArgs } from "jsr:@std/cli/parse-args";
 
 // The `parseArgs` function takes the argument list, and a list of options. In these
 // options you specify the types of the accepted arguments and possibly default

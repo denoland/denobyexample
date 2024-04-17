@@ -26,7 +26,7 @@ const hashBuffer = await crypto.subtle.digest("SHA-256", messageBuffer);
 
 // We can decode this into a string using the standard
 // library's encodeHex method.
-import { encodeHex } from "$std/encoding/hex.ts";
+import { encodeHex } from "jsr:@std/encoding/hex";
 const hash = encodeHex(hashBuffer);
 console.log(hash);
 
@@ -41,7 +41,7 @@ console.log(hash);
 // "crypto" module, a drop-in replacement for the Web Crypto
 // API that delegates to the native implementation when
 // possible.
-import { crypto } from "$std/crypto/mod.ts";
+import { crypto } from "jsr:@std/crypto";
 const file = await Deno.open("example.txt", { read: true });
 
 // We obtain an async iterable using the readable property.

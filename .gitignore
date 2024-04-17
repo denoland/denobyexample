@@ -1,2 +1,4 @@
 .DS_Store
 deno.lock
+# Fresh build directory
+_fresh/

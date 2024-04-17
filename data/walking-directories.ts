@@ -20,7 +20,7 @@ for await (const dirEntry of Deno.readDir(".")) {
 // If on the other hand you need to recursively walk
 // a repository, the standard library has a method for this.
 // In the most simple case it is a drop-in replacement
-import { walk } from "$std/fs/walk.ts";
+import { walk } from "jsr:@std/fs/walk";
 
 for await (const dirEntry of walk(".")) {
   console.log("Recursive walking:", dirEntry.name);

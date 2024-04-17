@@ -12,7 +12,7 @@
  */
 
 // The standard library contains a function for generating ULIDs.
-import { ulid } from "$std/ulid/mod.ts";
+import { ulid } from "jsr:@std/ulid";
 
 // To generate a ULID, simply call the function.
 console.log(ulid());
