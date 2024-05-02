@@ -15,7 +15,7 @@ export function Footer() {
       <a target="_blank" href="https://deno.land/">
         <div class="flex align-center">
           <DenoLogo />
-          <p class="ml-4 font-bold text-xl">Deno</p>
+          <p class="ml-4 font-bold text-xl dark:text-gray-100">Deno</p>
         </div>
       </a>
       <div class="flex flex-col lg:flex-row gap-x-8 gap-y-6 text-right">

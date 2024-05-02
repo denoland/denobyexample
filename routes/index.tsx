@@ -39,26 +39,26 @@ export default function Home(props: PageProps<ExampleGroup[]>) {
         <h1 class="flex items-center gap-4">
           <img src="/logo.png" alt="logo" class="w-24 h-24" />
           <div>
-            <span class="text(5xl gray-900) tracking-tight font-bold">
+            <span class="text(5xl gray-900) dark:text-gray-100 tracking-tight font-bold">
               Deno
             </span>
-            <span class="text(2xl gray-700) tracking-tight italic font-medium ml-2">
+            <span class="text(2xl gray-700) dark:text-gray-300 tracking-tight italic font-medium ml-2">
               by example
             </span>
           </div>
         </h1>
-        <p class="mt-8 text-gray-900">
+        <p class="mt-8 text-gray-900 dark:text-gray-300">
           Deno is a simple, modern and secure runtime for JavaScript and
           TypeScript that uses V8 and is built in Rust.
         </p>
-        <p class="mt-6 text-gray-900">
+        <p class="mt-6 text-gray-900 dark:text-gray-300">
           <i class="italic">Deno by example</i>{" "}
           is a collection of annotated examples for how to use Deno, and the
           various features it provides. It acts as a reference for how to do
           various things in Deno, but can also be used as a guide to learn about
           many of the features Deno provides.
         </p>
-        <ul class="mt-16 text-gray-900 md:flex md:flex-wrap gap-12 space-y-8 md:space-y-0">
+        <ul class="mt-16 text-gray-900 dark:text-gray-300 md:flex md:flex-wrap gap-12 space-y-8 md:space-y-0">
           {props.data.map(
             (group) => <IndexGroup group={group} />,
           )}

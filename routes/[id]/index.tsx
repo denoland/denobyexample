@@ -109,7 +109,7 @@ export default function ExamplePage(props: PageProps<Data>) {
           <div class="flex gap-2 items-center">
             {example.tags.map((tag) => (
               <span
-                class="text-xs bg-gray-200 py-0.5 px-2 rounded-md"
+                class="text-xs bg-gray-200 py-0.5 px-2 rounded-md dark:(bg-gray-800 text-gray-300)"
                 title={TAGS[tag].description}
               >
                 {TAGS[tag].title}
@@ -118,10 +118,12 @@ export default function ExamplePage(props: PageProps<Data>) {
           </div>
         </div>
         <div class="flex justify-between items-center">
-          <h1 class="mt-2 text-3xl font-bold">{example.title}</h1>
+          <h1 class="mt-2 text-3xl font-bold dark:text-gray-100">
+            {example.title}
+          </h1>
           <a
             href={`https://github.com/denoland/denobyexample/blob/main/data${props.url.pathname}.ts`}
-            class="px-4 py-2 rounded bg-gray-100 hover:bg-gray-300 text-slate-900"
+            class="px-4 py-2 rounded bg-gray-100 hover:bg-gray-300 text-slate-900 dark:(bg-gray-700 text-slate-300 hover:bg-gray-600)"
           >
             Edit
           </a>
@@ -154,14 +156,14 @@ export default function ExamplePage(props: PageProps<Data>) {
           <div class="col-span-7 mt-8">
             {example.run && (
               <>
-                <p class="text-gray-700">
+                <p class="text-gray-700 dark:text-gray-200">
                   Run{" "}
                   <a href={url} class="hover:underline focus:underline">
                     this example
                   </a>{" "}
                   locally using the Deno CLI:
                 </p>
-                <pre class="mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md">
+                <pre class="mt-2 bg-gray-100 p-4 overflow-x-auto text-sm select-all rounded-md dark:(bg-gray-800 text-gray-300)">
                   {example.run.startsWith("deno")
                     ? example.run.replace("<url>", url)
                     : "deno run " + example.run.replace("<url>", url)}
@@ -170,7 +172,7 @@ export default function ExamplePage(props: PageProps<Data>) {
             )}
             {example.playground && (
               <div class="col-span-3 mt-8">
-                <p class="text-gray-700">
+                <p class="text-gray-700 dark:text-gray-300">
                   Try this example in a Deno Deploy playground:
                 </p>
                 <p class="mt-3">
@@ -192,7 +194,7 @@ export default function ExamplePage(props: PageProps<Data>) {
                 <ul class="list-disc list-inside mt-1">
                   {example.additionalResources.map(([link, title]) => (
                     <li
-                      class="text-gray-700 hover:text-gray-900"
+                      class="text-gray-700 hover:text-gray-900 dark:(text-gray-300 hover:text-gray-200)"
                       key={link + title}
                     >
                       <a class="hover:underline focus:underline" href={link}>
@@ -211,7 +213,7 @@ export default function ExamplePage(props: PageProps<Data>) {
             ? (
               <a
                 href={`/${prev.id}`}
-                class="w-6/12 text-gray-600 flex items-center gap-3 lg:gap-2 :hover:text-gray-900"
+                class="w-6/12 text-gray-600 flex items-center gap-3 lg:gap-2 :hover:text-gray-900 dark:(text-gray-400 hover:text-gray-300)"
               >
                 <CircleArrow />
                 {prev.title}
@@ -221,7 +223,7 @@ export default function ExamplePage(props: PageProps<Data>) {
           {next && (
             <a
               href={`/${next.id}`}
-              class="w-6/12 text-gray-600 text-right flex items-center justify-end gap-3 lg:gap-2 :hover:text-gray-900"
+              class="w-6/12 text-gray-600 text-right flex items-center justify-end gap-3 lg:gap-2 :hover:text-gray-900 dark:(text-gray-400 hover:text-gray-300)"
             >
               {next.title}
               <CircleArrow right />
@@ -247,11 +249,11 @@ function SnippetComponent(props: {
 
   return (
     <div class="grid grid-cols-1 sm:grid-cols-10 gap-x-8  transition duration-150 ease-in">
-      <div class="py-4 text-gray-700 select-none col-span-3 text-sm">
+      <div class="py-4 text-gray-700 select-none col-span-3 text-sm dark:text-gray-300">
         {props.snippet.text}
       </div>
       <div
-        class={`col-span-7 relative bg-gray-100 ${
+        class={`col-span-7 relative bg-gray-100 dark:bg-gray-800 ${
           props.firstOfFile ? "rounded-t-md" : ""
         } ${props.lastOfFile ? "rounded-b-md" : ""} ${
           props.snippet.code.length === 0 ? "hidden sm:block" : ""
@@ -259,7 +261,7 @@ function SnippetComponent(props: {
       >
         {props.filename && (
           <span
-            class={`font-mono text-xs absolute -top-3 left-4 bg-gray-200 z-10 p-1 rounded-sm ${
+            class={`font-mono text-xs absolute -top-3 left-4 bg-gray-200 dark:(bg-gray-700 text-gray-200) z-10 p-1 rounded-sm ${
               props.firstOfFile ? "block" : "block sm:hidden"
             }`}
           >
@@ -269,8 +271,17 @@ function SnippetComponent(props: {
         <div class="relative block sm:hidden">
           <CopyButton text={props.snippet.code} />
         </div>
-        <div class="px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative gfm-highlight">
-          <pre dangerouslySetInnerHTML={{ __html: renderedSnippet }} />
+        <div
+          data-color-mode="auto"
+          data-light-theme="light"
+          data-dark-theme="dark"
+          class="px-4 py-4 text-sm overflow-scroll sm:overflow-hidden relative gfm-highlight markdown-body"
+          style={{ backgroundColor: "transparent" }}
+        >
+          <pre
+            style={{ padding: "0px", backgroundColor: "transparent" }}
+            dangerouslySetInnerHTML={{ __html: renderedSnippet }}
+          />
         </div>
       </div>
     </div>
