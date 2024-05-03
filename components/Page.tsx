@@ -10,7 +10,7 @@ export function Page(props: {
 }) {
   return (
     <div
-      class="min-h-screen grid grid-cols-1 dark:bg-gray-900"
+      class="min-h-screen grid grid-cols-1"
       style="grid-template-rows: auto 1fr auto;"
     >
       <Head>
