@@ -1,6 +1,8 @@
 # Archived
 
-The contents of this repository have been moved to https://docs.deno.com/examples (website) / https://github.com/denoland/deno-docs (source).
+The contents of this repository have been moved to
+https://docs.deno.com/examples (website) / https://github.com/denoland/deno-docs
+(source).
 
 # Deno by Example
 
