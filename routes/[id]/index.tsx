@@ -11,71 +11,14 @@ import CopyButton from "../../islands/CopyButton.tsx";
 type Data = [Example, Example | null, Example | null] | null;
 
 export const handler: Handlers<Data> = {
-  async GET(req, ctx) {
+  GET(_req, ctx) {
     const id = ctx.params.id;
-    if (id.endsWith(".ts")) {
-      const accept = req.headers.get("accept") || "";
-      const acceptsHTML = accept.includes("text/html");
-      try {
-        const data = await Deno.readTextFile(`./data/${id}`);
-        const example = parseExample(id, data);
-        if (example.files.length > 1) {
-          return new Response(
-            "Source for multi file examples can not be viewed",
-            {
-              status: 400,
-            },
-          );
-        }
-        const file = example.files[0];
-        let code = "";
-        for (const snippet of file.snippets) {
-          code += snippet.code + "\n";
-        }
-        return new Response(code, {
-          headers: {
-            "content-type": acceptsHTML
-              ? "text/plain; charset=utf-8"
-              : "application/typescript; charset=utf-8",
-          },
-        });
-      } catch (err) {
-        if (err instanceof Deno.errors.NotFound) {
-          return new Response("404 Example Not Found", { status: 404 });
-        }
-        console.error(err);
-        return new Response("500 Internal Server Error", { status: 500 });
-      }
+    const newUrl = "https://docs.deno.com/examples/";
+    if (id === "hello-world") {
+      // hello-world doesn't exist in the new site
+      return Response.redirect(newUrl);
     }
-
-    try {
-      const flatToc = TOC.flatMap((category) => category.items);
-      const cur = flatToc.indexOf(id);
-      const prev = flatToc[cur - 1];
-      const next = flatToc[cur + 1];
-      const [data, prevData, nextData] = await Promise.all(
-        [id, prev, next].map((name) =>
-          name
-            ? Deno.readTextFile(`./data/${name}.ts`)
-            : Promise.resolve(undefined)
-        ),
-      );
-      if (!data) {
-        return new Response("404 Example Not Found", { status: 404 });
-      }
-
-      return ctx.render!([
-        parseExample(id, data),
-        prev && prevData ? parseExample(prev, prevData) : null,
-        next && nextData ? parseExample(next, nextData) : null,
-      ]);
-    } catch (err) {
-      if (err instanceof Deno.errors.NotFound) {
-        return ctx.render!(null);
-      }
-
-      throw err;
-    }
+    return Response.redirect(newUrl + id);
   },
 };
 

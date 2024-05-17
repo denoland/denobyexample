@@ -11,18 +11,8 @@ async function loadExample(id: string) {
 }
 
 export const handler: Handlers<ExampleGroup[]> = {
-  async GET(_req, { render }) {
-    const data = await Promise.all(
-      TOC.map(async (category): Promise<ExampleGroup> => {
-        return {
-          title: category.title,
-          icon: category.icon,
-          items: await Promise.all(category.items.map(loadExample)),
-        };
-      }),
-    );
-
-    return render!(data);
+  GET(_req) {
+    return Response.redirect("https://docs.deno.com/examples");
   },
 };
 
